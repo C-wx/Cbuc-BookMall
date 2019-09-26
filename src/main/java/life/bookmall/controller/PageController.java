@@ -19,4 +19,9 @@ public class PageController {
         return "login";
     }
 
+    @RequestMapping("/home")
+    public String toHome() {
+        return "home";
+    }
+
 }

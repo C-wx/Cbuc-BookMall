@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="life.bookmall.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="life.bookmall.bean.Product">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="category_id" jdbcType="INTEGER" property="category_id" />
+    <result column="user_id" jdbcType="BIGINT" property="user_id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="price" jdbcType="REAL" property="price" />
+    <result column="saled" jdbcType="INTEGER" property="saled" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, category_id, user_id, name, title, price, saled, stock, img, status
+  </sql>
+  <select id="selectByExample" parameterType="life.bookmall.bean.ProductExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from bm_product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bm_product
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bm_product
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="life.bookmall.bean.ProductExample">
+    delete from bm_product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="life.bookmall.bean.Product" useGeneratedKeys="true">
+    insert into bm_product (category_id, user_id, name, 
+      title, price, saled, stock, 
+      img, status)
+    values (#{category_id,jdbcType=INTEGER}, #{user_id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, #{saled,jdbcType=INTEGER}, #{stock,jdbcType=INTEGER}, 
+      #{img,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="life.bookmall.bean.Product" useGeneratedKeys="true">
+    insert into bm_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="category_id != null">
+        category_id,
+      </if>
+      <if test="user_id != null">
+        user_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="saled != null">
+        saled,
+      </if>
+      <if test="stock != null">
+        stock,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="category_id != null">
+        #{category_id,jdbcType=INTEGER},
+      </if>
+      <if test="user_id != null">
+        #{user_id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="saled != null">
+        #{saled,jdbcType=INTEGER},
+      </if>
+      <if test="stock != null">
+        #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="life.bookmall.bean.ProductExample" resultType="java.lang.Long">
+    select count(*) from bm_product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update bm_product
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.category_id != null">
+        category_id = #{record.category_id,jdbcType=INTEGER},
+      </if>
+      <if test="record.user_id != null">
+        user_id = #{record.user_id,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=REAL},
+      </if>
+      <if test="record.saled != null">
+        saled = #{record.saled,jdbcType=INTEGER},
+      </if>
+      <if test="record.stock != null">
+        stock = #{record.stock,jdbcType=INTEGER},
+      </if>
+      <if test="record.img != null">
+        img = #{record.img,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update bm_product
+    set id = #{record.id,jdbcType=BIGINT},
+      category_id = #{record.category_id,jdbcType=INTEGER},
+      user_id = #{record.user_id,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=REAL},
+      saled = #{record.saled,jdbcType=INTEGER},
+      stock = #{record.stock,jdbcType=INTEGER},
+      img = #{record.img,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="life.bookmall.bean.Product">
+    update bm_product
+    <set>
+      <if test="category_id != null">
+        category_id = #{category_id,jdbcType=INTEGER},
+      </if>
+      <if test="user_id != null">
+        user_id = #{user_id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="saled != null">
+        saled = #{saled,jdbcType=INTEGER},
+      </if>
+      <if test="stock != null">
+        stock = #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="life.bookmall.bean.Product">
+    update bm_product
+    set category_id = #{category_id,jdbcType=INTEGER},
+      user_id = #{user_id,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      price = #{price,jdbcType=REAL},
+      saled = #{saled,jdbcType=INTEGER},
+      stock = #{stock,jdbcType=INTEGER},
+      img = #{img,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
