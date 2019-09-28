@@ -1,9 +1,6 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: 14046
+  User: Cbuc
   Date: 2019/9/17
-  Time: 16:27
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -46,7 +43,6 @@
     <link rel="stylesheet" href="${APP_PATH}/static/layui/css/layui.css">
     <script src="${APP_PATH}/static/layui/layui.all.js"></script>
 
-
     <link rel="stylesheet" href="${APP_PATH}/static/css/login.css">
     <link href="${APP_PATH}/static/css/fore/style.css" rel="stylesheet">
 
@@ -62,11 +58,11 @@
             <form class="login-form" action="" name="form" method="post">
                 <ul>
                     <li>
-                        <input placeholder="账号" type="text" name="LNAME" class="input-style position" id="LNAME"
+                        <input placeholder="请输入用户名或手机号" type="text" name="LNAME" class="input-style position" id="LNAME"
                                onfocus="clearInfo1()" autocomplete="off"/>
                         <span id="helpBlock1" class="help-block" style="display: none"></span>
                     <li>
-                        <input type="password" name="LPW" class="input-style position" placeholder="密码 " id="LPW"
+                        <input type="password" name="LPW" class="input-style position" placeholder="请输入密码 " id="LPW"
                                onfocus="clearInfo2()"/>
                         <span id="helpBlock2" class="help-block" style="display: none"></span>
                     </li>
@@ -81,7 +77,7 @@
                     </li>
                     <li class="loginbtn">
                         <input type="button" title="登录" class="btn btn_login" onclick="login()" value=""/>
-                        <button class="layui-btn layui-btn-warm layui-btn-radius" style="width: 65px;">注册</button>
+                        <button formaction="toRegister" class="layui-btn layui-btn-warm layui-btn-radius" style="width: 65px;" type="submit" formmethod="get">注册</button>
                     </li>
                 </ul>
             </form>
