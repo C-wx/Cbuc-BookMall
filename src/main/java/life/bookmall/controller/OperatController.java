@@ -39,6 +39,7 @@ public class OperatController {
             return Result.error("验证码错误！请重新输入...");
         }
         if (!ObjectUtils.isEmpty(userService.getOne(user))) {
+            session.setAttribute("user",user);
             return Result.success("登录成功");
         }
         return Result.error("用户不存在，请检查用户名密码");
@@ -52,7 +53,7 @@ public class OperatController {
         // 上传图片
         FileUpload fileUpload = new FileUpload();
         List<String> list_image = fileUpload.upload_image(files,session);
-        user.setImg(list_image.get(0));
+        user.setImg("/"+list_image.get(0));
         int result = userService.addOne(user);
         if (result > 0) {
             return Result.success("注册成功");
