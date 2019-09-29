@@ -14,6 +14,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
     <script src="${APP_PATH}/static/js/jquery/2.0.0/jquery.min.js"></script>
     <link href="${APP_PATH}/static/assets/css/bootstrap.css" rel="stylesheet">
     <script src="${APP_PATH}/static/js/bootstrap/3.3.6/bootstrap.min.js"></script>
@@ -45,9 +46,10 @@
         font-weight: 700;
         color: #3e3e3e;
     }
-    body {
-        background-image: url("webapp/static/imgs/bg-58.jpg");
-    }
+    /*body {
+        background: url("../../static/imgs/15209.jpg") no-repeat;
+        background-size: auto 1200px;
+    }*/
 </style>
 
 <body>
@@ -60,13 +62,23 @@
             </div>
         </div>
 
-        <form class="layui-form layui-form-pane" action="" style="position: relative; left: 700px">
+        <form class="layui-form layui-form-pane" action="register" style="position: relative; left: 700px" enctype="multipart/form-data" method="post">
             <input type="hidden" name="status" value="E">
+            <input type="hidden" name="addr" id="addr"/>
             <div class="layui-form-item">
                 <label class="layui-form-label">用户名:</label>
                 <div class="layui-input-inline">
                     <input type="text" name="user_name" lay-verify="name" placeholder="请输入用户名" autocomplete="off"
                            class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">头像:</label>
+                <div class="layui-input-inline">
+                    <input id="file" type="file" name="files" style="display:none;" onChange="replace_image(0)"/>
+                    <img id="image" onclick="click_image()" style="cursor:pointer;margin-left: 20px" src="../../static/imgs/upload_hover.png" height="100px" width="100px"/>
+                    <div class="layui-form-mid layui-word-aux" style="margin-left: 30px" id="inputImg">请上传头像</div>
                 </div>
             </div>
 
@@ -190,11 +202,15 @@
             if ($("#area").val() != 0) {
                 addr += "-" + $("#area").val();
             }
+            $("#addr").val(addr);
             console.log(addr);
+            console.log( $("form").serialize());
             $.ajax({
                 url: "register",
                 type: "POST",
-                data: $("form").serialize() + "&addr=" + addr,
+                data: new FormData($("form")[0]),
+                processData: false,
+                contentType: false,
                 success: function (result) {
                     if (result.code == 100) {
                         layer.msg('<h3>----注册成功----</h3>', {
@@ -209,6 +225,20 @@
             return false;
         });
     });
+    function click_image(){
+        $("#file").click();
+
+    }
+    function replace_image(){
+        $("#inputImg").hide();
+        // 获得图片对象
+        var blob_image = $("#file")[0].files[0];
+        var url = window.URL.createObjectURL(blob_image);
+        console.log(url);
+        // 替换image
+        $("#image").attr("src",url);
+        console.log($("#file").val());
+    }
 </script>
 </body>
 </html>

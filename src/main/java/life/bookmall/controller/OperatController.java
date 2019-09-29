@@ -3,15 +3,18 @@ package life.bookmall.controller;
 import life.bookmall.bean.User;
 import life.bookmall.evt.Result;
 import life.bookmall.service.UserService;
+import life.bookmall.utils.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @ProjectName: BookMall
@@ -42,9 +45,12 @@ public class OperatController {
 
     @ResponseBody
     @RequestMapping("/register")
-    public Object register(User user) {
+    public Object register(User user,@RequestParam("files") MultipartFile[] files) {
         user.setCreate_time(new Date());
         user.setUpdate_time(new Date());
+        // 上传图片
+        List<String> list_image = FileUpload.upload_image(files);
+        user.setImg(list_image.get(0));
         int result = userService.addOne(user);
         if (result > 0) {
             return Result.success("注册成功");
