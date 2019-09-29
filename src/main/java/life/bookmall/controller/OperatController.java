@@ -5,6 +5,7 @@ import life.bookmall.evt.Result;
 import life.bookmall.service.UserService;
 import life.bookmall.utils.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,11 +46,12 @@ public class OperatController {
 
     @ResponseBody
     @RequestMapping("/register")
-    public Object register(User user,@RequestParam("files") MultipartFile[] files) {
+    public Object register(User user, @RequestParam("files") MultipartFile[] files, HttpSession session) {
         user.setCreate_time(new Date());
         user.setUpdate_time(new Date());
         // 上传图片
-        List<String> list_image = FileUpload.upload_image(files);
+        FileUpload fileUpload = new FileUpload();
+        List<String> list_image = fileUpload.upload_image(files,session);
         user.setImg(list_image.get(0));
         int result = userService.addOne(user);
         if (result > 0) {

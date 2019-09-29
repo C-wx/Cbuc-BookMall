@@ -219,6 +219,8 @@
                         }, function () {
                             location.href = "loginPage";
                         });
+                    }else{
+                        layer.alert(result.msg);
                     }
                 }
             })

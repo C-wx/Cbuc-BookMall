@@ -6,6 +6,9 @@ import life.bookmall.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -41,5 +44,17 @@ public class UserService {
 
     public int addOne(User user) {
         return userMapper.insertSelective(user);
+    }
+
+    public static void main(String[] args) {
+        //当前项目下路径
+        File file = new File("");
+        String filePath = null;
+        try {
+            filePath = file.getCanonicalPath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(filePath);
     }
 }
