@@ -18,9 +18,11 @@
     <script src="${APP_PATH}/static/js/jquery/2.0.0/jquery.min.js"></script>
     <link href="${APP_PATH}/static/assets/css/bootstrap.css" rel="stylesheet">
     <script src="${APP_PATH}/static/js/bootstrap/3.3.6/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="${APP_PATH}/static/layui/css/layui.css">
+    <link rel="stylesheet" href="${APP_PATH}/static/lib/layui-v2.5.4/css/layui.css">
+    <script src="${APP_PATH}/static/lib/layui-v2.5.4/layui.all.js"></script>
+    <script src="${APP_PATH}/static/lib/layui-v2.5.4/layui.js"></script>
+
     <script src="${APP_PATH}/static/css/layui/public.css"></script>
-    <script src="${APP_PATH}/static/layui/layui.js" charset="utf-8"></script>
 </head>
 
 <style>

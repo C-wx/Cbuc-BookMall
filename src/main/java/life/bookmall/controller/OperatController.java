@@ -5,7 +5,6 @@ import life.bookmall.evt.Result;
 import life.bookmall.service.UserService;
 import life.bookmall.utils.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +37,9 @@ public class OperatController {
         if (!code.equals(veryCode)) {
             return Result.error("验证码错误！请重新输入...");
         }
-        if (!ObjectUtils.isEmpty(userService.getOne(user))) {
-            session.setAttribute("user",user);
+        User activeUser = userService.getOne(user);
+        if (!ObjectUtils.isEmpty(activeUser)) {
+            session.setAttribute("user",activeUser);
             return Result.success("登录成功");
         }
         return Result.error("用户不存在，请检查用户名密码");
@@ -60,4 +60,11 @@ public class OperatController {
         }
         return Result.error("服务器异常,请稍后重试");
     }
+
+    @RequestMapping("/logout")
+    public String loginOut(HttpSession session) {
+        session.removeAttribute("user");
+        return "redirect:/home";
+    }
+
 }

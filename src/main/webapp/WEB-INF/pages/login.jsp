@@ -40,15 +40,13 @@
     <script src="${APP_PATH}/static/js/jquery/2.0.0/jquery.min.js"></script>
     <link href="${APP_PATH}/static/assets/css/bootstrap.css" rel="stylesheet">
     <script src="${APP_PATH}/static/js/bootstrap/3.3.6/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="${APP_PATH}/static/layui/css/layui.css">
-    <script src="${APP_PATH}/static/layui/layui.all.js"></script>
+    <link rel="stylesheet" href="${APP_PATH}/static/lib/layui-v2.5.4/css/layui.css">
+    <script src="${APP_PATH}/static/lib/layui-v2.5.4/layui.all.js"></script>
 
     <link rel="stylesheet" href="${APP_PATH}/static/css/login.css">
     <link href="${APP_PATH}/static/css/fore/style.css" rel="stylesheet">
-
 </head>
 <body>
-
 <div class="login-area">
     <div class="login_area_box">
         <div class="mainloginbox" id="LOGIN-FORM">
