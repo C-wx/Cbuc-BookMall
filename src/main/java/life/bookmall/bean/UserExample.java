@@ -585,6 +585,66 @@ public class UserExample {
             return (Criteria) this;
         }
 
+        public Criteria andBalanceIsNull() {
+            addCriterion("balance is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceIsNotNull() {
+            addCriterion("balance is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceEqualTo(Float value) {
+            addCriterion("balance =", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceNotEqualTo(Float value) {
+            addCriterion("balance <>", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceGreaterThan(Float value) {
+            addCriterion("balance >", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceGreaterThanOrEqualTo(Float value) {
+            addCriterion("balance >=", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceLessThan(Float value) {
+            addCriterion("balance <", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceLessThanOrEqualTo(Float value) {
+            addCriterion("balance <=", value, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceIn(List<Float> values) {
+            addCriterion("balance in", values, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceNotIn(List<Float> values) {
+            addCriterion("balance not in", values, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceBetween(Float value1, Float value2) {
+            addCriterion("balance between", value1, value2, "balance");
+            return (Criteria) this;
+        }
+
+        public Criteria andBalanceNotBetween(Float value1, Float value2) {
+            addCriterion("balance not between", value1, value2, "balance");
+            return (Criteria) this;
+        }
+
         public Criteria andCreate_timeIsNull() {
             addCriterion("create_time is null");
             return (Criteria) this;

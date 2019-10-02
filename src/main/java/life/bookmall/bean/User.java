@@ -17,6 +17,8 @@ public class User {
 
     private String addr;
 
+    private Float balance;
+
     private Date create_time;
 
     private Date update_time;
@@ -79,6 +81,14 @@ public class User {
 
     public void setAddr(String addr) {
         this.addr = addr == null ? null : addr.trim();
+    }
+
+    public Float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Float balance) {
+        this.balance = balance;
     }
 
     public Date getCreate_time() {

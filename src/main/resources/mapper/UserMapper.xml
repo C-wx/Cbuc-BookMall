@@ -9,6 +9,7 @@
     <result column="sex" jdbcType="VARCHAR" property="sex" />
     <result column="img" jdbcType="VARCHAR" property="img" />
     <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="balance" jdbcType="REAL" property="balance" />
     <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
     <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
     <result column="status" jdbcType="VARCHAR" property="status" />
@@ -73,7 +74,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_name, pwd, phone, sex, img, addr, create_time, update_time, status, type
+    id, user_name, pwd, phone, sex, img, addr, balance, create_time, update_time, status, 
+    type
   </sql>
   <select id="selectByExample" parameterType="life.bookmall.bean.UserExample" resultMap="BaseResultMap">
     select
@@ -108,13 +110,13 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="life.bookmall.bean.User" useGeneratedKeys="true">
     insert into bm_user (user_name, pwd, phone, 
-      sex, img, addr, create_time, 
-      update_time, status, type
-      )
+      sex, img, addr, balance, 
+      create_time, update_time, status, 
+      type)
     values (#{user_name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}, 
-      #{update_time,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}
-      )
+      #{sex,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{balance,jdbcType=REAL}, 
+      #{create_time,jdbcType=TIMESTAMP}, #{update_time,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="life.bookmall.bean.User" useGeneratedKeys="true">
     insert into bm_user
@@ -136,6 +138,9 @@
       </if>
       <if test="addr != null">
         addr,
+      </if>
+      <if test="balance != null">
+        balance,
       </if>
       <if test="create_time != null">
         create_time,
@@ -168,6 +173,9 @@
       </if>
       <if test="addr != null">
         #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=REAL},
       </if>
       <if test="create_time != null">
         #{create_time,jdbcType=TIMESTAMP},
@@ -213,6 +221,9 @@
       <if test="record.addr != null">
         addr = #{record.addr,jdbcType=VARCHAR},
       </if>
+      <if test="record.balance != null">
+        balance = #{record.balance,jdbcType=REAL},
+      </if>
       <if test="record.create_time != null">
         create_time = #{record.create_time,jdbcType=TIMESTAMP},
       </if>
@@ -239,6 +250,7 @@
       sex = #{record.sex,jdbcType=VARCHAR},
       img = #{record.img,jdbcType=VARCHAR},
       addr = #{record.addr,jdbcType=VARCHAR},
+      balance = #{record.balance,jdbcType=REAL},
       create_time = #{record.create_time,jdbcType=TIMESTAMP},
       update_time = #{record.update_time,jdbcType=TIMESTAMP},
       status = #{record.status,jdbcType=VARCHAR},
@@ -268,6 +280,9 @@
       <if test="addr != null">
         addr = #{addr,jdbcType=VARCHAR},
       </if>
+      <if test="balance != null">
+        balance = #{balance,jdbcType=REAL},
+      </if>
       <if test="create_time != null">
         create_time = #{create_time,jdbcType=TIMESTAMP},
       </if>
@@ -291,6 +306,7 @@
       sex = #{sex,jdbcType=VARCHAR},
       img = #{img,jdbcType=VARCHAR},
       addr = #{addr,jdbcType=VARCHAR},
+      balance = #{balance,jdbcType=REAL},
       create_time = #{create_time,jdbcType=TIMESTAMP},
       update_time = #{update_time,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=VARCHAR},

@@ -54,65 +54,65 @@
             enableSelectByExample:Select多条语句中加入where条件查询，默认为true开启
             selectByExampleQueryId:Select单个对象语句中加入where条件查询，默认为true开启
         -->
-        <table tableName="bm_category" domainObjectName="Category" enableCountByExample="true"
+        <!--<table tableName="bm_category" domainObjectName="Category" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
+            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;
             <property name="useActualColumnNames" value="true"/>
-            <!-- 使用自增长键 -->
+            &lt;!&ndash; 使用自增长键 &ndash;&gt;
             <property name="my.isgen.usekeys" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
+        </table>-->
 
-        <table tableName="bm_comment" domainObjectName="Comment" enableCountByExample="true"
+        <!--<table tableName="bm_comment" domainObjectName="Comment" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
+            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;
             <property name="useActualColumnNames" value="true"/>
-            <!-- 使用自增长键 -->
+            &lt;!&ndash; 使用自增长键 &ndash;&gt;
             <property name="my.isgen.usekeys" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
+        </table>-->
 
-        <table tableName="bm_order" domainObjectName="Order" enableCountByExample="true"
+        <!--<table tableName="bm_order" domainObjectName="Order" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
+            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;
             <property name="useActualColumnNames" value="true"/>
-            <!-- 使用自增长键 -->
+            &lt;!&ndash; 使用自增长键 &ndash;&gt;
             <property name="my.isgen.usekeys" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
+        </table>-->
 
-        <table tableName="bm_order_log" domainObjectName="OrderLog" enableCountByExample="true"
+        <!--<table tableName="bm_order_log" domainObjectName="OrderLog" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
+            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;
             <property name="useActualColumnNames" value="true"/>
-            <!-- 使用自增长键 -->
+            &lt;!&ndash; 使用自增长键 &ndash;&gt;
             <property name="my.isgen.usekeys" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
+        </table>-->
 
-        <table tableName="bm_product" domainObjectName="Product" enableCountByExample="true"
+        <!--<table tableName="bm_product" domainObjectName="Product" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
+            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;
             <property name="useActualColumnNames" value="true"/>
-            <!-- 使用自增长键 -->
+            &lt;!&ndash; 使用自增长键 &ndash;&gt;
             <property name="my.isgen.usekeys" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
+        </table>-->
 
-        <table tableName="bm_property" domainObjectName="Property" enableCountByExample="true"
+        <!--<table tableName="bm_property" domainObjectName="Property" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
+            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;
             <property name="useActualColumnNames" value="true"/>
-            <!-- 使用自增长键 -->
+            &lt;!&ndash; 使用自增长键 &ndash;&gt;
             <property name="my.isgen.usekeys" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
+        </table>-->
 
         <table tableName="bm_user" domainObjectName="User" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
