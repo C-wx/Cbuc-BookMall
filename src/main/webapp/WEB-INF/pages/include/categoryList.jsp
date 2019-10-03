@@ -5,6 +5,7 @@
         width: 852px;
         height: 500px;
         background-color: #FFFFFF;
+        opacity: 0.6;
         left: 200px;
         position: absolute;
         z-index: 100;
@@ -175,7 +176,7 @@
         </div>
         <div class="seprate clearfix"></div>
     </div>
-    <div class="hot-word-line">
+    <%--<div class="hot-word-line">
         <div class="line-title">
             <div class="title-text">教育/科技</div>
         </div>
@@ -189,7 +190,7 @@
             <a class="hot-word " href="/searchProduct?keyword=自然科学">自然科学</a>
         </div>
         <div class="seprate clearfix"></div>
-    </div>
+    </div>--%>
 </div>
 
 <div class="hot-word-con" category_id="2">
@@ -440,8 +441,8 @@
         </div>
         <div class="line-con">
             <a class="hot-word  highlight" href="/searchProduct?keyword=曹文轩">曹文轩</a>
-            <a class="hot-word  highlight" href="/searchProduct?keyword=沈石溪">沈石溪</a>
-            <a class="hot-word  highlight" href="/searchProduct?keyword=郑渊洁">郑渊洁</a>
+            <a class="hot-word  " href="/searchProduct?keyword=沈石溪">沈石溪</a>
+            <a class="hot-word  " href="/searchProduct?keyword=郑渊洁">郑渊洁</a>
             <a class="hot-word  highlight" href="/searchProduct?keyword=杨红樱">杨红樱</a>
         </div>
         <div class="seprate clearfix"></div>
@@ -472,14 +473,14 @@
         </div>
         <div class="line-con">
             <a class="hot-word " href="/searchProduct?keyword=一般管理学">一般管理学</a>
-            <a class="hot-word " href="/searchProduct?keyword=会计">会计</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=会计">会计</a>
             <a class="hot-word " href="/searchProduct?keyword=市场/营销">市场/营销</a>
             <a class="hot-word " href="/searchProduct?keyword=战略管理">战略管理</a>
             <a class="hot-word " href="/searchProduct?keyword=生产与运作管理">生产与运作管理</a>
-            <a class="hot-word " href="/searchProduct?keyword=管理信息系统">管理信息系统</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=管理信息系统">管理信息系统</a>
             <a class="hot-word " href="/searchProduct?keyword=金融/投资">金融/投资</a>
             <a class="hot-word " href="/searchProduct?keyword=创业企业与企业家">创业企业与企业家</a>
-            <a class="hot-word " href="/searchProduct?keyword=商业史传">商业史传</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=商业史传">商业史传</a>
         </div>
         <div class="seprate clearfix"></div>
     </div>
@@ -488,15 +489,15 @@
             <div class="title-text">投资理财</div>
         </div>
         <div class="line-con">
-            <a class="hot-word " href="/searchProduct?keyword=证券/股票">证券/股票</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=证券/股票">证券/股票</a>
             <a class="hot-word " href="/searchProduct?keyword=基金">基金</a>
-            <a class="hot-word " href="/searchProduct?keyword=期货">期货</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=期货">期货</a>
             <a class="hot-word " href="/searchProduct?keyword=外汇">外汇</a>
             <a class="hot-word " href="/searchProduct?keyword=保险">保险</a>
             <a class="hot-word " href="/searchProduct?keyword=彩票">彩票</a>
-            <a class="hot-word " href="/searchProduct?keyword=购房置业">购房置业</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=购房置业">购房置业</a>
             <a class="hot-word " href="/searchProduct?keyword=纳税">纳税</a>
-            <a class="hot-word " href="/searchProduct?keyword=投资指南">投资指南</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=投资指南">投资指南</a>
         </div>
         <div class="seprate clearfix"></div>
     </div>
@@ -505,15 +506,15 @@
             <div class="title-text">经济</div>
         </div>
         <div class="line-con">
-            <a class="hot-word " href="/searchProduct?keyword=经济学理论">经济学理论</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=经济学理论">经济学理论</a>
             <a class="hot-word " href="/searchProduct?keyword=各流派经济学说">各流派经济学说</a>
-            <a class="hot-word " href="/searchProduct?keyword=经济数学">经济数学</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=经济数学">经济数学</a>
             <a class="hot-word " href="/searchProduct?keyword=区域经济">区域经济</a>
-            <a class="hot-word " href="/searchProduct?keyword=财政税政">财政税政</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=财政税政">财政税政</a>
             <a class="hot-word " href="/searchProduct?keyword=统计审计">统计审计</a>
             <a class="hot-word " href="/searchProduct?keyword=贸易政策">贸易政策</a>
             <a class="hot-word " href="/searchProduct?keyword=通货膨胀">通货膨胀</a>
-            <a class="hot-word " href="/searchProduct?keyword=中国经济">中国经济</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=中国经济">中国经济</a>
             <a class="hot-word " href="/searchProduct?keyword=国际经济">国际经济</a>
         </div>
         <div class="seprate clearfix"></div>
@@ -527,17 +528,17 @@
         </div>
         <div class="line-con">
             <a class="hot-word " href="/searchProduct?keyword=人生哲学">人生哲学</a>
-            <a class="hot-word " href="/searchProduct?keyword=成功/激励">成功/激励</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=成功/激励">成功/激励</a>
             <a class="hot-word " href="/searchProduct?keyword=心灵与修养">心灵与修养</a>
             <a class="hot-word " href="/searchProduct?keyword=性格与习惯">性格与习惯</a>
-            <a class="hot-word " href="/searchProduct?keyword=智商/谋略">智商/谋略</a>
-            <a class="hot-word " href="/searchProduct?keyword=情商/情绪管理">情商/情绪管理</a>
-            <a class="hot-word " href="/searchProduct?keyword=人在职场">人在职场</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=智商/谋略">智商/谋略</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=情商/情绪管理">情商/情绪管理</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=人在职场">人在职场</a>
             <a class="hot-word " href="/searchProduct?keyword=人际交往">人际交往</a>
             <a class="hot-word " href="/searchProduct?keyword=处世学">处世学</a>
             <a class="hot-word " href="/searchProduct?keyword=礼仪">礼仪</a>
             <a class="hot-word " href="/searchProduct?keyword=口才/演讲">口才/演讲</a>
-            <a class="hot-word " href="/searchProduct?keyword=青少年励志">青少年励志</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=青少年励志">青少年励志</a>
             <a class="hot-word " href="/searchProduct?keyword=名人励志">名人励志</a>
         </div>
         <div class="seprate clearfix"></div>
@@ -551,8 +552,8 @@
         </div>
         <div class="line-con">
             <a class="hot-word " href="/searchProduct?keyword=学习考试">学习考试</a>
-            <a class="hot-word " href="/searchProduct?keyword=小说Fiction">小说Fiction</a>
-            <a class="hot-word " href="/searchProduct?keyword=传记">传记</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=小说Fiction">小说Fiction</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=传记">传记</a>
             <a class="hot-word " href="/searchProduct?keyword=艺术Art">艺术Art</a>
             <a class="hot-word " href="/searchProduct?keyword=摄影">摄影</a>
         </div>
@@ -563,11 +564,11 @@
             <div class="title-text">港台国著</div>
         </div>
         <div class="line-con">
-            <a class="hot-word " href="/searchProduct?keyword=文学">文学</a>
-            <a class="hot-word " href="/searchProduct?keyword=经济管理">经济管理</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=文学">文学</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=经济管理">经济管理</a>
             <a class="hot-word " href="/searchProduct?keyword=生活">生活</a>
             <a class="hot-word " href="/searchProduct?keyword=童书">童书</a>
-            <a class="hot-word " href="/searchProduct?keyword=漫画">漫画</a>
+            <a class="hot-word highlight" href="/searchProduct?keyword=漫画">漫画</a>
         </div>
         <div class="seprate clearfix"></div>
     </div>

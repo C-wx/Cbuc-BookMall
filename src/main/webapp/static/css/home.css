@@ -1,0 +1,162 @@
+.category-tab-content {
+    position: relative;
+}
+
+.normal-nav {
+    padding-top: 20px;
+    border: #00a2d4 1px solid;
+    border-right: none;
+    width: 200px;
+    height: 470px;
+    position: absolute;
+    z-index: 11;
+}
+
+.nav-item {
+    padding-left: 30px;
+    positon: relative;
+    line-height: 30px;
+    width: 200px;
+    color: #487a6f;
+    font-size: 14px;
+    height: 30px;
+    font-weight: bold;
+    font-family: "Microsoft Yahei";
+}
+
+.normal-nav .nav-item:hover {
+    background-color: #FFFFFF;
+    color: #e54077;
+}
+
+li, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hot-word-con {
+    display: none;
+    width: 852px;
+    height: 500px;
+    background-color: #FFFFFF;
+    left: 200px;
+    position: absolute;
+    z-index: 100;
+}
+
+.hot-word-line {
+    width: 583px;
+    margin: 20px 80px 0px 80px;
+    float: left;
+}
+
+.hot-word-line a {
+    margin-left: 13px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 14px;
+    float: left;
+}
+
+.seprate {
+    margin-top: 42px;
+    border-bottom: 1px dashed rgba(0, 0, 0, .1);
+}
+
+div.floor-line-con {
+    margin-top: 20px;
+    height: 330px;
+    /*position: relative;*/
+    float: left;
+    overflow: hidden;
+}
+
+div.floor-line-con i {
+    background-color: #0AA6E8;
+    width: 5px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.floor-name {
+    margin-left: 10px;
+    display: inline-block;
+    font-size: 18px;
+    color: #000000;
+    height: 28px;
+    vertical-align: middle;
+}
+
+.grid {
+    margin-left: 13px;
+    text-align: center;
+}
+
+.productItem {
+    display: block;
+    float: left;
+    width: 233px;
+    height: 300px;
+    border: 1px solid #FFFFFF;
+}
+
+.productItem:hover {
+    border: 1px solid #487a6f;
+}
+
+.floor-item-img {
+    margin-top: 20px;
+    position: relative;
+    width: 114px;
+    height: 162px;
+}
+
+.floor-item-name {
+    width: 135px;
+    height: 20px;
+    font-size: 14px;
+    color: #333333;
+    line-height: 20px;
+    overflow: hidden;
+    margin: 8px auto;
+}
+.floor-item-title{
+    width: 135px;
+    height: 30px;
+    overflow: hidden;
+    margin: 0px auto 2px;
+}
+.floor-price {
+    font-size: 18px;
+    color: #FF0036;
+    line-height: 18px;
+    margin: 10px auto;
+}
+
+.tm-end {
+    /*display: block;*/
+    position: relative;
+    text-align: center;
+    width: 80px;
+    height: 45px;
+    margin: 0 auto;
+    -webkit-background-size: cover;
+    background-size: cover;
+    z-index: 9;
+}
+
+.carousel-inner {
+    height: 470px;
+    width: 1000px;
+}
+#myCarousel{
+    position: relative;
+    left: 200px;
+    height: 470px;
+    width: 1000px;
+}
+#categoryMain{
+    font-size: 20px;
+}

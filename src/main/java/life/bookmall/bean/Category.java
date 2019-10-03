@@ -1,11 +1,18 @@
 package life.bookmall.bean;
 
+import java.util.List;
+
 public class Category {
     private Integer id;
 
     private String name;
 
     private String status;
+
+
+    /*---------字段以外属性-------------*/
+    private List<Product> products;
+    /*------------------------*/
 
     public Integer getId() {
         return id;
@@ -29,5 +36,13 @@ public class Category {
 
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

@@ -20,14 +20,13 @@ public class PageController {
         return "login";
     }
 
-    @RequestMapping("/home")
-    public String toHome() {
-        return "home";
-    }
-
     @RequestMapping(value = "/toRegister", method = RequestMethod.GET)
     public String toRegister() {
         return "register";
     }
 
+    @RequestMapping(value = "/top", method = RequestMethod.GET)
+    public String top() {
+        return "include/top";
+    }
 }

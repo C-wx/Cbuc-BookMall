@@ -1,9 +1,7 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: 14046
+  User: Cbuc
   Date: 2019/9/30
   Time: 20:01
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -72,7 +70,7 @@
                     </li>
                     <li class="dropdown">
                     <c:if test="${not empty sessionScope.user}">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" id="selfMain"
                            aria-expanded="false" >
                             <img class="img-avatar" src="../../../static/upload/image/${sessionScope.user.img}" style="width: 25px;height: 25px" />
                             <span>${sessionScope.user.user_name}</span>
@@ -83,6 +81,16 @@
                             <li><a href="/logout">退出登录</a></li>
                         </ul>
                     </c:if>
+                    <script>
+                        $(function () {
+                            $("#selfMain").mouseenter(function () {
+                                $(".dropdown-menu").show();
+                            });
+                            $(".dropdown-menu").mouseleave(function () {
+                                $(".dropdown-menu").hide();
+                            })
+                        })
+                    </script>
                     </li>
                 </ul>
             </div>

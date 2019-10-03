@@ -1,11 +1,15 @@
 package life.bookmall.controller;
 
+import life.bookmall.bean.Category;
 import life.bookmall.bean.User;
 import life.bookmall.evt.Result;
+import life.bookmall.service.CategoryService;
+import life.bookmall.service.ProductService;
 import life.bookmall.service.UserService;
 import life.bookmall.utils.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,6 +33,20 @@ public class OperatController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CategoryService categoryService;
+
+    @Autowired
+    private ProductService productService;
+
+    @RequestMapping("/home")
+    public String toHome(Model model) {
+        List<Category> categories = categoryService.list();
+        productService.fill(categories);
+        model.addAttribute("categories",categories);
+        return "home";
+    }
 
     @ResponseBody
     @RequestMapping("/doLogin")
