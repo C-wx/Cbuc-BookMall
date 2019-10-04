@@ -19,6 +19,8 @@ public class Product {
 
     private String img;
 
+    private String active;
+
     private String status;
 
     public Long getId() {
@@ -91,6 +93,14 @@ public class Product {
 
     public void setImg(String img) {
         this.img = img == null ? null : img.trim();
+    }
+
+    public String getActive() {
+        return active;
+    }
+
+    public void setActive(String active) {
+        this.active = active == null ? null : active.trim();
     }
 
     public String getStatus() {

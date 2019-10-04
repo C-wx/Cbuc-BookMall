@@ -1,9 +1,10 @@
 package life.bookmall.mapper;
 
-import java.util.List;
 import life.bookmall.bean.Product;
 import life.bookmall.bean.ProductExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ProductMapper {
     long countByExample(ProductExample example);
@@ -27,4 +28,8 @@ public interface ProductMapper {
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    List<Product> queryHotBooks();
+
+    List<Product> queryActiveBooks();
 }
