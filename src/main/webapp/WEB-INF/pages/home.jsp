@@ -6,7 +6,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>主页</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -23,6 +23,7 @@
     <link href="${APP_PATH}/static/css/fore/style.css" rel="stylesheet">
 </head>
 <jsp:include page="include/top.jsp"/>
+<jsp:include page="include/search.jsp"/>
 <body>
 <div class="category-con">
     <div class="workArea">
@@ -105,6 +106,47 @@
 
 <div class="new-floor-con">
     <div class="workArea">
+        <%--热卖分类--%>
+        <div class="floor-line-con" >
+            <i class="color-mark" style="background-color: mediumvioletred"></i>
+            <div class="floor-name">新书
+                <span class="glyphicon glyphicon-fire" aria-hidden="true" style="color: red;"></span>
+                热
+                <span class="glyphicon glyphicon-fire" aria-hidden="true" style="color: red;"></span>
+                卖版</div>
+            <br>
+            <c:forEach items="${hotBooks}" var="hbs">
+                <a class="grid" href="showProduct?product_id=${hbs.id}">
+                    <div class="productItem">
+                        <img class="floor-item-img" src="../../static/upload/image/${hbs.img}">
+                        <div class="floor-item-name">${hbs.name}</div>
+                        <div class="floor-item-title">${hbs.title}</div>
+                        <div class="floor-price">${hbs.price}</div>
+                    </div>
+                </a>
+            </c:forEach>
+        </div>
+        <div style="clear: both;"></div>
+        <%--活动商品--%>
+        <div class="floor-line-con" >
+            <i class="color-mark" style="background-color: mediumvioletred"></i>
+            <div class="floor-name">活动
+                <span class="glyphicon glyphicon-volume-up" aria-hidden="true" style="color: red;margin-right: 6px"></span>精
+                <span class="glyphicon glyphicon-volume-up" aria-hidden="true" style="color: red;margin:0px 4px 0px"></span>选</div>
+
+            <br>
+            <c:forEach items="${activeBooks}" var="abs">
+                <a class="grid" href="showProduct?product_id=${abs.id}">
+                    <div class="productItem">
+                        <img class="floor-item-img" src="../../static/upload/image/${abs.img}">
+                        <div class="floor-item-name">${abs.name}</div>
+                        <div class="floor-item-title">${abs.title}</div>
+                        <div class="floor-price">${abs.price}</div>
+                    </div>
+                </a>
+            </c:forEach>
+        </div>
+        <div style="clear: both;"></div>
         <c:forEach items="${categories}" var="c" varStatus="sts">
             <%-- 该分类下有产品才能显示 --%>
             <c:if test="${!empty c.products}">
@@ -113,6 +155,7 @@
                     <div class="floor-line-con">
                         <i class="color-mark"></i>
                         <div class="floor-name">${c.name}</div>
+                        <span class="glyphicon glyphicon-book" aria-hidden="true" style="margin-left: 5px"></span>
                         <br>
                         <c:forEach items="${c.products}" var="p" varStatus="st">
                             <c:if test="${st.count<=5}">

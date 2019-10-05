@@ -1,11 +1,8 @@
 package life.bookmall.controller;
 
-import life.bookmall.bean.Category;
-import life.bookmall.bean.User;
+import life.bookmall.bean.*;
 import life.bookmall.evt.Result;
-import life.bookmall.service.CategoryService;
-import life.bookmall.service.ProductService;
-import life.bookmall.service.UserService;
+import life.bookmall.service.*;
 import life.bookmall.utils.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,10 +37,20 @@ public class OperatController {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private PropertyService propertyService;
+
+    @Autowired
+    private CommentService commentService;
+
     @RequestMapping("/home")
     public String toHome(Model model) {
         List<Category> categories = categoryService.list();
         productService.fill(categories);
+        List<Product> hotBooks = productService.queryHotBooks();
+        List<Product> activeBooks = productService.queryActiveBooks();
+        model.addAttribute("hotBooks",hotBooks);
+        model.addAttribute("activeBooks",activeBooks);
         model.addAttribute("categories",categories);
         return "home";
     }
@@ -85,4 +92,16 @@ public class OperatController {
         return "redirect:/home";
     }
 
+    @RequestMapping("/showProduct")
+    public String showProduct(Model model,Long product_id) {
+        Product product = productService.queryDetail(product_id);
+        productService.setCommentCount(product);
+        List<Property> properties = propertyService.queryProperties(product_id);
+        List<Comment> comments = commentService.queryCommnetsByProductId(product_id);
+        commentService.setUser(comments);
+        model.addAttribute("product",product);
+        model.addAttribute("properties",properties);
+        model.addAttribute("comments",comments);
+        return "productDetail";
+    }
 }

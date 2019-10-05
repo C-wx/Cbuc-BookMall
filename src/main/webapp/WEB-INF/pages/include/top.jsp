@@ -32,16 +32,16 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">小黄书城</span>
                 </button>
-                <a class="navbar-brand" href="/home" style="font-size: 32px;color: yellowgreen;margin-left: 8px;font-family:SimHei" >小黄书城</a>
+                <a class="navbar-brand" href="/home" style="font-size: 38px;color: yellowgreen;margin-left: 46px;font-family:SimHei;font-weight: bold" >小黄书城</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-left" action="/" method="get">
+                <%--<form class="navbar-form navbar-left" action="/" method="get">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="搜索书籍" name="search">
                     </div>
                     <button type="submit" class="btn btn-default">搜索</button>
-                </form>
+                </form>--%>
                 <ul class="nav navbar-nav navbar-right">
                     <li style="margin-top: 18px;font-size: 16px">
                     <c:if test="${empty sessionScope.user}">

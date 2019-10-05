@@ -89,7 +89,6 @@
     </div>
 </div>
 
-<canvas id="canvas"></canvas>
 <script src="${APP_PATH}/static/js/login.js"></script>
 
 <script>

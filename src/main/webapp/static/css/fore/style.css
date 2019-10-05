@@ -66,7 +66,7 @@ a:hover {
 .mallSearch-input {
     height: 40px;
     width: 625px;
-    background-color: #FF0036;
+    background-color: #487a6f;
     font-size: 14px;
     margin: 0 auto;
     display: block;
@@ -77,6 +77,8 @@ a:hover {
 }
 
 .mallSearch-input input {
+    position: relative;
+    top: -3px;
     height: 36px;
     width: 490px;
     border: none;
@@ -100,7 +102,7 @@ a:hover {
     overflow: hidden;
     /* 边框设置成透明的，否则会有边框阴影 */
     border: 1px solid transparent;
-    background-color: #FF0036;
+    background-color: #487a6f;
     color: white;
 }
 
@@ -139,7 +141,7 @@ li, ul {
     width: 200px;
     float: left;
     height: 36px;
-    background-color: #FF0036;
+    background-color: #487a6f;
     color: white;
     font-size: 16px;
 }
@@ -150,7 +152,7 @@ li, ul {
 }
 
 .category-type .category-type-text {
-    margin-left: 8px;
+    margin-left: 2px;
     font-weight: 700;
 }
 
@@ -170,10 +172,6 @@ li, ul {
 }
 
 /* ——————————————————————————————分割线———————————————————————————— */
-.category-con {
-    margin-top: 100px;
-}
-
 #carousel-of-product {
     display: block;
     margin: 0 auto;
@@ -182,4 +180,10 @@ li, ul {
 }
 
 /* ——————————————————————————————分割线———————————————————————————— */
-
+#links a{
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 48px;
+    font-family: "Microsoft Yahei";
+    color: #5FB878;
+}
