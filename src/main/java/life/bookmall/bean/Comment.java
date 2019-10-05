@@ -5,6 +5,8 @@ import java.util.Date;
 public class Comment {
     private Long id;
 
+    private Long product_id;
+
     private Long commentator;
 
     private Date create_time;
@@ -19,6 +21,14 @@ public class Comment {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(Long product_id) {
+        this.product_id = product_id;
     }
 
     public Long getCommentator() {

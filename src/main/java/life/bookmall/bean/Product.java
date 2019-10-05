@@ -23,6 +23,12 @@ public class Product {
 
     private String status;
 
+    /**==============非表字段==============*/
+
+    private Integer commentCount;
+
+    /**===================================*/
+
     public Long getId() {
         return id;
     }
@@ -109,5 +115,13 @@ public class Product {
 
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
+    }
+
+    public Integer getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(Integer commentCount) {
+        this.commentCount = commentCount;
     }
 }

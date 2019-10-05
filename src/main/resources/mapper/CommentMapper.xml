@@ -3,6 +3,7 @@
 <mapper namespace="life.bookmall.mapper.CommentMapper">
   <resultMap id="BaseResultMap" type="life.bookmall.bean.Comment">
     <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="product_id" jdbcType="BIGINT" property="product_id" />
     <result column="commentator" jdbcType="BIGINT" property="commentator" />
     <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
     <result column="like_count" jdbcType="BIGINT" property="like_count" />
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, commentator, create_time, like_count, msg
+    id, product_id, commentator, create_time, like_count, msg
   </sql>
   <select id="selectByExample" parameterType="life.bookmall.bean.CommentExample" resultMap="BaseResultMap">
     select
@@ -101,14 +102,17 @@
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="life.bookmall.bean.Comment" useGeneratedKeys="true">
-    insert into bm_comment (commentator, create_time, like_count, 
-      msg)
-    values (#{commentator,jdbcType=BIGINT}, #{create_time,jdbcType=TIMESTAMP}, #{like_count,jdbcType=BIGINT}, 
-      #{msg,jdbcType=VARCHAR})
+    insert into bm_comment (product_id, commentator, create_time, 
+      like_count, msg)
+    values (#{product_id,jdbcType=BIGINT}, #{commentator,jdbcType=BIGINT}, #{create_time,jdbcType=TIMESTAMP}, 
+      #{like_count,jdbcType=BIGINT}, #{msg,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="life.bookmall.bean.Comment" useGeneratedKeys="true">
     insert into bm_comment
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="product_id != null">
+        product_id,
+      </if>
       <if test="commentator != null">
         commentator,
       </if>
@@ -123,6 +127,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="product_id != null">
+        #{product_id,jdbcType=BIGINT},
+      </if>
       <if test="commentator != null">
         #{commentator,jdbcType=BIGINT},
       </if>
@@ -149,6 +156,9 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
+      <if test="record.product_id != null">
+        product_id = #{record.product_id,jdbcType=BIGINT},
+      </if>
       <if test="record.commentator != null">
         commentator = #{record.commentator,jdbcType=BIGINT},
       </if>
@@ -169,6 +179,7 @@
   <update id="updateByExample" parameterType="map">
     update bm_comment
     set id = #{record.id,jdbcType=BIGINT},
+      product_id = #{record.product_id,jdbcType=BIGINT},
       commentator = #{record.commentator,jdbcType=BIGINT},
       create_time = #{record.create_time,jdbcType=TIMESTAMP},
       like_count = #{record.like_count,jdbcType=BIGINT},
@@ -180,6 +191,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="life.bookmall.bean.Comment">
     update bm_comment
     <set>
+      <if test="product_id != null">
+        product_id = #{product_id,jdbcType=BIGINT},
+      </if>
       <if test="commentator != null">
         commentator = #{commentator,jdbcType=BIGINT},
       </if>
@@ -197,7 +211,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="life.bookmall.bean.Comment">
     update bm_comment
-    set commentator = #{commentator,jdbcType=BIGINT},
+    set product_id = #{product_id,jdbcType=BIGINT},
+      commentator = #{commentator,jdbcType=BIGINT},
       create_time = #{create_time,jdbcType=TIMESTAMP},
       like_count = #{like_count,jdbcType=BIGINT},
       msg = #{msg,jdbcType=VARCHAR}

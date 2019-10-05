@@ -314,7 +314,7 @@
         select
         <include refid="Base_Column_List"/>
         from bm_product
-        where active = "true";
+        where active = "1";
     </select>
 
 </mapper>

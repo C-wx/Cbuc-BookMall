@@ -165,6 +165,66 @@ public class CommentExample {
             return (Criteria) this;
         }
 
+        public Criteria andProduct_idIsNull() {
+            addCriterion("product_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProduct_idIsNotNull() {
+            addCriterion("product_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProduct_idEqualTo(Long value) {
+            addCriterion("product_id =", value, "product_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andProduct_idNotEqualTo(Long value) {
+            addCriterion("product_id <>", value, "product_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andProduct_idGreaterThan(Long value) {
+            addCriterion("product_id >", value, "product_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andProduct_idGreaterThanOrEqualTo(Long value) {
+            addCriterion("product_id >=", value, "product_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andProduct_idLessThan(Long value) {
+            addCriterion("product_id <", value, "product_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andProduct_idLessThanOrEqualTo(Long value) {
+            addCriterion("product_id <=", value, "product_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andProduct_idIn(List<Long> values) {
+            addCriterion("product_id in", values, "product_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andProduct_idNotIn(List<Long> values) {
+            addCriterion("product_id not in", values, "product_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andProduct_idBetween(Long value1, Long value2) {
+            addCriterion("product_id between", value1, value2, "product_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andProduct_idNotBetween(Long value1, Long value2) {
+            addCriterion("product_id not between", value1, value2, "product_id");
+            return (Criteria) this;
+        }
+
         public Criteria andCommentatorIsNull() {
             addCriterion("commentator is null");
             return (Criteria) this;
