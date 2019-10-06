@@ -180,7 +180,48 @@
     </div>
 </div>
 <div style="clear: both;"></div>
+<!--左侧客服栏-->
+<div class="leftside">
+    <a id="kefu" data-method="setTop" class="way2" title="联系客服"><img src="../../static/imgs/chatLog.png" alt="客服" width="30" height="30" style="margin-right: 8px;margin-top: 10px" /></a>
+</div>
+<script>
+    $(function(){
+        $('.leftside a').hover(function(){
+            $(this).animate({width:'65px'},300);
+        },function(){
+            $(this).animate({width:'50px'},300);
+        });
+    });
+    layui.use('layer', function () {
+        var $ = layui.jquery, layer = layui.layer;
+        var active = {
+            setTop: function () {
+                layer.open({
+                    type: 2
+                    , title: '客户服务中心'
+                    , area: ['393px', '450px']
+                    , shade: 0
+                    , offset: [  300 , 100  ]
+                    , content: 'kefu'
+                    , btn: ['结束']
+                    , btn2: function () {
+                        layer.closeAll();
+                    }
+                    , zIndex: layer.zIndex
+                    , success: function (layero) {
+                        layer.setTop(layero);
+                    }
+                });
+            }
+        };
 
+        $('#kefu').on('click', function () {
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+
+    });
+</script>
 
 </body>
 </html>

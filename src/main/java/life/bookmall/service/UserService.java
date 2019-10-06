@@ -57,4 +57,8 @@ public class UserService {
         }
         System.out.println(filePath);
     }
+
+    public User queryDetail(Long commentator) {
+        return userMapper.selectByPrimaryKey(commentator);
+    }
 }

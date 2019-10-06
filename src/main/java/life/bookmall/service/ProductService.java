@@ -23,6 +23,9 @@ public class ProductService {
     @Autowired
     private ProductMapper productMapper;
 
+    @Autowired
+    private CommentService commentService;
+
 
     public void fill(List<Category> categories) {
         for (Category category : categories) {
@@ -35,5 +38,23 @@ public class ProductService {
         productExample.createCriteria().andCategory_idEqualTo(category.getId());
         List<Product> products = productMapper.selectByExample(productExample);
         category.setProducts(products);
+    }
+
+    public List queryHotBooks() {
+        List<Product> queryHotBooks = productMapper.queryHotBooks();
+        return queryHotBooks;
+    }
+
+    public List<Product> queryActiveBooks() {
+        return productMapper.queryActiveBooks();
+    }
+
+    public Product queryDetail(Long product_id) {
+        return productMapper.selectByPrimaryKey(product_id);
+    }
+
+    public void setCommentCount(Product product) {
+        Integer count = commentService.queryCount(product.getId());
+        product.setCommentCount(count);
     }
 }

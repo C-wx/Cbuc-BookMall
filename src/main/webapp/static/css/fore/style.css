@@ -9,7 +9,6 @@ body {
     margin: 0 auto;
 }
 
-/* 天猫红配色 */
 .redColor {
     color: #FF0036;
 }
@@ -20,9 +19,7 @@ a {
 }
 
 a:hover {
-    /* 去掉下划线 */
     text-decoration: none;
-    /* 设置为天猫红 */
     color: #FF0036;
 }
 
@@ -30,23 +27,7 @@ a:hover {
     font-weight: bold;
 }
 
-
-/* ——————————————————————————————分割线———————————————————————————— */
-
-/* 顶部导航栏固定高度 */
-#site-nav {
-    background-color: #f2f2f2;
-    height: 32px;
-    /* 顶部导航栏下面的灰色横线 */
-    border-bottom: 1px solid #e7e7e7;
-}
-
-#site-nav span {
-    padding-left: 20px;
-    line-height: 32px;
-}
-
-/* ——————————————————————————————分割线———————————————————————————— */
+/* ——————————————————————————————搜索栏———————————————————————————— */
 
 .header {
     height: 130px;
@@ -84,9 +65,7 @@ a:hover {
     border: none;
     margin: 1px;
     color: black;
-    /* 去掉输入框轮廓，否则获取焦点时会发生颜色变化 */
     outline: none;
-    /* 边框设置成透明的，否则会有边框阴影 */
     border: 1px solid transparent;
     padding-left: 8px;
 }
@@ -100,7 +79,6 @@ a:hover {
     right: 0;
     cursor: pointer;
     overflow: hidden;
-    /* 边框设置成透明的，否则会有边框阴影 */
     border: 1px solid transparent;
     background-color: #487a6f;
     color: white;
@@ -113,6 +91,7 @@ a:hover {
     overflow: hidden;
     margin-left: -13px;
 }
+/* ——————————————————————————————热搜———————————————————————————— */
 
 .hot-query li {
     display: inline-block;
@@ -130,7 +109,7 @@ li, ul {
     list-style: none;
 }
 
-/* ——————————————————————————————分割线———————————————————————————— */
+/* ——————————————————————————————分类栏———————————————————————————— */
 
 .main-nav {
     height: 36px;
@@ -179,11 +158,34 @@ li, ul {
     left: 30px;
 }
 
-/* ——————————————————————————————分割线———————————————————————————— */
+/* ——————————————————————————————链接———————————————————————————— */
 #links a{
     font-weight: bold;
     font-size: 14px;
     margin-left: 48px;
     font-family: "Microsoft Yahei";
     color: #5FB878;
+}
+
+/* ——————————————————————————————左边栏———————————————————————————— */
+.leftside {
+    width:50px;
+    height:250px;
+    position:fixed;
+    left:0;
+    top:60%;
+    margin-top:-125px;
+    z-index:900;
+}
+.leftside a {
+    width:50px;
+    height:50px;
+    line-height:50px;
+    float:left;
+    display:block;
+    text-align:right;
+    cursor: pointer;
+}
+.leftside .way2 {
+    background:yellowgreen;
 }

@@ -1,9 +1,11 @@
 package life.bookmall.mapper;
 
-import java.util.List;
 import life.bookmall.bean.OrderLog;
 import life.bookmall.bean.OrderLogExample;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 public interface OrderLogMapper {
     long countByExample(OrderLogExample example);
@@ -27,4 +29,7 @@ public interface OrderLogMapper {
     int updateByPrimaryKeySelective(OrderLog record);
 
     int updateByPrimaryKey(OrderLog record);
+
+    @Select("select * from bm_order_log where user_id = #{id} and type = #{type}")
+    List<OrderLog> getCarCount(@Param("id") Long id,@Param("type") String type);
 }

@@ -15,6 +15,12 @@ public class Comment {
 
     private String msg;
 
+    /**==============非表字段==============*/
+
+    private User user;
+
+    /**===================================*/
+
     public Long getId() {
         return id;
     }
@@ -61,5 +67,13 @@ public class Comment {
 
     public void setMsg(String msg) {
         this.msg = msg == null ? null : msg.trim();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
