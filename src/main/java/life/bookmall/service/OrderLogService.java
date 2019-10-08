@@ -23,6 +23,12 @@ public class OrderLogService {
     @Autowired
     private OrderLogMapper orderLogMapper;
 
+    public List<OrderLog> getListByUserIdAndType(Long id, String type) {
+        OrderLogExample orderLogExample = new OrderLogExample();
+        orderLogExample.createCriteria().andTypeEqualTo(type).andUser_idEqualTo(id);
+        return orderLogMapper.selectByExample(orderLogExample);
+    }
+
 
     public int getCarCountByUserIdAndType(Long id) {
 //        List<OrderLog> orderLogs = orderLogMapper.getCarCount(id, OrderLogType.BC.getType());
@@ -36,5 +42,24 @@ public class OrderLogService {
             }
         }
         return total;
+    }
+
+    public void updateByIdAndType(OrderLog orderLog) {
+        OrderLogExample orderLogExample = new OrderLogExample();
+        orderLogExample.createCriteria().andIdEqualTo(orderLog.getId());
+        orderLogMapper.updateByExampleSelective(orderLog, orderLogExample);
+    }
+
+    public int getCarTotalCount(Long id) {
+        List<OrderLog> orderLogs = orderLogMapper.getCarCount(id,OrderLogType.BC.getType());
+        int count = 0;
+        for (OrderLog orderLog : orderLogs) {
+            count += orderLog.getNum();
+        }
+        return count;
+    }
+
+    public void doAdd(OrderLog orderLog) {
+        orderLogMapper.insert(orderLog);
     }
 }

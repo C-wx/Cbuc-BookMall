@@ -73,7 +73,7 @@
                     if ("success" == result) {
                         var product_id = ${product.id};
                         var num = $(".productNumberSetting").val();
-                        var addCartpage = "/addCart";
+                        var addCartpage = "/addPurchase";
                         $.get(
                             addCartpage,
                             {"product_id": product_id, "num": num},
