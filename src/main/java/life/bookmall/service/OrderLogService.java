@@ -6,7 +6,6 @@ import life.bookmall.bean.OrderLogExample;
 import life.bookmall.mapper.OrderLogMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 
@@ -27,21 +26,6 @@ public class OrderLogService {
         OrderLogExample orderLogExample = new OrderLogExample();
         orderLogExample.createCriteria().andTypeEqualTo(type).andUser_idEqualTo(id);
         return orderLogMapper.selectByExample(orderLogExample);
-    }
-
-
-    public int getCarCountByUserIdAndType(Long id) {
-//        List<OrderLog> orderLogs = orderLogMapper.getCarCount(id, OrderLogType.BC.getType());
-        OrderLogExample orderLogExample = new OrderLogExample();
-        orderLogExample.createCriteria().andUser_idEqualTo(id).andTypeEqualTo(OrderLogType.BC.getType());
-        List<OrderLog> orderLogs = orderLogMapper.selectByExample(orderLogExample);
-        int total = 0;
-        if (!ObjectUtils.isEmpty(orderLogs)) {
-            for (OrderLog orderLog : orderLogs) {
-                total += orderLog.getNum();
-            }
-        }
-        return total;
     }
 
     public void updateByIdAndType(OrderLog orderLog) {

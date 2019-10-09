@@ -57,4 +57,8 @@ public class ProductService {
         Integer count = commentService.queryCount(product.getId());
         product.setCommentCount(count);
     }
+
+    public int updateStock(long product_id, int num) {
+        return productMapper.updateStock(product_id,num);
+    }
 }

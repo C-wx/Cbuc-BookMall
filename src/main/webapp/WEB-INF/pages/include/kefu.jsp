@@ -44,7 +44,7 @@
         <span> &nbsp;您好，请问有什么可以帮助您？</span>
     </div>
     <div style=" top: 200px; left: 40px;position: fixed;">
-        <input type="text" id="question">
+        <input type="text" id="question" placeholder="请输入问题">
         <button id="launch" type="button" class="layui-btn layui-btn-warm" >发送</button>
     </div>
 </div>
@@ -52,6 +52,9 @@
     $(function () {
         $("#launch").click(function () {
             var text = $("#question").val();
+            if (text == '') {
+                return false;
+            }
             var nextQuestion = $("<div style='font-size: 14px;margin-left: 250px'></div>").append(text).append($("<hr>"));
             var answer = $("<div style='font-size: 14px;'></div>").append("您好!我现在还是人工智障听不懂您说什么").append($("<hr>"));
             $("#showQuestion").append(nextQuestion).append(answer);

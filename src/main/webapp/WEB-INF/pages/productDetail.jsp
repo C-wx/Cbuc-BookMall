@@ -79,6 +79,8 @@
                             {"product_id": product_id, "num": num},
                             function (result) {
                                 if (result.code == "100") {
+                                    var stock = $("#productStock").text();
+                                    $("#productStock").text(stock-num);
                                     $("#cartTotalItemNumber").text(result.data);
                                     $(".addCartButton").html("已加入购物车");
                                     $(".addCartButton").attr("disabled", "disabled");
@@ -220,7 +222,7 @@
 					</a>
 					</span>
 					件</span>
-                <span>库存${product.stock}件</span>
+                <span>库存<span id="productStock">${product.stock}</span>件</span>
             </div>
             <div class="serviceCommitment">
                 <span class="serviceCommitmentDesc">服务承诺</span>

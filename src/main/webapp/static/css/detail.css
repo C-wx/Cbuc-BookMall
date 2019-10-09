@@ -25,7 +25,7 @@ div.imgAndInfo div.smallImageDiv {
 }
 
 div.imgAndInfo img.smallImg:hover {
-    border: 2px solid black;
+    border: 1px solid #00a2d4;
 }
 
 div.imgAndInfo {
@@ -39,7 +39,7 @@ div.imgAndInfo {
 
 div.imgInimgAndInfo {
     width: 420px;
-    float: center;
+    float: contour;
 }
 
 div.imgInimgAndInfo img {

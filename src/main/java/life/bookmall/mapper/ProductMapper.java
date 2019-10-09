@@ -32,4 +32,6 @@ public interface ProductMapper {
     List<Product> queryHotBooks();
 
     List<Product> queryActiveBooks();
+
+    int updateStock(@Param("id") long product_id,@Param("num") int num);
 }

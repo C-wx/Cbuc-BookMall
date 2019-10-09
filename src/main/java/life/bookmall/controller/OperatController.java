@@ -60,6 +60,7 @@ public class OperatController {
     @RequestMapping("/addPurchase")
     public Object addCart(long product_id, int num, HttpSession session) {
         User user = (User) session.getAttribute("user");
+        productService.updateStock(product_id,num);
         Boolean flag = false;
         List<OrderLog> orderLogs = orderLogService.getListByUserIdAndType(user.getId(), OrderLogType.BC.getType());
         for (OrderLog orderLog : orderLogs) {
@@ -69,7 +70,7 @@ public class OperatController {
                 orderLogService.updateByIdAndType(orderLog);
                 flag = true;
                 int carTotalCount = orderLogService.getCarTotalCount(user.getId());
-                session.setAttribute("cartotalCount",carTotalCount);
+                session.setAttribute("carTotalCount",carTotalCount);
                 return Result.success(carTotalCount);
             }
         }
@@ -79,9 +80,10 @@ public class OperatController {
             orderLog.setNum(num);
             orderLog.setProduct_id(product_id);
             orderLog.setType(OrderLogType.BC.getType());
+            orderLog.setStatus("E");
             orderLogService.doAdd(orderLog);
             int carTotalCount = orderLogService.getCarTotalCount(user.getId());
-            session.setAttribute("cartotalCount",carTotalCount);
+            session.setAttribute("carTotalCount",carTotalCount);
             return Result.success(carTotalCount);
         }
         return Result.error();

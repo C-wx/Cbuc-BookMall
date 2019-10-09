@@ -36,12 +36,6 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <%--<form class="navbar-form navbar-left" action="/" method="get">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="搜索书籍" name="search">
-                    </div>
-                    <button type="submit" class="btn btn-default">搜索</button>
-                </form>--%>
                 <ul class="nav navbar-nav navbar-right">
                     <li style="margin-top: 18px;font-size: 16px">
                     <c:if test="${empty sessionScope.user}">
@@ -62,9 +56,21 @@
                     </li>
                     <li>
                     <c:if test="${not empty sessionScope.user}">
+                        <a href="myOrder" style="margin-top: 3px;font-size: 16px;font-family: Arial">
+                            我的订单
+                            <i class="fa fa-file-text"></i>
+                        </a>
+                    </c:if>
+                    </li>
+                    <li>
+                    <c:if test="${not empty sessionScope.user}">
                         <a href="javascript:;" style="margin-top: 3px;font-size: 16px;font-family: Arial">
-                            我的购物车
+                            购物车
                             <i class="fa fa-shopping-cart"></i>
+                            <c:if test="${empty sessionScope.carTotalCount}">
+                                <strong>0</strong>
+                            </c:if>
+                            <strong id="cartTotalItemNumber">${sessionScope.carTotalCount}</strong>
                         </a>
                     </c:if>
                     </li>

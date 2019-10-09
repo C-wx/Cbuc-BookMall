@@ -31,6 +31,7 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @Autowired
     private OrderLogService orderLogService;
 
     @ResponseBody
@@ -42,6 +43,8 @@ public class LoginController {
         }
         User activeUser = userService.getOne(user);
         if (!ObjectUtils.isEmpty(activeUser)) {
+            int carTotalCount = orderLogService.getCarTotalCount(activeUser.getId());
+            session.setAttribute("carTotalCount",carTotalCount);
             session.setAttribute("user",activeUser);
             return Result.success("登录成功");
         }
@@ -62,8 +65,8 @@ public class LoginController {
     public Object loginByAjax(User user, HttpSession session) {
         User userLogin = userService.getOne(user);
         if (userLogin!=null) {
-            /*int cartTotalItemNumber = orderLogService.getCarCountByUserIdAndType(userLogin.getId());
-            session.setAttribute("cartTotalItemNumber",cartTotalItemNumber);*/
+            int carTotalCount = orderLogService.getCarTotalCount(userLogin.getId());
+            session.setAttribute("carTotalCount",carTotalCount);
             session.setAttribute("user",userLogin);
             return Result.success();
         } else {

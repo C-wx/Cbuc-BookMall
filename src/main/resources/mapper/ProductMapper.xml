@@ -301,6 +301,9 @@
       status = #{status,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+    <update id="updateStock">
+        update bm_product set stock = stock - #{num} where id = #{id}
+    </update>
 
     <select id="queryHotBooks" resultType="life.bookmall.bean.Product">
         select
