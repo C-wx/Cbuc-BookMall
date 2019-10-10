@@ -21,12 +21,12 @@
     <link rel="stylesheet" href="${APP_PATH}/static/lib/layui-v2.5.4/css/layui.css">
     <script src="${APP_PATH}/static/lib/layui-v2.5.4/layui.js"></script>
 
-    <script src="${APP_PATH}/static/css/layui/public.css"></script>
 </head>
 
 <style>
     .page-top {
-        height: 46px;
+        background-color: #92B8B1;
+        height: 56px;
         border-bottom: 2px solid #e6e6e6;
         position: relative;
         margin-bottom: 50px;
@@ -35,22 +35,23 @@
     .active {
         position: relative;
         margin: 0 auto;
-        width: 110px;
+        width: 120px;
         border-bottom: 2px solid #ff4700;
         text-align: center;
     }
 
     .tsl {
-        height: 46px;
-        line-height: 46px;
-        font-size: 16px;
+        height: 56px;
+        line-height: 56px;
+        font-size: 26px;
         font-weight: 700;
-        color: #3e3e3e;
+        color: #2a6496;
     }
-    /*body {
-        background: url("../../static/imgs/15209.jpg") no-repeat;
-        background-size: auto 1200px;
-    }*/
+    body {
+        /*background: url("../../static/imgs/15209.jpg") no-repeat;
+        background-size: auto 1200px;*/
+        background-color: #fff9ec;
+    }
 </style>
 
 <body>
@@ -149,23 +150,43 @@
                 <div class="layui-input-block">
                     <input type="checkbox" checked="" name="open" lay-skin="switch" lay-filter="switchTest"
                            lay-text="同意|不同意">
-                    <span style="color:#A9A9A9">我已阅读相关协议</span>
+                    <span data-method="notice" id="news" style="color:#A9A9A9;cursor: pointer">我已阅读相关协议</span>
                 </div>
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn" lay-submit="" lay-filter="demo1">立即注册</button>
                     <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    <a href="/loginPage" class="layui-btn layui-btn-primary" style="text-decoration: none">返回</a>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<script src="${APP_PATH}/static/layui/layui.js" charset="utf-8"></script>
 <script>
-    layui.use(['form'], function () {
+    layui.use(['form','layer'], function () {
         var form = layui.form
             , layer = layui.layer
+
+        var active = {
+            notice: function () {
+                layer.open({
+                    type: 1
+                    , title: false
+                    , closeBtn: false
+                    , area: '300px;'
+                    , shade: 0.5
+                    , id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                    , btn: '我已了解'
+                    , btnAlign: 'c'
+                    , content: '<div style="padding: 30px;text-align: center; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">小黄书城用户协议<br><hr>官方说辞<br>xxxx</div>'
+                });
+            }
+        }
+        $('#news').on('click', function () {
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
 
         //自定义验证规则
         form.verify({

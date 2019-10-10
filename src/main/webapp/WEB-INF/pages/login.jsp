@@ -10,32 +10,6 @@
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
-    <style>
-        html {
-            height: 100%
-        }
-
-        body {
-            margin: 0;
-            height: 100%;
-            background: #fff;
-        }
-
-        canvas {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-
-        .body_content {
-            position: absolute;
-            top: 30%;
-            left: 20%;
-            height: 20%;
-            background: palevioletred;
-            width: 20%;
-        }
-    </style>
 
     <script src="${APP_PATH}/static/js/jquery/2.0.0/jquery.min.js"></script>
     <link href="${APP_PATH}/static/assets/css/bootstrap.css" rel="stylesheet">
@@ -51,7 +25,7 @@
     <div class="login_area_box">
         <div class="mainloginbox" id="LOGIN-FORM">
             <div class="logo_login" style="text-align:center;vertical-align:middle;">
-                <p style="font-size:24px;color:#FFFFFF;font-weight:700;padding-top: 50px;">用户登录</p>
+                <a style="font-size:34px;color:#1b6d85;font-weight:700;padding-top: 40px;display: inline-block;cursor: pointer" href="/home">小黄书城</a>
             </div>
             <form class="login-form" action="" name="form" method="post">
                 <ul>
