@@ -19,7 +19,6 @@
     <link href="${APP_PATH}/static/assets/css/bootstrap.css" rel="stylesheet">
     <script src="${APP_PATH}/static/js/bootstrap/3.3.6/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${APP_PATH}/static/lib/layui-v2.5.4/css/layui.css">
-    <script src="${APP_PATH}/static/lib/layui-v2.5.4/layui.all.js"></script>
     <script src="${APP_PATH}/static/lib/layui-v2.5.4/layui.js"></script>
 
     <script src="${APP_PATH}/static/css/layui/public.css"></script>
@@ -88,7 +87,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">手机号:</label>
                     <div class="layui-input-inline">
-                        <input type="tel" name="phone" lay-verify="tel|phone" placeholder="请输入手机号" autocomplete="off"
+                        <input type="tel" name="phone" lay-verify="tel|phone" placeholder="请输入手机号" autocomplete="off" id="tel"
                                class="layui-input">
                     </div>
                 </div>
@@ -97,7 +96,7 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">密码:</label>
                 <div class="layui-input-inline">
-                    <input type="password" name="pwd" lay-verify="pass" placeholder="请输入密码" autocomplete="off"
+                    <input type="password" name="pwd" lay-verify="pass" placeholder="请输入密码" autocomplete="off" id="pwd"
                            class="layui-input">
                 </div>
                 <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
@@ -207,6 +206,15 @@
             $("#addr").val(addr);
             console.log(addr);
             console.log( $("form").serialize());
+            var pattern1 = /1((((3[0-3,5-9])|(4[5,7,9])|(5[0-3,5-9])|(66)|(7[1-3,5-8])|(8[0-9])|(9[1,8,9]))\d{8})|((34)[0-8]\d{7}))/;
+            if (!pattern1.test($("#tel").val())) {
+               return false;
+            }
+            var pattern = /^[\S]{6,12}$/;
+            if (!pattern.test($("#pwd").val())) {
+               return false;
+            }
+            console.log("开始注册...")
             $.ajax({
                 url: "register",
                 type: "POST",
@@ -231,7 +239,6 @@
     });
     function click_image(){
         $("#file").click();
-
     }
     function replace_image(){
         $("#inputImg").hide();
