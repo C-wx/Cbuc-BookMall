@@ -15,6 +15,12 @@ public class OrderLog {
 
     private String type;
 
+    /**==============非表字段==============*/
+
+    private Product product;
+
+    /**===================================*/
+
     public Long getId() {
         return id;
     }
@@ -69,5 +75,13 @@ public class OrderLog {
 
     public void setType(String type) {
         this.type = type == null ? null : type.trim();
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

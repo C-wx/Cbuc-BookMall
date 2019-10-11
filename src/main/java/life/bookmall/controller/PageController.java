@@ -51,9 +51,10 @@ public class PageController {
         return "register";
     }
 
-    @RequestMapping(value = "/top", method = RequestMethod.GET)
-    public String top() {
-        return "include/top";
+    @RequestMapping("/payPage")
+    public String payPage(Integer order_id,float total) {
+        System.out.println(order_id+total);
+        return "alipay";
     }
 
     @RequestMapping("/kefu")

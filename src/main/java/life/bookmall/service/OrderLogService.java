@@ -46,4 +46,12 @@ public class OrderLogService {
     public void doAdd(OrderLog orderLog) {
         orderLogMapper.insert(orderLog);
     }
+
+    public int updateById(Long orderLogId,Long orderId) {
+        OrderLog orderLog = new OrderLog();
+        orderLog.setOrder_id(orderId);
+        OrderLogExample orderLogExample = new OrderLogExample();
+        orderLogExample.createCriteria().andIdEqualTo(orderLogId);
+        return orderLogMapper.updateByExampleSelective(orderLog, orderLogExample);
+    }
 }

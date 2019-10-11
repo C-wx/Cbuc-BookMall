@@ -53,11 +53,11 @@ public class LoginController {
 
     @RequestMapping("/checkLogin")
     @ResponseBody
-    public String checkLogin(HttpSession session) {
+    public Object checkLogin(HttpSession session) {
         User user = (User) session.getAttribute("user");
         if (!Objects.isNull(user))
-            return "success";
-        return "fail";
+            return Result.success();
+        return Result.error();
     }
 
     @ResponseBody

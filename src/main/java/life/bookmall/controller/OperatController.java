@@ -1,6 +1,7 @@
 package life.bookmall.controller;
 
 import life.bookmall.MallEnum.OrderLogType;
+import life.bookmall.MallEnum.OrderPayStatus;
 import life.bookmall.bean.*;
 import life.bookmall.evt.Result;
 import life.bookmall.service.*;
@@ -11,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @ProjectName: BookMall
@@ -19,7 +23,6 @@ import java.util.List;
  * @ClassName: OperatController
  * @Author: Cbuc
  * @Date: 2019/9/26
- * @Version: 1.0
  */
 @Controller
 public class OperatController {
@@ -42,6 +45,8 @@ public class OperatController {
     @Autowired
     private OrderLogService orderLogService;
 
+    @Autowired
+    private OrderService orderService;
 
     @RequestMapping("/showProduct")
     public String showProduct(Model model,Long product_id) {
@@ -88,4 +93,42 @@ public class OperatController {
         }
         return Result.error();
     }
+
+    @RequestMapping("/buyNow")
+    public String buyNow(Long product_id, int number,HttpSession session,Model model) {
+        Product product = productService.queryDetail(product_id);
+        User user = (User) session.getAttribute("user");
+        User loginUser = userService.getOne(user);
+        float total = product.getPrice()*number;
+        List<OrderLog> orderLogs = new ArrayList<>();
+        OrderLog orderLog = new OrderLog();
+        orderLog.setProduct_id(product_id);
+        orderLog.setType(OrderLogType.BN.getType());
+        orderLog.setStatus("E");
+        orderLog.setUser_id(loginUser.getId());
+        orderLog.setNum(number);
+        orderLog.setProduct(product);
+        orderLogService.doAdd(orderLog);
+        orderLogs.add(orderLog);
+        model.addAttribute("orderLogs",orderLogs);
+        model.addAttribute("total",total);
+        return "purchasePage";
+    }
+
+    @ResponseBody
+    @RequestMapping("/createOrder")
+    public Object createOrder(Order order, HttpSession session, Long orderLogId) {
+        User user = (User) session.getAttribute("user");
+        User loginUser = userService.getOne(user);
+        order.setUser_id(loginUser.getId());
+        String orderCode = UUID.randomUUID().toString().substring(0, 5);
+        order.setOrder_code(orderCode);
+        order.setCreate_date(new Date());
+        order.setUpdate_date(new Date());
+        order.setStatus(OrderPayStatus.WP.getStatus());
+        orderService.doAdd(order);
+        orderLogService.updateById(orderLogId,order.getId());
+        return Result.success(order);
+    }
+
 }

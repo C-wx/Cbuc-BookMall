@@ -235,14 +235,11 @@
             </div>
             <script>
                 function buyLink() {
-                    var page = "checkLogin";
                     $.get(
-                        page,
+                        "checkLogin",
                         function (result) {
-                            if ("success" == result) {
-                                var productId = ${product.id};
-                                debugger
-                                window.location = "/buyNow?product_id="+productId+"&number=" + $("#number").val();
+                            if ("100" == result.code) {
+                                window.location = "/buyNow?product_id="+'${product.id}'+"&number=" + $("#number").val();
                             }
                             else {
                                 $("#loginForm input").val('');
