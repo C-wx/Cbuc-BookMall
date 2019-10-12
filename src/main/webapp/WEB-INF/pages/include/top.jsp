@@ -64,7 +64,7 @@
                     </li>
                     <li>
                     <c:if test="${not empty sessionScope.user}">
-                        <a href="javascript:;" style="margin-top: 3px;font-size: 16px;font-family: Arial">
+                        <a href="toCarPage" style="margin-top: 3px;font-size: 16px;font-family: Arial">
                             购物车
                             <i class="fa fa-shopping-cart"></i>
                             <c:if test="${empty sessionScope.carTotalCount}">

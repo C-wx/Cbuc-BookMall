@@ -49,19 +49,19 @@
                 <table class="addressTable">
                     <tr>
                         <td class="firstColumn">&nbsp;&nbsp;&nbsp;&nbsp;<span class="redStar">*</span>详细地址：</td>
-                        <td><textarea name="addr" class="inputText" rows="1" placeholder="收货地址"></textarea></td>
+                        <td><textarea name="addr" class="inputText" rows="1" placeholder="收货地址" value="${user.addr}">${user.addr}</textarea></td>
                     </tr>
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮政编码：</td>
-                        <td><input name="post" class="inputText" placeholder="邮政编码" type="text" maxlength="6"></td>
+                        <td><input name="post" class="inputText" placeholder="邮政编码" type="text" maxlength="6" value="00000"></td>
                     </tr>
                     <tr>
                         <td><span class="redStar">*</span>收货人姓名：</td>
-                        <td><input name="receiver" class="inputText" placeholder="收货人姓名" type="text" maxlength="25"></td>
+                        <td><input name="receiver" class="inputText" placeholder="收货人姓名" type="text" maxlength="25" value="${user.user_name}"></td>
                     </tr>
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="redStar">*</span>手机号码：</td>
-                        <td><input name="phone" class="inputText" placeholder="手机号码" type="text" maxlength="11"></td>
+                        <td><input name="phone" class="inputText" placeholder="手机号码" type="text" maxlength="11" value="${user.phone}"></td>
                     </tr>
                 </table>
             </div>
@@ -131,12 +131,12 @@
             </table>
             <script>
                 $(function () {
-                    $("input[name='delivery']").on('click', function () {
+                    $("input[name='postage']").on('click', function () {
                         if ($("input[name='postage']:checked").val() == "1") {
-                            $("#totalMoney").text("￥"+(${total}+10));
+                            $("#totalMoney").text((${total}+10));
                             $(".orderItemTotalSumSpan").text("￥"+(${total}+10));
                         }else{
-                            $("#totalMoney").text("￥"+${total});
+                            $("#totalMoney").text(${total});
                             $(".orderItemTotalSumSpan").text("￥"+${total});
                         }
                     });
@@ -167,11 +167,11 @@
         </div>
 
         <div class="submitOrderDiv">
-            <button type="button" onclick="submitForm(this)" class="submitOrderButton">提交订单</button>
+            <button type="button" onclick="submitForm()" class="submitOrderButton">提交订单</button>
         </div>
     </form>
     <script>
-        submitForm = function (e) {
+        submitForm = function () {
             $("#price").val($("#totalMoney").text());
             $.ajax({
                 url : $("form").attr("action"),

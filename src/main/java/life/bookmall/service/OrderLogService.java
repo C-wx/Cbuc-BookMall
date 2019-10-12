@@ -24,7 +24,7 @@ public class OrderLogService {
 
     public List<OrderLog> getListByUserIdAndType(Long id, String type) {
         OrderLogExample orderLogExample = new OrderLogExample();
-        orderLogExample.createCriteria().andTypeEqualTo(type).andUser_idEqualTo(id);
+        orderLogExample.createCriteria().andTypeEqualTo(type).andUser_idEqualTo(id).andStatusNotEqualTo("D");
         return orderLogMapper.selectByExample(orderLogExample);
     }
 

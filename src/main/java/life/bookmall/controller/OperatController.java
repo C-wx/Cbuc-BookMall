@@ -110,6 +110,7 @@ public class OperatController {
         orderLog.setProduct(product);
         orderLogService.doAdd(orderLog);
         orderLogs.add(orderLog);
+        model.addAttribute("user",loginUser);
         model.addAttribute("orderLogs",orderLogs);
         model.addAttribute("total",total);
         return "purchasePage";
@@ -131,4 +132,13 @@ public class OperatController {
         return Result.success(order);
     }
 
+    @ResponseBody
+    @RequestMapping("/payed")
+    public Object payed(Long order_id,float total,Model model) {
+        Order order = orderService.queryDetail(order_id);
+        order.setPay_date(new Date());
+        order.setStatus(OrderPayStatus.WD.getStatus());
+        orderService.updateOrder(order);
+        return Result.success(order);
+    }
 }

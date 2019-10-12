@@ -222,6 +222,6 @@
 
     });
 </script>
-
 </body>
+<jsp:include page="include/foot.jsp"/>
 </html>

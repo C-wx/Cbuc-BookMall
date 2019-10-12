@@ -4,10 +4,12 @@ function login() {
     var loginPwd = $("#LPW").val().trim();
     var veryCode = $("#veryCode").val().trim();
     if (!loginName) {
+        $("#LNAME").css("border","1px #8a6d3b solid");
         $("#helpBlock1").css("display", "block").text("账号不能为空!");
         return;
     }
     if (!loginPwd) {
+        $("#LPW").css("border","1px #8a6d3b solid");
         $("#helpBlock2").css("display", "block").text("密码不能为空!");
         return;
     }
@@ -32,11 +34,13 @@ function login() {
 };
 
 function clearInfo1() {
+    $("#LNAME").css("border","none");
     $("#helpBlock1").hide();
     $("div.loginErrorMessageDiv").hide();
 };
 
 function clearInfo2() {
+    $("#LPW").css("border","none");
     $("#helpBlock2").hide();
     $("div.loginErrorMessageDiv").hide();
 };
