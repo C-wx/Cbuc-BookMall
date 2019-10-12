@@ -30,6 +30,6 @@ public interface OrderLogMapper {
 
     int updateByPrimaryKey(OrderLog record);
 
-    @Select("select * from bm_order_log where user_id = #{id} and type = #{type}")
+    @Select("select * from bm_order_log where user_id = #{id} and type = #{type} and status != 'D'")
     List<OrderLog> getCarCount(@Param("id") Long id,@Param("type") String type);
 }

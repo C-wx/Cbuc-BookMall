@@ -25,7 +25,7 @@ public class PropertyService {
 
     public List<Property> queryProperties(Long product_id) {
         PropertyExample propertyExample = new PropertyExample();
-        propertyExample.createCriteria().andProduct_idEqualTo(product_id);
+        propertyExample.createCriteria().andProduct_idEqualTo(product_id).andStatusNotEqualTo("D");
         return propertyMapper.selectByExample(propertyExample);
     }
 }

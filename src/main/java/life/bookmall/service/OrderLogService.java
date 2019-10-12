@@ -54,4 +54,12 @@ public class OrderLogService {
         orderLogExample.createCriteria().andIdEqualTo(orderLogId);
         return orderLogMapper.updateByExampleSelective(orderLog, orderLogExample);
     }
+
+    public int doDelete(Long deleteOrderLogid) {
+        OrderLog orderLog = new OrderLog();
+        orderLog.setStatus("D");
+        OrderLogExample orderLogExample = new OrderLogExample();
+        orderLogExample.createCriteria().andIdEqualTo(deleteOrderLogid);
+        return orderLogMapper.updateByExampleSelective(orderLog, orderLogExample);
+    }
 }

@@ -7,7 +7,7 @@ package life.bookmall.MallEnum;
  * @Author: Cbuc
  */
 public enum OrderPayStatus {
-    WP("待付款"),WD("待发货"),WC("待收货"),DD("取消订单");
+    WP("WP"),WD("WD"),WC("WC"),DD("DD");
 
     OrderPayStatus(String status) {
         this.status = status;

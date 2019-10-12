@@ -141,4 +141,14 @@ public class OperatController {
         orderService.updateOrder(order);
         return Result.success(order);
     }
+
+    @ResponseBody
+    @RequestMapping("/deleteOrderLog")
+    public Object deleteOrderLog(Long deleteOrderLogid) {
+        int result = orderLogService.doDelete(deleteOrderLogid);
+        if (result > 0) {
+            return Result.success();
+        }
+        return Result.error();
+    }
 }

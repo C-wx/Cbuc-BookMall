@@ -309,7 +309,7 @@
         select
         <include refid="Base_Column_List"/>
         from bm_product
-        where 1=1
+        where status != "D"
         ORDER BY saled desc
         LIMIT 0,5
     </select>
@@ -317,7 +317,7 @@
         select
         <include refid="Base_Column_List"/>
         from bm_product
-        where active = "1";
+        where active = "1" and status != "D";
     </select>
 
 </mapper>

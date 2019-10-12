@@ -1,6 +1,7 @@
 package life.bookmall.service;
 
 import life.bookmall.bean.Category;
+import life.bookmall.bean.CategoryExample;
 import life.bookmall.mapper.CategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,8 @@ public class CategoryService {
 
 
     public List<Category> list() {
-        return categoryMapper.selectByExample(null);
+        CategoryExample categoryExample = new CategoryExample();
+        categoryExample.createCriteria().andStatusNotEqualTo("D");
+        return categoryMapper.selectByExample(categoryExample);
     }
 }

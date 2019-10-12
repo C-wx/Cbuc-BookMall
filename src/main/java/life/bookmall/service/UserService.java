@@ -30,10 +30,10 @@ public class UserService {
         UserExample secondExample = new UserExample();
         userExample.createCriteria()
                 .andUser_nameEqualTo(user.getUser_name())
-                .andPwdEqualTo(user.getPwd());
+                .andPwdEqualTo(user.getPwd()).andStatusNotEqualTo("D");
         UserExample.Criteria criteria = secondExample.createCriteria();
         criteria.andPhoneEqualTo(user.getUser_name())
-                .andPwdEqualTo(user.getPwd());
+                .andPwdEqualTo(user.getPwd()).andStatusNotEqualTo("D");
         userExample.or(criteria);
         List<User> users = userMapper.selectByExample(userExample);
         if (!ObjectUtils.isEmpty(users)) {
