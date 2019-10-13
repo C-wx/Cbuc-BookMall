@@ -32,8 +32,7 @@
 </script>
 <div class="buyPageDiv">
     <form action="createOrder" method="post">
-        <input type="hidden" name="num" value="${param.number}"/>
-        <input type="hidden" name="product_id" value="${param.product_id}"/>
+
         <div class="buyFlow">
             <a href="/home">
                 <img class="pull-left" src="../../static/imgs/p.jpg" style="width: 240px;height: 130px">
@@ -79,24 +78,24 @@
                     <th>单价</th>
                     <th>数量</th>
                     <th>小计</th>
-                    <th>配送方式</th>
+                    <%--<th>配送方式</th>--%>
                 </tr>
                 <tr class="rowborder">
                     <td colspan="2"></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <%--<td></td>--%>
                 </tr>
                 </thead>
                 <tbody class="productListTableTbody">
                 <c:forEach items="${orderLogs}" var="ol" varStatus="st">
-                    <input type="hidden" name="orderLogId" value="${ol.id}">
-                    <input type="hidden" name="price" id="price">
                     <tr class="orderItemTR">
-                        <td class="orderItemFirstTD"><img class="orderItemImg" src="../../static/upload/image/${ol.product.img}">
+                        <input type="hidden" name="orderLogId" value="${ol.id}">
+                        <td class="orderItemFirstTD" style="width: 100px">
+                            <img id="orderItemImg" src="../../static/upload/image/${ol.product.img}">
                         </td>
-                        <td class="orderItemProductInfo">
+                        <td class="orderItemProductInfo" style="width: 300px">
                             <a href="/showProduct?product_id=${ol.product_id}" class="orderItemProductLink">
                                     ${ol.product.name}
                             </a>
@@ -111,8 +110,9 @@
                             <span class="orderItemProductNumber">${ol.num}</span>
                         </td>
                         <td>
-                            <span class="orderItemUnitSum" >￥<fmt:formatNumber type="number" value="${total}" minFractionDigits="2"/></span>
+                            <span class="orderItemUnitSum" >￥<fmt:formatNumber type="number" value="${ol.product.price*ol.num}" minFractionDigits="2"/></span>
                         </td>
+                        <%--取消选择快递
                         <c:if test="${st.count==1}">
                             <td rowspan="5" class="orderItemLastTD">
                                 <label class="orderItemDeliveryLabel">
@@ -125,11 +125,13 @@
                                 </label>
                             </td>
                         </c:if>
+                        --%>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
-            <script>
+           <%-- <script>
+                //取消选择快递
                 $(function () {
                     $("input[name='postage']").on('click', function () {
                         if ($("input[name='postage']:checked").val() == "1") {
@@ -141,7 +143,7 @@
                         }
                     });
                 });
-            </script>
+            </script>--%>
             <div class="orderItemSumDiv">
                 <div class="pull-left">
                     <span class="leaveMessageText">给卖家留言:</span>
@@ -173,12 +175,17 @@
     <script>
         submitForm = function () {
             $("#price").val($("#totalMoney").text());
+            var idArray  = new Array();
+            $(".orderItemTR input[name='orderLogId']").each(function (i,json) {
+               idArray[i] = json.value;
+            });
+            console.log(idArray);
             $.ajax({
                 url : $("form").attr("action"),
                 type : "POST",
-                data : $("form").serialize(),
+                data : $("form").serialize()+"&idArray="+idArray,
                 success : function (result) {
-                    window.location.href = "payPage?order_id=" + result.data.id + "&total=" + $(".orderItemTotalSumSpan").text().split("￥")[1];
+                    window.location.href = "payPage?order_id=" + result.data + "&total=" + $(".orderItemTotalSumSpan").text().split("￥")[1];
                 }
             });
         }

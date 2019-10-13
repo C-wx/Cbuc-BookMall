@@ -112,9 +112,10 @@ table.productListTable tr.rowborder td {
     height: 3px;
 }
 
-img.orderItemImg {
+img#orderItemImg {
+    display: inline-block;
     width: 60px;
-    height: 60px;
+    height: 70px;
     border: 1px solid #E9E9E9;
 }
 

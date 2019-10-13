@@ -70,7 +70,7 @@
             $.get(
                 page,
                 function (result) {
-                    if ("success" == result) {
+                    if ("100" == result.code) {
                         var product_id = ${product.id};
                         var num = $(".productNumberSetting").val();
                         var addCartpage = "/addPurchase";

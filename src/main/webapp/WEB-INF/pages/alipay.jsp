@@ -147,7 +147,7 @@
                                $("#addr").text(result.data.addr);
                                $("#receiver").text(result.data.receiver);
                                $("#phone").text(result.data.phone);
-                               $("#total").text("￥"+result.data.price);
+                               $("#total").text("￥"+result.data.total);
                                $('#alipayModal').modal("show");
                            }
                         });

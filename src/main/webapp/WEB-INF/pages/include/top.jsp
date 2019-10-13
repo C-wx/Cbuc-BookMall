@@ -56,7 +56,7 @@
                     </li>
                     <li>
                     <c:if test="${not empty sessionScope.user}">
-                        <a href="myOrder" style="margin-top: 3px;font-size: 16px;font-family: Arial">
+                        <a href="toOrderPage" style="margin-top: 3px;font-size: 16px;font-family: Arial">
                             我的订单
                             <i class="fa fa-file-text"></i>
                         </a>

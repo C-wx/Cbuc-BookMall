@@ -24,7 +24,7 @@ public class OrderLogService {
 
     public List<OrderLog> getListByUserIdAndType(Long id, String type) {
         OrderLogExample orderLogExample = new OrderLogExample();
-        orderLogExample.createCriteria().andTypeEqualTo(type).andUser_idEqualTo(id).andStatusNotEqualTo("D");
+        orderLogExample.createCriteria().andTypeEqualTo(type).andUser_idEqualTo(id).andStatusEqualTo("E");
         return orderLogMapper.selectByExample(orderLogExample);
     }
 
@@ -50,6 +50,7 @@ public class OrderLogService {
     public int updateById(Long orderLogId,Long orderId) {
         OrderLog orderLog = new OrderLog();
         orderLog.setOrder_id(orderId);
+        orderLog.setStatus("Y");
         OrderLogExample orderLogExample = new OrderLogExample();
         orderLogExample.createCriteria().andIdEqualTo(orderLogId);
         return orderLogMapper.updateByExampleSelective(orderLog, orderLogExample);
@@ -62,4 +63,9 @@ public class OrderLogService {
         orderLogExample.createCriteria().andIdEqualTo(deleteOrderLogid);
         return orderLogMapper.updateByExampleSelective(orderLog, orderLogExample);
     }
+
+    public OrderLog queryDetail(long id) {
+        return orderLogMapper.selectByPrimaryKey(id);
+    }
+
 }

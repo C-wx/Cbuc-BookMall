@@ -64,8 +64,7 @@ public class PageController {
     }
 
     @RequestMapping("/payPage")
-    public String payPage(Integer order_id,float total) {
-        System.out.println(order_id+total);
+    public String payPage(String order_id,float total) {
         return "alipay";
     }
 
