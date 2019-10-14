@@ -133,7 +133,7 @@
             <div class="floor-name">活动
                 <span class="glyphicon glyphicon-volume-up" aria-hidden="true" style="color: red;margin-right: 6px"></span>精
                 <span class="glyphicon glyphicon-volume-up" aria-hidden="true" style="color: red;margin:0px 4px 0px"></span>选</div>
-
+            <span style="font-size: 15px;margin-left: 20px;color: red" id="test"></span>
             <br>
             <c:forEach items="${activeBooks}" var="abs">
                 <a class="grid" href="showProduct?product_id=${abs.id}">
@@ -150,7 +150,7 @@
         <c:forEach items="${categories}" var="c" varStatus="sts">
             <%-- 该分类下有产品才能显示 --%>
             <c:if test="${!empty c.products}">
-                <%-- 默认只展示前五个分类的内容，多了页面太长 --%>
+                <%-- 默认只展示前五个分类的内容 --%>
                 <c:if test="${sts.count<=5}">
                     <div class="floor-line-con">
                         <i class="color-mark"></i>
@@ -220,6 +220,20 @@
             active[method] ? active[method].call(this, othis) : '';
         });
 
+    });
+</script>
+<script>
+    layui.use('util', function(){
+        var util = layui.util;
+
+        //示例
+        var endTime = new Date(2020,1,1).getTime()
+            ,serverTime = new Date().getTime();
+
+        util.countdown(endTime, serverTime, function(date, serverTime, timer){
+            var str = date[0] + '天' + date[1] + '时' +  date[2] + '分' + date[3] + '秒';
+            layui.$('#test').html('距离活动截止还有：<span style="font-size: 18px;font-weight: bold">'+str+'</span>' );
+        });
     });
 </script>
 </body>

@@ -1,0 +1,153 @@
+div.boughtDiv {
+    max-width: 1013px;
+    margin: 10px auto;
+}
+
+div.orderType div {
+    border-bottom: 2px solid #E8E8E8;
+    float: left;
+}
+
+div.orderType a {
+    border-right: 1px solid #E8E8E8;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 楷体;
+    color: black;
+    margin-bottom: 10px;
+    padding: 0px 70px;
+    text-decoration: none;
+}
+
+div.orderType a:hover {
+    color: #FF0036;
+    text-decoration: none;
+}
+
+div.orderType div.selectedOrderType {
+    border-bottom: 2px solid #FF0036;
+}
+
+div.orderType div.selectedOrderType a {
+    color: #FF0036;
+}
+
+div.orderTypeLastOne {
+    overflow: hidden;
+    float: none !important;
+    border-bottom: 2px solid #E8E8E8;
+    height: 33px;
+}
+
+a.noRightborder {
+    border-right-width: 0px !important;
+}
+
+table.orderListTitleTable {
+    border: 1px solid #E8E8E8;
+    width: 100%;
+    margin: 20px 0px;
+    background-color: #F5F5F5;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+table.orderListTitleTable td {
+    padding: 12px 0px;
+}
+
+div.boughtDiv {
+    max-width: 1013px;
+    margin: 10px auto;
+}
+
+table.orderListItemTable {
+    border: 2px solid #ECECEC;
+    width: 100%;
+    margin: 20px 0px;
+    font-size: 12px;
+}
+
+table.orderListItemTable:hover {
+    border: 2px solid #aaa !important;
+}
+
+table.orderListItemTable td {
+    padding: 8px 10px;
+}
+
+tr.orderListItemFirstTR {
+    background-color: #F1F1F1;
+}
+td.orderItemDeleteTD {
+    text-align: right;
+}
+
+span.orderListItemDelete {
+    display: inline-block;
+    margin: 0px 10px;
+    color: #999999;
+    font-size: 16px;
+}
+
+div.orderListItemProductLinkOutDiv {
+    position: relative;
+    left: 50px;
+    height: 80px;
+}
+
+div.orderListItemProductLinkInnerDiv {
+    position: absolute;
+    bottom: 26px;
+}
+
+div.orderListItemProductPrice {
+    color: #3C3C3C;
+    font-size: 16px;
+}
+
+.orderListItemNumberTD {
+    text-align: center;
+}
+
+td.orderItemOrderInfoPartTD {
+    border: solid 1px #ECECEC;
+}
+
+span.orderListItemNumber {
+    color: #3C3C3C;
+    font-size: 16px;
+}
+
+td.orderListItemProductRealPriceTD {
+    text-align: center;
+}
+
+div.orderListItemProductRealPrice {
+    color: #3C3C3C;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+div.orderListItemPriceWithTransport {
+    color: #6C6C6C;
+    font-size: 12px;
+}
+
+td.orderListItemButtonTD {
+    text-align: center;
+}
+
+a.nameStyle{
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 16px;
+    color: #0f0f0f;
+}
+
+a.nameStyle:hover {
+    text-decoration: none;
+    color: #5FB878;
+}

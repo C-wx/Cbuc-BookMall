@@ -39,6 +39,12 @@ public class Order {
 
     private String status;
 
+    /**==============非表字段==============*/
+
+    private Product product;
+
+    /**===================================*/
+
     public Long getId() {
         return id;
     }
@@ -181,5 +187,13 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

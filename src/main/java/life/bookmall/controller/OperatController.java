@@ -215,4 +215,15 @@ public class OperatController {
         model.addAttribute("orders",orders);
         return "orderPage";
     }
+
+    @ResponseBody
+    @RequestMapping("/deleteOrder")
+    public Object deleteOrder(Long order_id) {
+        Order order = new Order();
+        order.setId(order_id);
+        order.setStatus(OrderPayStatus.DD.getStatus());
+        order.setUpdate_date(new Date());
+        orderService.updateOrder(order);
+        return Result.success();
+    }
 }

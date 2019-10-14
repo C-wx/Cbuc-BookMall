@@ -58,7 +58,7 @@
                     <c:if test="${not empty sessionScope.user}">
                         <a href="toOrderPage" style="margin-top: 3px;font-size: 16px;font-family: Arial">
                             我的订单
-                            <i class="fa fa-file-text"></i>
+                            <i class="fa fa-file-text" style="color: #0c0c0c"></i>
                         </a>
                     </c:if>
                     </li>
@@ -66,7 +66,7 @@
                     <c:if test="${not empty sessionScope.user}">
                         <a href="toCarPage" style="margin-top: 3px;font-size: 16px;font-family: Arial">
                             购物车
-                            <i class="fa fa-shopping-cart"></i>
+                            <i class="fa fa-shopping-cart" style="color:orangered;"></i>
                             <c:if test="${empty sessionScope.carTotalCount}">
                                 <strong>0</strong>
                             </c:if>

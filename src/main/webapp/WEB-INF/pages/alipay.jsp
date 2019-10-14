@@ -89,7 +89,7 @@
                             <span id="total"></span>
                         </li>
                     </ul>
-                    <a href="#" class="layui-btn layui-btn-primary layui-btn-radius">查看订单</a>
+                    <a href="/toOrderPage" class="layui-btn layui-btn-primary layui-btn-radius">查看订单</a>
                     <a href="/home" class="layui-btn layui-btn-primary layui-btn-radius">确认</a>
                 </div>
             </div>
