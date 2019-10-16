@@ -1,5 +1,6 @@
 package life.bookmall.controller;
 
+import com.github.pagehelper.PageHelper;
 import life.bookmall.MallEnum.OrderLogType;
 import life.bookmall.MallEnum.OrderPayStatus;
 import life.bookmall.bean.*;
@@ -226,4 +227,49 @@ public class OperatController {
         orderService.updateOrder(order);
         return Result.success();
     }
+
+    @ResponseBody
+    @RequestMapping("/confirmedDeliver")
+    public Object confirmedDeliver(Long orderId) {
+        Order order = new Order();
+        order.setId(orderId);
+        order.setStatus(OrderPayStatus.WR.getStatus());
+        order.setConfirm_date(new Date());
+        orderService.updateOrder(order);
+        return Result.success();
+    }
+
+    @ResponseBody
+    @RequestMapping("/issueRemark")
+    public Object issueRemark(Long order_id, String msg, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        User loginUser = userService.getOne(user);
+        Order order = orderService.queryDetail(order_id);
+        Long product_id = order.getProduct_id();
+        Comment comment = new Comment();
+        comment.setUser(loginUser);
+        comment.setCommentator(loginUser.getId());
+        comment.setCreate_time(new Date());
+        comment.setLike_count(0L);
+        comment.setMsg(msg);
+        comment.setProduct_id(product_id);
+        commentService.doAdd(comment);
+        order.setStatus("SS");
+        orderService.updateOrder(order);
+        return Result.success();
+    }
+
+
+    @RequestMapping("/searchProduct")
+    public String searchProduct(Model model, String keyword) {
+
+        PageHelper.offsetPage(0, 20);
+        List<Product> products = productService.search(keyword);
+        for (Product product : products) {
+            product.setCommentCount(commentService.getCount(product.getId()));
+        }
+        model.addAttribute("products", products);
+        return "searchResult";
+    }
+
 }

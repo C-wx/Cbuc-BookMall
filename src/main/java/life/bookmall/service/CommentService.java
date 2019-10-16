@@ -44,4 +44,14 @@ public class CommentService {
             comment.setUser(user);
         }
     }
+
+    public int doAdd(Comment comment) {
+        return commentmapper.insertSelective(comment);
+    }
+
+    public Integer getCount(Long id) {
+        CommentExample commentExample = new CommentExample();
+        commentExample.createCriteria().andProduct_idEqualTo(id);
+        return commentmapper.selectByExample(commentExample).size();
+    }
 }

@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
     <title>我的订单</title>
@@ -32,24 +32,96 @@
                 $(this).parent("div").addClass("selectedOrderType");
             });
             $(".ask2delivery").click(function () {
-                $(this).attr("disabled","disabled");
-                layer.msg("亲，已经帮您催促了哈！",{
+                $(this).attr("disabled", "disabled");
+                layer.msg("亲，已经帮您催促了哈！", {
                     time: 2000
-                    ,offset: '200px'
+                    , offset: '200px'
                 });
+            });
+            $("#confirmed").click(function () {
+                var orderId = $(this).attr("order_id");
+                $("#order_id").val(orderId);
+                $.ajax({
+                    url: "confirmedDeliver",
+                    type: "POST",
+                    data: {'orderId':orderId},
+                    success: function (result) {
+                        layer.msg("<div style='text-align: center;font-size: 20px;font-weight: bold'>确认收货成功！</div>", {
+                            time: 20000
+                            ,offset: '200px'
+                            ,skin: 'demo-class'
+                            ,btn:['去评价','关闭']
+                            ,btnAlign: 'c'
+                            , shade: 0.5
+                            ,yes:function () {
+                                layer.closeAll();
+                                $("#remarkModel").modal('show');
+                            },btn2:function () {
+                                layer.closeAll();
+                                location.reload();
+                            }
+                        });
+                    }
+                })
+            });
+
+            $("#issue").click(function () {
+                $.ajax({
+                    url:"issueRemark",
+                    type:"POST",
+                    data: $("#commentForm").serialize(),
+                    success: function () {
+                        $("#remarkModel").modal('hide');
+                        layer.msg("评论成功");
+                        location.reload();
+                    }
+                })
+            });
+            $("#remark").click(function () {
+                var orderId = $(this).attr("oid");
+                $("#remarkModel").modal('show');
+                $("#order_id").val(orderId);
             });
         });
     </script>
 </head>
 <jsp:include page="include/top.jsp"/>
 <body>
+
+<%--评价模态框--%>
+<div class="modal fade" id="remarkModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;font-size: 24px;font-weight: bold">请输入您的评价内容</h4>
+            </div>
+            <div class="modal-body">
+                <form id="commentForm">
+                    <input type="hidden" id="order_id" name="order_id" value="">
+                    <div class="form-group">
+                        <label for="message-text" class="control-label" style="font-weight: bold;font-size: 14px;color: #ac2925;">Message:</label>
+                        <textarea class="form-control" id="message-text" name="msg"></textarea>
+                    </div>
+                </form>
+                <div style="text-align: center">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button id="issue" type="button" class="btn btn-primary">发表</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%--模态框END--%>
+
+
 <div class="boughtDiv">
     <div class="orderType">
         <div class="selectedOrderType"><a orderStatus="all" href="#nowhere">所有订单</a></div>
         <div><a orderStatus="WP" href="javascript:;">待付款</a></div>
         <div><a orderStatus="WD" href="javascript:;">待发货</a></div>
         <div><a orderStatus="WC" href="javascript:;">待收货</a></div>
-        <div><a orderStatus="WR" href="javascript:;" class="noRightborder">待评价</a></div>
+        <div><a orderStatus="WR" href="javascript:;" >待评价</a></div>
+        <div><a orderStatus="SS" href="javascript:;" class="noRightborder">已完成订单</a></div>
     </div>
     <div style="clear:both"></div>
     <div class="orderListTitle">
@@ -85,7 +157,7 @@
                     </td>
                     <td class="orderItemProductInfoPartTD" style="width: 300px">
                         <div class="orderListItemProductLinkOutDiv">
-                            <a href="foreproduct?pid=${o.product.id}" class="nameStyle">${o.product.name}</a>
+                            <a href="/showProduct?product_id=${o.product.id}" class="nameStyle">${o.product.name}</a>
                             <div class="orderListItemProductLinkInnerDiv">
                                 <img src="../../static/imgs/creditcard.png" title="支持信用卡支付">
                                 <img src="../../static/imgs/7day.png" title="消费者保障服务,承诺7天退货">
@@ -105,9 +177,7 @@
                     </td>
                     <td rowspan="1" class="orderListItemButtonTD orderItemOrderInfoPartTD" width="100px">
                         <c:if test="${o.status=='WC' }">
-                            <a href="confirmPay?order_id=${o.id}">
-                                <button class="btn btn-success btn-sm">确认收货</button>
-                            </a>
+                            <button id="confirmed" class="btn btn-success btn-sm" order_id=${o.id}>确认收货</button>
                         </c:if>
                         <c:if test="${o.status=='WP' }">
                             <a href="/payPage?order_id=${o.id}&total=${o.price}">
@@ -122,9 +192,10 @@
                             </button>
                         </c:if>
                         <c:if test="${o.status=='WR' }">
-                            <a href="review?order_id=${o.id}">
-                                <button class="btn btn-primary btn-sm">评价</button>
-                            </a>
+                            <button oid="${o.id}" id="remark" class="btn btn-primary btn-sm">评价</button>
+                        </c:if>
+                        <c:if test="${o.status=='SS' }">
+                            <span >订单已完成</span>
                         </c:if>
                     </td>
                 </tr>
@@ -141,12 +212,12 @@
             confirmTrans: function (othis) {
                 layer.msg("<div style='color:#fff9ec;font-size: 20px;font-weight: bold;font-family:楷体'>确定删除此订单吗</div>", {
                     time: 20000
-                    ,offset: '200px'
-                    ,anim: 6
-                    ,btn: ['确定', '取消']
-                    ,btnAlign: 'c'
-                    ,shade:0.5
-                    ,yes:function () {
+                    , offset: '200px'
+                    , anim: 6
+                    , btn: ['确定', '取消']
+                    , btnAlign: 'c'
+                    , shade: 0.5
+                    , yes: function () {
                         var deleteOrderid = othis.attr("oid");
                         $.post(
                             "deleteOrder",
@@ -155,9 +226,9 @@
                                 if ("100" == result.code) {
                                     $("table.orderListItemTable[oid=" + deleteOrderid + "]").hide();
                                     layer.closeAll();
-                                    layer.msg("删除成功！",{
+                                    layer.msg("删除成功！", {
                                         time: 2000
-                                        ,offset: '200px'
+                                        , offset: '200px'
                                     })
                                 } else {
                                     location.href = "orderPage";
@@ -169,7 +240,7 @@
             }
         };
         $(".deleteOrderLink").on('click', function () {
-            active['confirmTrans'].call(this,$(this));
+            active['confirmTrans'].call(this, $(this));
         });
     });
 </script>
