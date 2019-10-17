@@ -1,0 +1,199 @@
+.nrt {
+    background-color: #d1ffd4;
+    color: #595959;
+    margin-bottom: 10px;
+    padding: 20px 0 20px 123px;
+    line-height: 27px;
+    font-size: 14px;
+    border: 1px solid #F7EAE7;
+    margin-top: 25px;
+}
+
+.product {
+    margin-top: 40px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 220px;
+    height: 290px;
+    position: relative;
+    float: left;
+    padding: 0;
+    /*margin: 0 0 20px;*/
+    line-height: 1.5;
+    overflow: visible;
+    z-index: 1;
+}
+
+.product-hover .product-iWrap, .product:hover .product-iWrap {
+    height: auto;
+    margin: -3px;
+    border: 4px solid #ff0036;
+    border-radius: 0;
+    -webkit-transition: border-color .2s ease-in;
+    -moz-transition: border-color .2s ease-in;
+    -ms-transition: border-color .2s ease-in;
+    -o-transition: border-color .2s ease-in;
+    transition: border-color .2s ease-in;
+}
+
+.product:hover {
+    overflow: visible;
+    z-index: 3;
+    background: #fff;
+}
+
+.product-iWrap {
+    min-height: 98%;
+    width: 210px;
+    position: absolute;
+    background-color: #fff;
+    margin: 0;
+    padding: 4px 4px 0;
+    font-size: 12px;
+    border: 1px solid #f5f5f5;
+    border-radius: 3px;
+}
+
+.productImg-wrap a, .productImg-wrap img {
+    max-width: 100%;
+    max-height: 210px;
+}
+
+.productPrice {
+    font-family: arial, verdana, sans-serif !important;
+    color: #ff0036;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 0 5px;
+    letter-spacing: normal;
+    overflow: inherit !important;
+    white-space: nowrap;
+}
+
+.productPrice em {
+    float: left;
+    font-family: arial;
+    font-weight: 400;
+    font-size: 20px;
+    color: #ff0036;
+}
+
+.productPrice em b {
+    margin-right: 2px;
+    font-weight: 700;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.productTitle {
+    display: block;
+    color: #666;
+    height: 14px;
+    line-height: 12px;
+    margin-bottom: 3px;
+    word-break: break-all;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.productTitle a {
+    color: #333;
+    font-family: 微软雅黑;
+    line-height: 14px;
+    font-size: 12px;
+}
+
+.productStatus {
+    position: relative;
+    height: 33px;
+    border: none;
+    border-top: 1px solid #eee;
+    margin-bottom: 0;
+    color: #999;
+    display: block;
+    overflow: hidden;
+}
+
+.productStatus em {
+    color: #b57c5b;
+}
+
+.productStatus a, .productStatus em {
+    margin-top: -8px;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+em {
+    font-style: normal;
+}
+
+.productStatus span {
+    float: left;
+    display: inline-block;
+    border-right: 1px solid #eee;
+    width: 39%;
+    padding: 10px 1px;
+    margin-right: 6px;
+    line-height: 12px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.productStatus a {
+    color: #38b;
+}
+
+.productStatus .ww-light {
+    border-right: none;
+    width: 11%;
+    text-align: center;
+}
+
+.productStatus .ww-light a {
+    background: url(/img/fore/ww-online.png) center center no-repeat !important;
+    background-size: 16px !important;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin-top: -3px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+
+div.searchProducts {
+    margin-top: 80px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.filter {
+    boder-top: 1px solid #e5e5e5;
+    margin: 10px 0;
+    padding: 5px;
+    position: relative;
+    z-index: 10;
+    background: #faf9f9;
+    color: #806f66;
+}
+
+.fSort:hover, a.fSort-cur, a.fType-cur {
+    color: #FF0036;
+    background-color: #F1EDEC;
+}
+
+.fSort {
+    display: inline-block;
+    margin-left: -1px;
+    overflow: hidden;
+    padding: 0 15px 0 5px;
+    float: left;
+    height: 22px;
+    line-height: 20px;
+    border: 1px solid #CCCCCC;
+    z-index: 10;
+}

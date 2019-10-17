@@ -262,7 +262,6 @@ public class OperatController {
 
     @RequestMapping("/searchProduct")
     public String searchProduct(Model model, String keyword) {
-
         PageHelper.offsetPage(0, 20);
         List<Product> products = productService.search(keyword);
         for (Product product : products) {

@@ -24,19 +24,19 @@
             <button type="submit" class="searchButton"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             <ul class="hot-query">
                 <li>
-                    <a href="searchProduct?keyword=针织衫">热搜：我在未来等你</a>
+                    <a href="searchProduct?keyword=我在未来等你">热搜：我在未来等你</a>
                 </li>
                 <li class="hot-query-li">
-                    <a href="">人类探险史</a>
+                    <a href="searchProduct?keyword=人类探险史">人类探险史</a>
                 </li>
                 <li class="hot-query-li">
-                    <a href="">DK猜猜我是谁</a>
+                    <a href="searchProduct?keyword=DK猜猜我是谁">DK猜猜我是谁</a>
                 </li>
                 <li class="hot-query-li">
-                    <a href="">中间民间故事</a>
+                    <a href="searchProduct?keyword=中间民间故事">中间民间故事</a>
                 </li>
                 <li class="hot-query-li">
-                    <a href="">正面管教</a>
+                    <a href="searchProduct?keyword=正面管教">正面管教</a>
                 </li>
             </ul>
         </form>
@@ -53,31 +53,31 @@
                 <span class="glyphicon glyphicon-hand-down category-type-icon" ></span>
             </span>
         <span id="links">
-            <a href="">
+            <a href="searchProduct?keyword=图书">
                 <span>图书</span>
             </a>
-            <a href="">
+            <a href="searchProduct?keyword=电子书">
                 <span>电子书</span>
             </a>
-            <a href="">
+            <a href="searchProduct?keyword=网络文学">
                 <span>网络文学</span>
             </a>
-            <a href="">
+            <a href="searchProduct?keyword=服装">
                 <span>服装</span>
             </a>
-            <a href="">
+            <a href="searchProduct?keyword=运动户外">
                 <span>运动户外</span>
             </a>
-            <a href="">
+            <a href="searchProduct?keyword=孕婴童">
                 <span>孕婴童</span>
             </a>
-            <a href="">
+            <a href="searchProduct?keyword=教育">
                 <span>教育</span>
             </a>
-            <a href="">
+            <a href="searchProduct?keyword=文艺">
                 <span>文艺</span>
             </a>
-            <a href="">
+            <a href="searchProduct?keyword=励志">
                 <span>励志</span>
             </a>
         </span>

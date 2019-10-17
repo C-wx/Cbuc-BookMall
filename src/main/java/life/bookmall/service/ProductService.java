@@ -61,4 +61,11 @@ public class ProductService {
     public int updateStock(long product_id, int num) {
         return productMapper.updateStock(product_id,num);
     }
+
+    public List<Product> search(String keyword) {
+        ProductExample example = new ProductExample();
+        example.or().andNameLike("%" + keyword + "%");
+        example.setOrderByClause("id desc");
+        return productMapper.selectByExample(example);
+    }
 }
