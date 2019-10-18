@@ -61,4 +61,26 @@ public class UserService {
     public User queryDetail(Long commentator) {
         return userMapper.selectByPrimaryKey(commentator);
     }
+
+    public List<User> queryList() {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andTypeEqualTo("B");
+        UserExample secondExample = new UserExample();
+        UserExample.Criteria criteria = secondExample.createCriteria();
+        criteria.andTypeEqualTo("S");
+        userExample.or(criteria);
+        return userMapper.selectByExample(userExample);
+    }
+
+    public Integer queryCount(String type) {
+        if ("B".equals(type)) {
+            UserExample userExample = new UserExample();
+            userExample.createCriteria().andTypeEqualTo("B");
+            return userMapper.selectByExample(userExample).size();
+        }else{
+            UserExample userExample = new UserExample();
+            userExample.createCriteria().andTypeEqualTo("S");
+            return userMapper.selectByExample(userExample).size();
+        }
+    }
 }

@@ -3,7 +3,7 @@
 }
 
 .normal-nav {
-    padding-top: 20px;
+    padding-top: 10px;
     border: #00a2d4 1px solid;
     border-right: none;
     width: 200px;
@@ -27,6 +27,7 @@
 .normal-nav .nav-item:hover {
     background-color: #FFFFFF;
     color: #e54077;
+    cursor: pointer;
 }
 
 li, ul {

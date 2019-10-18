@@ -24,8 +24,13 @@ function login() {
         data: {user_name: loginName, pwd: loginPwd, veryCode: veryCode},
         success: function (result) {
             if (result.code == 100) {
+                debugger
                 layer.msg(result.msg);
-                window.location = "home";
+                if (result.data.type == '超级管理员' || result.data.type == 'S') {
+                    window.location = "main";
+                }else {
+                    window.location = "home";
+                }
             } else {
                 layer.msg(result.msg);
             }

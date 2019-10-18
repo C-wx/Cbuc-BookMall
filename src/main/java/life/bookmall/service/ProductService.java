@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ProjectName: BookMall
@@ -67,5 +68,15 @@ public class ProductService {
         example.or().andNameLike("%" + keyword + "%");
         example.setOrderByClause("id desc");
         return productMapper.selectByExample(example);
+    }
+
+    public List<Product> queryList() {
+        ProductExample productExample = new ProductExample();
+        productExample.createCriteria().andStatusNotEqualTo("D");
+        return productMapper.selectByExample(productExample);
+    }
+
+    public List<Map<String, Object>> queryActive() {
+        return productMapper.queryActive();
     }
 }

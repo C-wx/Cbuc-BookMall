@@ -51,4 +51,10 @@ public class OrderService {
             order.setProduct(product);
         }
     }
+
+    public Integer queryCount() {
+        OrderExample orderExample = new OrderExample();
+        orderExample.createCriteria().andStatusNotEqualTo("D");
+        return orderMapper.selectByExample(orderExample).size();
+    }
 }

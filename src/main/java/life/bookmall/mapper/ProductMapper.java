@@ -3,8 +3,10 @@ package life.bookmall.mapper;
 import life.bookmall.bean.Product;
 import life.bookmall.bean.ProductExample;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ProductMapper {
     long countByExample(ProductExample example);
@@ -34,4 +36,7 @@ public interface ProductMapper {
     List<Product> queryActiveBooks();
 
     int updateStock(@Param("id") long product_id,@Param("num") int num);
+
+    @Select("select name,saled from bm_product where active = '1' ")
+    List<Map<String, Object>> queryActive();
 }

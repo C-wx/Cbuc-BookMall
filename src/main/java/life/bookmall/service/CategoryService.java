@@ -28,4 +28,16 @@ public class CategoryService {
         categoryExample.createCriteria().andStatusNotEqualTo("D");
         return categoryMapper.selectByExample(categoryExample);
     }
+
+    public int doAdd(Category category) {
+        return categoryMapper.insertSelective(category);
+    }
+
+    public int doDel(Category category) {
+        return categoryMapper.updateByPrimaryKeySelective(category);
+    }
+
+    public int doMod(Category category) {
+        return categoryMapper.updateByPrimaryKeySelective(category);
+    }
 }

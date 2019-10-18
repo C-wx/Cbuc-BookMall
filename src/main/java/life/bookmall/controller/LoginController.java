@@ -46,7 +46,7 @@ public class LoginController {
             int carTotalCount = orderLogService.getCarTotalCount(activeUser.getId());
             session.setAttribute("carTotalCount",carTotalCount);
             session.setAttribute("user",activeUser);
-            return Result.success("登录成功");
+            return Result.success(activeUser);
         }
         return Result.error("用户不存在，请检查用户名密码");
     }
