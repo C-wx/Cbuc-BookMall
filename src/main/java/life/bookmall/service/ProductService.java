@@ -79,4 +79,8 @@ public class ProductService {
     public List<Map<String, Object>> queryActive() {
         return productMapper.queryActive();
     }
+
+    public List<Map<String, Object>> queryTop() {
+        return productMapper.queryTop();
+    }
 }

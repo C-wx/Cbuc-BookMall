@@ -115,7 +115,7 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="/main"><i class="fa fa-bars"></i> 商城报表</a>
+                    <a href="/main"><i class="fa fa-bar-chart-o"></i> 商城报表</a>
                 </li>
                 <li>
                     <a class="active-menu" href="/categoryMana"><i class="fa fa-bars"></i> 分类管理</a>

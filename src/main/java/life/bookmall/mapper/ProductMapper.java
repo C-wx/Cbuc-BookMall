@@ -37,6 +37,9 @@ public interface ProductMapper {
 
     int updateStock(@Param("id") long product_id,@Param("num") int num);
 
-    @Select("select name,saled from bm_product where active = '1' ")
+    @Select("select name,saled as value from bm_product where active = '1' ")
     List<Map<String, Object>> queryActive();
+
+    @Select("select name,saled as value from bm_product order by saled desc limit 0,5")
+    List<Map<String, Object>> queryTop();
 }

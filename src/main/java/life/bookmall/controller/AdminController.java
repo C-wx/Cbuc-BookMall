@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -106,10 +107,53 @@ public class AdminController {
 
     @RequestMapping("/queryActiveSaled")
     @ResponseBody
-    public Object getActiveBooks() {
+    public Object queryActiveSaled() {
         List<Map<String,Object>> infos = productService.queryActive();
-        return null;
+        return Result.success(infos);
     }
 
+    @RequestMapping("/queryTopBooks")
+    @ResponseBody
+    public Object queryTopBooks() {
+        List<Map<String,Object>> infos = productService.queryTop();
+        return Result.success(infos);
+    }
 
+    @ResponseBody
+    @RequestMapping("/getUserInfo")
+    public Object getUserInfo(Long id) {
+        User user = userService.queryDetail(id);
+        return Result.success(user);
+    }
+
+    @ResponseBody
+    @RequestMapping("/modifyUser")
+    public Object modifyUser(User user) {
+        int count = userService.doUpdate(user);
+        if (count > 0) {
+            return Result.success();
+        }else {
+            return Result.error();
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping("/modUserStatus")
+    public Object modUserStatus(Long id, String status) {
+        User user = new User();
+        user.setId(id);
+        user.setStatus(status);
+        userService.doUpdate(user);
+        return Result.success();
+    }
+
+    @ResponseBody
+    @RequestMapping("/addUser")
+    public Object addUser(User user) {
+        user.setImg("/default-avatar.png");
+        user.setCreate_time(new Date());
+        user.setUpdate_time(new Date());
+        userService.addOne(user);
+        return Result.success();
+    }
 }

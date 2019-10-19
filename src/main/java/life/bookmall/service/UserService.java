@@ -83,4 +83,8 @@ public class UserService {
             return userMapper.selectByExample(userExample).size();
         }
     }
+
+    public int doUpdate(User user) {
+        return userMapper.updateByPrimaryKeySelective(user);
+    }
 }
