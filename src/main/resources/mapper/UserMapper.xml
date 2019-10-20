@@ -93,7 +93,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from bm_user
     where id = #{id,jdbcType=BIGINT}
@@ -313,4 +313,9 @@
       type = #{type,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+    <update id="updateBalance">
+      update bm_user
+      set balance = balance + #{balance}
+      where id = #{id}
+    </update>
 </mapper>

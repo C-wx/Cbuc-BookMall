@@ -40,4 +40,8 @@ public class CategoryService {
     public int doMod(Category category) {
         return categoryMapper.updateByPrimaryKeySelective(category);
     }
+
+    public Category queryDetail(Integer category_id) {
+        return categoryMapper.selectByPrimaryKey(category_id);
+    }
 }

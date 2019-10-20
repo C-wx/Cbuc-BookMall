@@ -35,9 +35,9 @@
             <a class="navbar-brand" href="/main">小黄书城后台</a>
             <span style="position: relative;left: 1350px;top: 20px;font-size: 16px">
             <a href="#" style="text-decoration: none">
-                <img class="img-avatar" src="../../../static/upload/image/${loginUser.img}"
+                <img class="img-avatar" src="../../../static/upload/image/${maps.loginUser.img}"
                      style="width: 25px;height: 25px"/>
-                <span style="color: #8a6d3b;">${loginUser.user_name}</span>
+                <span style="color: #8a6d3b;">${maps.loginUser.user_name}</span>
             </a>
             <a href="/logout" style="margin-left: 20px;text-decoration: none;color: #8a6d3b;">Sign Out</a>
             </span>
@@ -46,7 +46,7 @@
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
-                <c:if test="${loginUser.type == '超级管理员' }">
+                <c:if test="${maps.loginUser.type == '超级管理员' }">
                     <li>
                         <a class="active-menu" href="/main"><i class="fa fa-bar-chart-o"></i> 商城报表</a>
                     </li>
@@ -57,22 +57,22 @@
                         <a href="userMana"><i class="fa fa-user"></i> 用户管理</a>
                     </li>
                 </c:if>
-                <c:if test="${loginUser.type == 'S' }">
+                <c:if test="${maps.loginUser.type == 'S' }">
                     <li>
-                        <a href="listOrder"><i class="fa fa-list-alt"></i> 销售统计</a>
+                        <a class="active-menu" href="main"><i class="fa fa-list-alt"></i> 销售统计</a>
                     </li>
                     <li>
-                        <a href="listOrder"><i class="fa fa-list-alt"></i> 商品管理</a>
+                        <a href="offerMana"><i class="fa fa-list-alt"></i> 商品管理</a>
                     </li>
                     <li>
-                        <a href="listOrder"><i class="fa fa-list-alt"></i> 订单管理</a>
+                        <a href="orderMana"><i class="fa fa-list-alt"></i> 订单管理</a>
                     </li>
                 </c:if>
             </ul>
         </div>
 
     </nav>
-    <c:if test="${loginUser.type == '超级管理员' }">
+    <c:if test="${maps.loginUser.type == '超级管理员' }">
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
@@ -91,7 +91,9 @@
                                 <div>
                                         <%--数据统计Start--%>
                                     <div class="layui-card">
-                                        <div class="layui-card-header"><i class="fa fa-warning icon"></i>数据统计</div>
+                                        <div class="layui-card-header" style="font-size: 16px"><i
+                                                class="fa fa-warning icon"></i>数据统计
+                                        </div>
                                         <div class="layui-card-body">
                                             <div class="welcome-module">
                                                 <div class="layui-row layui-col-space10">
@@ -101,10 +103,11 @@
                                                                  style="background-color: rgb(252,248,227)">
                                                                 <div class="panel-title">
                                                                     <span class="label pull-right layui-bg-blue">实时</span>
-                                                                    <h4 style="color: #333">用户统计</h4>
+                                                                    <h3 style="color: #8a6d3b">用户统计：</h3>
                                                                 </div>
                                                                 <div class="panel-content">
-                                                                    <h1 class="no-margins">${buyerCount}</h1>
+                                                                    <h1 class="no-margins"
+                                                                        style="margin-left: 100px">${maps.buyerCount}</h1>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -115,10 +118,11 @@
                                                             <div class="panel-body">
                                                                 <div class="panel-title">
                                                                     <span class="label pull-right layui-bg-cyan">实时</span>
-                                                                    <h4 style="color: #333">商户统计</h4>
+                                                                    <h3 style="color: #8a6d3b">商户统计：</h3>
                                                                 </div>
                                                                 <div class="panel-content">
-                                                                    <h1 class="no-margins">${sellerCount}</h1>
+                                                                    <h1 class="no-margins"
+                                                                        style="margin-left: 100px">${maps.sellerCount}</h1>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -129,10 +133,11 @@
                                                                  style="background-color: rgb(217,237,247)">
                                                                 <div class="panel-title">
                                                                     <span class="label pull-right layui-bg-orange">实时</span>
-                                                                    <h4 style="color: #333">商品统计</h4>
+                                                                    <h3 style="color: #8a6d3b">商品统计：</h3>
                                                                 </div>
                                                                 <div class="panel-content">
-                                                                    <h1 class="no-margins">${productCount}</h1>
+                                                                    <h1 class="no-margins"
+                                                                        style="margin-left: 100px">${maps.productCount}</h1>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -142,10 +147,11 @@
                                                             <div class="panel-body" style="background-color: #d0eae4">
                                                                 <div class="panel-title">
                                                                     <span class="label pull-right layui-bg-green">实时</span>
-                                                                    <h4 style="color: #333">订单统计</h4>
+                                                                    <h3 style="color: #8a6d3b">订单统计：</h3>
                                                                 </div>
                                                                 <div class="panel-content">
-                                                                    <h1 class="no-margins">${orderCount}</h1>
+                                                                    <h1 class="no-margins"
+                                                                        style="margin-left: 100px">${maps.orderCount}</h1>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -158,7 +164,8 @@
                                         <%--活动商品统计Start--%>
                                     <div class="layui-card" style="margin-top: 100px">
                                         <div class="layui-card col-xs-6 ">
-                                            <div class="layui-card-header"><i class="fa fa-warning icon"></i>活动商品统计
+                                            <div class="layui-card-header" style="font-size: 16px"><i
+                                                    class="fa fa-warning icon"></i>活动商品统计
                                             </div>
                                             <div class="row">
                                                 <div id="activeBooks" style="width: 500px;height:250px;"></div>
@@ -166,7 +173,8 @@
                                         </div>
                                             <%--TOP5商品统计End--%>
                                         <div class="layui-card col-xs-6">
-                                            <div class="layui-card-header"><i class="fa fa-warning icon"></i>Top5商品统计
+                                            <div class="layui-card-header" style="font-size: 16px"><i
+                                                    class="fa fa-warning icon"></i>Top5商品统计
                                             </div>
                                             <div class="row">
                                                 <div id="topBooks" style="width: 500px;height:250px;"></div>
@@ -182,7 +190,7 @@
             </div>
         </div>
     </c:if>
-    <c:if test="${loginUser.type == 'S' }">
+    <c:if test="${maps.loginUser.type == 'S' }">
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
@@ -197,11 +205,101 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                销售统计
-                            </div>
                             <div class="panel-body">
-                                统计内容
+                                <div>
+                                        <%--数据统计Start--%>
+                                    <div class="layui-card">
+                                        <div class="layui-card-header" style="font-size: 16px"><i
+                                                class="fa fa-warning icon"></i>数据统计
+                                        </div>
+                                        <div class="layui-card-body">
+                                            <div class="welcome-module">
+                                                <div class="layui-row layui-col-space10">
+                                                    <div class="layui-col-xs6">
+                                                        <div class="panel layui-bg-number">
+                                                            <div class="panel-body"
+                                                                 style="background-color: rgb(252,248,227)">
+                                                                <div class="panel-title">
+                                                                    <span class="label pull-right layui-bg-blue">实时</span>
+                                                                    <h3 style="color: #8a6d3b">商品统计：</h3>
+                                                                </div>
+                                                                <div class="panel-content">
+                                                                    <h1 class="no-margins"
+                                                                        style="margin-left: 100px">${maps.sptc}</h1>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-col-xs6">
+                                                        <div class="panel layui-bg-number"
+                                                             style="background-color: rgb(242,222,222)">
+                                                            <div class="panel-body">
+                                                                <div class="panel-title">
+                                                                    <span class="label pull-right layui-bg-cyan">实时</span>
+                                                                    <h3 style="color: #8a6d3b">订单统计：</h3>
+                                                                </div>
+                                                                <div class="panel-content">
+                                                                    <h1 class="no-margins"
+                                                                        style="margin-left: 100px">${maps.sotc}</h1>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-col-xs6">
+                                                        <div class="panel layui-bg-number">
+                                                            <div class="panel-body"
+                                                                 style="background-color: rgb(217,237,247)">
+                                                                <div class="panel-title">
+                                                                    <span class="label pull-right layui-bg-orange">实时</span>
+                                                                    <h3 style="color: #8a6d3b">流水统计：</h3>
+                                                                </div>
+                                                                <div class="panel-content">
+                                                                    <h1 class="no-margins"
+                                                                        style="margin-left: 100px">${maps.money}</h1>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-col-xs6">
+                                                        <div class="panel layui-bg-number">
+                                                            <div class="panel-body" style="background-color: #d0eae4">
+                                                                <div class="panel-title">
+                                                                    <span class="label pull-right layui-bg-green">实时</span>
+                                                                    <h3 style="color: #8a6d3b">热度统计：</h3>
+                                                                </div>
+                                                                <div class="panel-content">
+                                                                    <h1 class="no-margins" style="margin-left: 100px">
+                                                                        26%</h1>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <%--数据统计End--%>
+                                        <%--商品热度Start--%>
+                                    <div class="layui-card" style="margin-top: 100px">
+                                        <div class="layui-card col-xs-6 ">
+                                            <div class="layui-card-header" style="font-size: 16px"><i
+                                                    class="fa fa-warning icon"></i>商品销售统计
+                                            </div>
+                                            <div class="row">
+                                                <div id="productStatistic" style="width: 500px;height:250px;"></div>
+                                            </div>
+                                        </div>
+                                            <%--商品库存统计Start--%>
+                                        <div class="layui-card col-xs-6">
+                                            <div class="layui-card-header" style="font-size: 16px"><i
+                                                    class="fa fa-warning icon"></i>商品库存统计
+                                            </div>
+                                            <div class="row">
+                                                <div id="productStocks" style="width: 500px;height:250px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -220,91 +318,181 @@
 </script>
 <script src="/static/assets/js/custom-scripts.js"></script>
 <script src="/static/js/echarts.common.min.js" charset="utf-8"></script>
-<script type="text/javascript">
-    function queryActiveSaled(activeData) {
-        $.ajax({
-            async: false,
-            url: "queryActiveSaled",
-            type: "get",
-            dataType: "json",
-            success: function (result) {
-                debugger
-                for (var i = 0; i < result.data.length; i++) {
-                    activeData.push(result.data[i]);
-                }
-            }
-        })
-    }
-
-    function queryTopBooks(topData) {
-        $.ajax({
-            async: false,
-            url: "queryTopBooks",
-            type: "get",
-            dataType: "json",
-            success: function (result) {
-                debugger
-                for (var i = 0; i < result.data.length; i++) {
-                    topData.push(result.data[i]);
-                }
-            }
-        })
-    }
-
-    window.onload = function () {
-        var activeData = [];
-        var topData = [];
-        queryActiveSaled(activeData);
-        queryTopBooks(topData);
-        var myChart = echarts.init(document.getElementById('activeBooks'), 'light');
-        var option = {
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b}: {c} ({d}%)"
-            },
-            series: [{
-                type: 'pie',
-                name: '活动商品统计',
-                minAngle: 10,
-                radius: ['15%', '75%'],
-                center: ['50%', '49%'],
-                selectedMode: 'single',
-                data: activeData,
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+<c:if test="${maps.loginUser.type == '超级管理员' }">
+    <script type="text/javascript">
+        function queryActiveSaled(activeData) {
+            $.ajax({
+                async: false,
+                url: "queryActiveSaled",
+                type: "get",
+                dataType: "json",
+                success: function (result) {
+                    debugger
+                    for (var i = 0; i < result.data.length; i++) {
+                        activeData.push(result.data[i]);
                     }
                 }
-            }]
-        };
-        myChart.setOption(option);
-        myChart = echarts.init(document.getElementById('topBooks'), 'light');
-        option = {
-            tooltip: {
-                trigger: 'item',
-                formatter: "{a} <br/>{b}: {c} ({d}%)"
-            },
-            series: [{
-                type: 'pie',
-                name: 'Top5商品统计',
-                minAngle: 10,
-                radius: ['15%', '75%'],
-                center: ['50%', '49%'],
-                selectedMode: 'single',
-                data: topData,
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+            })
+        }
+
+        function queryTopBooks(topData) {
+            $.ajax({
+                async: false,
+                url: "queryTopBooks",
+                type: "get",
+                dataType: "json",
+                success: function (result) {
+                    debugger
+                    for (var i = 0; i < result.data.length; i++) {
+                        topData.push(result.data[i]);
                     }
                 }
-            }]
-        };
-        myChart.setOption(option);
-    }
-</script>
+            })
+        }
+
+        window.onload = function () {
+            var activeData = [];
+            var topData = [];
+            queryActiveSaled(activeData);
+            queryTopBooks(topData);
+            var myChart = echarts.init(document.getElementById('activeBooks'), 'light');
+            var option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                series: [{
+                    type: 'pie',
+                    name: '活动商品统计',
+                    minAngle: 10,
+                    radius: ['15%', '75%'],
+                    center: ['50%', '49%'],
+                    selectedMode: 'single',
+                    data: activeData,
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }]
+            };
+            myChart.setOption(option);
+            myChart = echarts.init(document.getElementById('topBooks'), 'light');
+            option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Top5商品统计',
+                    minAngle: 10,
+                    radius: ['15%', '75%'],
+                    center: ['50%', '49%'],
+                    selectedMode: 'single',
+                    data: topData,
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }]
+            };
+            myChart.setOption(option);
+        }
+    </script>
+</c:if>
+<c:if test="${maps.loginUser.type == 'S' }">
+    <script type="text/javascript">
+        function querySaledStatistic(saledStatistic) {
+            $.ajax({
+                async: false,
+                url: "querySaledStatistic",
+                type: "get",
+                dataType: "json",
+                success: function (result) {
+                    debugger
+                    for (var i = 0; i < result.data.length; i++) {
+                        saledStatistic.push(result.data[i]);
+                    }
+                }
+            })
+        }
+
+        function queryStocks(stocks) {
+            $.ajax({
+                async: false,
+                url: "queryStocks",
+                type: "get",
+                dataType: "json",
+                success: function (result) {
+                    debugger
+                    for (var i = 0; i < result.data.length; i++) {
+                        stocks.push(result.data[i]);
+                    }
+                }
+            })
+        }
+
+        window.onload = function () {
+            var saledStatistic = [];
+            var stocks = [];
+            querySaledStatistic(saledStatistic);
+            queryStocks(stocks);
+            var myChart = echarts.init(document.getElementById('productStatistic'), 'light');
+            var option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                series: [{
+                    type: 'pie',
+                    name: '商品销售统计',
+                    minAngle: 10,
+                    radius: ['15%', '75%'],
+                    center: ['50%', '49%'],
+                    selectedMode: 'single',
+                    data: saledStatistic,
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }]
+            };
+            myChart.setOption(option);
+            myChart = echarts.init(document.getElementById('productStocks'), 'light');
+            option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                series: [{
+                    type: 'pie',
+                    name: '商品库存统计',
+                    minAngle: 10,
+                    radius: ['15%', '75%'],
+                    center: ['50%', '49%'],
+                    selectedMode: 'single',
+                    data: stocks,
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }]
+            };
+            myChart.setOption(option);
+        }
+    </script>
+</c:if>
 </body>
 </html>

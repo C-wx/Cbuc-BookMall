@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @ProjectName: BookMall
@@ -26,6 +27,9 @@ public class ProductService {
 
     @Autowired
     private CommentService commentService;
+
+    @Autowired
+    private CategoryService categoryService;
 
 
     public void fill(List<Category> categories) {
@@ -60,20 +64,27 @@ public class ProductService {
     }
 
     public int updateStock(long product_id, int num) {
-        return productMapper.updateStock(product_id,num);
+        return productMapper.updateStock(product_id, num);
     }
 
     public List<Product> search(String keyword) {
         ProductExample example = new ProductExample();
         example.or().andNameLike("%" + keyword + "%");
         example.setOrderByClause("id desc");
+        ProductExample.Criteria criteria = example.createCriteria();
+        criteria.andTitleLike("%" + keyword + "%");
+        example.or(criteria);
         return productMapper.selectByExample(example);
     }
 
-    public List<Product> queryList() {
-        ProductExample productExample = new ProductExample();
-        productExample.createCriteria().andStatusNotEqualTo("D");
-        return productMapper.selectByExample(productExample);
+    public List<Product> queryList(Long id) {
+        if (Objects.nonNull(id)) {
+            ProductExample example = new ProductExample();
+            example.createCriteria().andUser_idEqualTo(id);
+            return productMapper.selectByExample(example);
+        } else {
+            return productMapper.selectByExample(null);
+        }
     }
 
     public List<Map<String, Object>> queryActive() {
@@ -82,5 +93,28 @@ public class ProductService {
 
     public List<Map<String, Object>> queryTop() {
         return productMapper.queryTop();
+    }
+
+    public List<Map<String, Object>> querySaled(Long id) {
+        return productMapper.querySaled(id);
+    }
+
+    public List<Map<String, Object>> queryStocks(Long id) {
+        return productMapper.queryStocks(id);
+    }
+
+    public void fillCategory(List<Product> products) {
+        for (Product product : products) {
+            Category category = categoryService.queryDetail(product.getCategory_id());
+            product.setCategory(category);
+        }
+    }
+
+    public int doUpdate(Product product) {
+        return productMapper.updateByPrimaryKeySelective(product);
+    }
+
+    public int doAdd(Product product) {
+        return productMapper.insertSelective(product);
     }
 }

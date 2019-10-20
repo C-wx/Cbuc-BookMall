@@ -1,5 +1,7 @@
 package life.bookmall.bean;
 
+import java.util.List;
+
 public class Product {
     private Long id;
 
@@ -26,6 +28,10 @@ public class Product {
     /**==============非表字段==============*/
 
     private Integer commentCount;
+
+    private Category category;
+
+    private List<Category> categories;
 
     /**===================================*/
 
@@ -123,5 +129,21 @@ public class Product {
 
     public void setCommentCount(Integer commentCount) {
         this.commentCount = commentCount;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 }

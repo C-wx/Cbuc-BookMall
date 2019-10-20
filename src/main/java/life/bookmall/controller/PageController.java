@@ -68,6 +68,11 @@ public class PageController {
         return "alipay";
     }
 
+    @RequestMapping("/kefu")
+    public String kefu() {
+        return "include/kefu";
+    }
+
     @RequestMapping("/toCarPage")
     public String toCarPage(Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");

@@ -89,6 +89,7 @@ public class LoginController {
         FileUpload fileUpload = new FileUpload();
         List<String> list_image = fileUpload.upload_image(files,session);
         user.setImg("/"+list_image.get(0));
+        user.setBalance(0f);
         int result = userService.addOne(user);
         if (result > 0) {
             return Result.success("注册成功");

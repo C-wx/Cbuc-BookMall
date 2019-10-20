@@ -42,4 +42,10 @@ public interface ProductMapper {
 
     @Select("select name,saled as value from bm_product order by saled desc limit 0,5")
     List<Map<String, Object>> queryTop();
+
+    @Select("select name,saled as value from bm_product where user_id = #{id}")
+    List<Map<String, Object>> querySaled(@Param("id") Long id);
+
+    @Select("select name,stock as value from bm_product where user_id = #{id} ")
+    List<Map<String, Object>> queryStocks(@Param("id") Long id);
 }

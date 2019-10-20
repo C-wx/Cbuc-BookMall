@@ -127,7 +127,7 @@ public class OperatController {
                 OrderLog orderLog = orderLogService.queryDetail(Long.parseLong(orderLogId));
                 Product product = productService.queryDetail(orderLog.getProduct_id());
                 Order o = new Order();
-                o.setUser_id(loginUser.getId());
+                o.setUser_id(product.getUser_id());
                 o.setProduct_id(product.getId());
                 o.setReceiver(order.getReceiver());
                 o.setAddr(order.getAddr());
@@ -164,6 +164,10 @@ public class OperatController {
             order.setPay_date(new Date());
             order.setStatus(OrderPayStatus.WD.getStatus());
             orderService.updateOrder(order);
+            User user = new User();
+            user.setBalance(order.getPrice());
+            user.setId(productService.queryDetail(order.getProduct_id()).getUser_id());
+            userService.updateBalance(user);
             info.put("addr",order.getAddr());
             info.put("receiver",order.getReceiver());
             info.put("phone",order.getPhone());

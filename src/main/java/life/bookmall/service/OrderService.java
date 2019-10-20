@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @ProjectName: BookMall
@@ -52,9 +53,21 @@ public class OrderService {
         }
     }
 
-    public Integer queryCount() {
+    public Integer queryCount(Long id) {
+        if (Objects.nonNull(id)) {
+            OrderExample example = new OrderExample();
+            example.createCriteria().andUser_idEqualTo(id).andStatusNotEqualTo("DD");
+            return orderMapper.selectByExample(example).size();
+        }else {
+            OrderExample orderExample = new OrderExample();
+            orderExample.createCriteria().andStatusNotEqualTo("DD");
+            return orderMapper.selectByExample(orderExample).size();
+        }
+    }
+
+    public List<Order> queryListMana(Long id) {
         OrderExample orderExample = new OrderExample();
-        orderExample.createCriteria().andStatusNotEqualTo("D");
-        return orderMapper.selectByExample(orderExample).size();
+        orderExample.createCriteria().andStatusNotEqualTo("DD").andUser_idEqualTo(id);
+        return orderMapper.selectByExample(orderExample);
     }
 }

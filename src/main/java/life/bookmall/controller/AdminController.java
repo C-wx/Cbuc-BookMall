@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,17 +42,25 @@ public class AdminController {
 
     @RequestMapping("/main")
     public String main(Model model, HttpSession session) {
+        Map<String,Object> maps = new HashMap<>();
         User user = (User) session.getAttribute("user");
         User loginUser = userService.getOne(user);
-        Integer buyerCount = userService.queryCount("B");
-        Integer sellerCount = userService.queryCount("C");
-        Integer productCount = productService.queryList().size();
-        Integer orderCount = orderService.queryCount();
-        model.addAttribute("buyerCount",buyerCount);
-        model.addAttribute("sellerCount",sellerCount);
-        model.addAttribute("productCount",productCount);
-        model.addAttribute("orderCount",orderCount);
-        model.addAttribute("loginUser",loginUser);
+        Integer buyerCount = userService.queryCount("B");       //买家数量
+        Integer sellerCount = userService.queryCount("C");      //卖家数量
+        Integer productTotalCount = productService.queryList(null).size();      //商城总商品数
+        Integer sptc = productService.queryList(loginUser.getId()).size();      //对应卖家发布商品
+        Integer orderTotalCount = orderService.queryCount(null);         //商城订单总数
+        Integer sotc = orderService.queryCount(loginUser.getId());       //对应卖家的订单数
+        Float money = loginUser.getBalance();
+        maps.put("buyerCount",buyerCount);
+        maps.put("sellerCount",sellerCount);
+        maps.put("productCount",productTotalCount);
+        maps.put("orderCount",orderTotalCount);
+        maps.put("loginUser",loginUser);
+        maps.put("sptc",sptc);
+        maps.put("sotc",sotc);
+        maps.put("money",money);
+        model.addAttribute("maps",maps);
         return "admin/main";
     }
 
@@ -153,6 +162,7 @@ public class AdminController {
         user.setImg("/default-avatar.png");
         user.setCreate_time(new Date());
         user.setUpdate_time(new Date());
+        user.setBalance(0f);
         userService.addOne(user);
         return Result.success();
     }

@@ -87,4 +87,8 @@ public class UserService {
     public int doUpdate(User user) {
         return userMapper.updateByPrimaryKeySelective(user);
     }
+
+    public int updateBalance(User user) {
+        return userMapper.updateBalance(user);
+    }
 }
