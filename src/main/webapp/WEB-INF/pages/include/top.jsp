@@ -83,7 +83,7 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="/self">个人中心</a></li>
+                            <li><a href="/selfPage">个人中心</a></li>
                             <li><a href="/logout">退出登录</a></li>
                         </ul>
                     </c:if>

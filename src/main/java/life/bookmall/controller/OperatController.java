@@ -1,11 +1,13 @@
 package life.bookmall.controller;
 
 import com.github.pagehelper.PageHelper;
+import com.mysql.cj.util.StringUtils;
 import life.bookmall.MallEnum.OrderLogType;
 import life.bookmall.MallEnum.OrderPayStatus;
 import life.bookmall.bean.*;
 import life.bookmall.evt.Result;
 import life.bookmall.service.*;
+import life.bookmall.utils.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.util.*;
@@ -273,6 +276,23 @@ public class OperatController {
         }
         model.addAttribute("products", products);
         return "searchResult";
+    }
+
+    @ResponseBody
+    @RequestMapping("/modUser")
+    public Object modUser(User user, @RequestParam("files") MultipartFile[] files, HttpSession session) {
+        user.setUpdate_time(new Date());
+        String imgName = files[0].getOriginalFilename();
+        if (!StringUtils.isNullOrEmpty(imgName)) {
+            // 上传图片
+            FileUpload fileUpload = new FileUpload();
+            List<String> list_image = fileUpload.upload_image(files,session);
+            user.setImg("/"+list_image.get(0));
+        }
+        int result = userService.doUpdate(user);
+        User loginUser = userService.getOne(user);
+        session.setAttribute("user",loginUser);
+        return Result.success("修改成功");
     }
 
 }

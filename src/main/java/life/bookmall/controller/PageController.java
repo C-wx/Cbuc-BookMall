@@ -85,4 +85,12 @@ public class PageController {
         model.addAttribute("orderLogs",orderLogs);
         return "carPage";
     }
+
+    @RequestMapping("/selfPage")
+    public String selfPage(HttpSession session,Model model) {
+        User user = (User) session.getAttribute("user");
+        User loginUser = userService.getOne(user);
+        model.addAttribute("user",loginUser);
+        return "self";
+    }
 }
