@@ -295,4 +295,17 @@ public class OperatController {
         return Result.success("修改成功");
     }
 
+    @ResponseBody
+    @RequestMapping("/modPwd")
+    public Object modPwd(User user) {
+        User modUser = userService.getByName(user.getUser_name());
+        if (!Objects.isNull(modUser)) {
+            modUser.setPwd(user.getPwd());
+            userService.doUpdate(modUser);
+            return Result.success();
+        }else {
+            return Result.error();
+        }
+    }
+
 }

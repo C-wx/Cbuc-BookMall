@@ -20,12 +20,65 @@
     <link rel="stylesheet" href="${APP_PATH}/static/css/login.css">
     <link href="${APP_PATH}/static/css/fore/style.css" rel="stylesheet">
 </head>
+<script>
+    $(function () {
+        $("#showModal").click(function () {
+            $("#modPwdForm")[0].reset();
+            $("#modPwdModal").modal("show");
+        })
+        $("#modPwd").click(function () {
+            $.ajax({
+                url: "modPwd",
+                type: "post",
+                data: $("#modPwdForm").serialize(),
+                success: function (result) {
+                    if (100 == result.code) {
+                        layer.msg("修改成功",{icon:6});
+                        $("#modPwdModal").modal("hide");
+                    }else{
+                        layer.msg("用户不存在,请检查用户名是否正确",{icon:5})
+                    }
+                }
+            })
+
+        })
+    })
+</script>
 <body>
+<%--修改密码模态框--%>
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="modPwdModal">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div style="font-weight: bold;font-size: 26px;color: #92B8B1;text-align: center">找回密码</div>
+            <hr>
+            <form action="" id="modPwdForm" style="margin-left: 30px">
+                <div class="form-group has-warning">
+                    <label class="control-label" style="font-size: 16px;font-weight: bold">请输入用户名:</label>
+                    <input type="text" class="form-control" name="user_name" style="width: 200px">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" style="font-size: 16px;font-weight: bold">你最尊敬的人的是:</label>
+                    <input type="text" class="form-control" style="width: 200px" placeholder="测试使用(随意填写)">
+                </div>
+                <div class="form-group has-warning">
+                    <label class="control-label" style="font-size: 16px;font-weight: bold">请输入新密码:</label>
+                    <input type="text" class="form-control" name="pwd" style="width: 200px">
+                </div>
+                <div style="margin:2px 0px 20px 150px">
+                    <button type="button" class="btn btn-primary btn-sm" id="modPwd">修改</button>
+                    <button type="button" class="btn btn-default btn-sm"  data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="login-area">
     <div class="login_area_box">
         <div class="mainloginbox" id="LOGIN-FORM">
             <div class="logo_login" style="text-align:center;vertical-align:middle;">
-                <a style="font-size:34px;color:#1b6d85;font-weight:700;padding-top: 40px;display: inline-block;cursor: pointer" href="/home">小黄书城</a>
+                <a style="font-size:34px;color:#1b6d85;font-weight:700;padding-top: 40px;display: inline-block;cursor: pointer"
+                   href="/home">小黄书城</a>
             </div>
             <form class="login-form" action="" name="form" method="post">
                 <ul>
@@ -49,7 +102,9 @@
                     </li>
                     <li class="loginbtn">
                         <input type="button" title="登录" class="btn btn_login" onclick="login()" value=""/>
-                        <button formaction="toRegister" class="layui-btn layui-btn-warm layui-btn-radius" style="width: 65px;" type="submit" formmethod="get">注册</button>
+                        <button formaction="toRegister" class="layui-btn btn_register" type="submit"
+                                formmethod="get"></button>
+                        <a href="#" class="forgetPwd" id="showModal">忘记密码?点击找回</a>
                     </li>
                 </ul>
             </form>

@@ -46,6 +46,7 @@ ul {
 
 .login-area .loginbtn {
     margin-top: 15px;
+    margin-left: -25px;
     width: 400px;
 }
 
@@ -54,15 +55,26 @@ ul {
     border-bottom: 1px solid #be1204;
     height: 131px;
     background: #b8a9a973 no-repeat center center;
-    -moz-border-radius: 10px 10px 0 0;
-    -webkit-border-radius: 10px 10px 0 0;
     border-radius: 10px 10px 0 0;
 }
 
 .login-area .loginbtn .btn_login {
-    width: 265px;
+    width: 180px;
     height: 46px;
     background: url(../imgs/btn_loginee98.png?63ecaa6564) no-repeat top center;
+}
+
+.login-area .loginbtn .btn_register {
+    width: 180px;
+    height: 46px;
+    background: url(../imgs/btn_registera372.png?63ecaa6564) no-repeat top center;
+}
+
+.login-area .loginbtn .forgetPwd {
+    position: relative;
+    top: -195px;
+    left: 285px;
+    color: #666;
 }
 
 .login-area input {
@@ -88,27 +100,10 @@ ul {
 }
 
 .login-area .btn {
-    color: #FFF;
-    border: 1px solid transparent;
-    *border: none;
     margin-left: 6px;
-    border-radius: 6px;
-    width: 360px;
-    height: 46px;
-    cursor: pointer;
     display: inline-block;
-    *display: inline;
-    *zoom: 1;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.33333;
     margin-bottom: 0;
-    padding: 10px 0;
     text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-    min-width: 80px;
-    font-family: Arial, serif;
 }
 
 .login-area .login-form {
@@ -218,13 +213,14 @@ ul li .position {
     margin-left: -20px;
 }
 
-#imgObj{
+#imgObj {
     margin-left: 33px;
 }
 
 html {
     height: 100%
 }
+
 .body_content {
     position: absolute;
     top: 30%;

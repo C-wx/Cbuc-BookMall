@@ -91,4 +91,15 @@ public class UserService {
     public int updateBalance(User user) {
         return userMapper.updateBalance(user);
     }
+
+    public User getByName(String user_name) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andUser_nameEqualTo(user_name);
+        List<User> users = userMapper.selectByExample(userExample);
+        if (!users.isEmpty()) {
+            return users.get(0);
+        }else {
+            return null;
+        }
+    }
 }
