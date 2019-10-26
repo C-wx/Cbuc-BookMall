@@ -25,7 +25,7 @@
 
 <style>
     .page-top {
-        width: 1840px;
+        width: 1902px;
         background-color: #92B8B1;
         height: 106px;
         border-bottom: 2px solid #e6e6e6;
@@ -67,13 +67,11 @@
 <body style="width: 1000px">
 <div class="layuimini-container">
     <div class="layuimini-main">
-
         <div class="page-top">
             <div class="active">
                 <div class="tsl">用户注册</div>
             </div>
         </div>
-
         <form class="layui-form layui-form-pane" action="register" style="position: relative; left: 700px" enctype="multipart/form-data" method="post">
             <input type="hidden" name="status" value="E">
             <input type="hidden" name="addr" id="addr"/>

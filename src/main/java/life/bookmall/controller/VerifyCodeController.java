@@ -102,17 +102,14 @@ public class VerifyCodeController {
             }
 
             StringBuffer randomCode = new StringBuffer();
-            /*int red = false;
-            int green = false;
-            int blue = false;*/
             String imgCodeType = req.getParameter("imgCodeType");
 
             String imgCodeSessionKey;
             for(int i = 0; i < this.codeCount; ++i) {
                 imgCodeSessionKey = String.valueOf(this.codeSequence[random.nextInt(36)]);
-                if (imgCodeType != null && "NUM".equals(imgCodeType)) {
+               /* if (imgCodeType != null && "NUM".equals(imgCodeType)) {
                     imgCodeSessionKey = String.valueOf(this.numCodeSequence[random.nextInt(10)]);
-                }
+                }*/
 
                 red = random.nextInt(255);
                 green = random.nextInt(255);
