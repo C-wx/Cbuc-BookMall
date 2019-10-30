@@ -78,6 +78,7 @@ $(function () {
 
     /*------改变数量------*/
     $(".orderItemNumberSetting").keyup(function () {
+        var orderLogId = $(this).attr("orderItemId");
         var product_id = $(this).attr("product_id");
         var stock = $("span.orderItemStock[product_id=" + product_id + "]").text();
         var price = $("span.orderItemPromotePrice[product_id=" + product_id + "]").text();
@@ -89,9 +90,11 @@ $(function () {
             num = 1;
         if (num > stock)
             num = stock;
+        syncPrice(product_id, num, price, orderLogId);
     });
 
     $(".numberPlus").click(function () {
+        var orderLogId = $(this).attr("orderItemId");
         var product_id = $(this).attr("product_id");
         var stock = $("span.orderItemStock[product_id=" + product_id + "]").text();
         var price = $("span.orderItemPromotePrice[product_id=" + product_id + "]").text();
@@ -99,8 +102,10 @@ $(function () {
         num++;
         if (num > stock)
             num = stock;
+        syncPrice(product_id, num, price, orderLogId);
     });
     $(".numberMinus").click(function () {
+        var orderLogId = $(this).attr("orderItemId");
         var product_id = $(this).attr("product_id");
         var stock = $("span.orderItemStock[product_id=" + product_id + "]").text();
         var price = $("span.orderItemPromotePrice[product_id=" + product_id + "]").text();
@@ -109,6 +114,7 @@ $(function () {
         --num;
         if (num <= 0)
             num = 1;
+        syncPrice(product_id, num, price, orderLogId);
     });
     /*-------END--------*/
 
@@ -200,4 +206,23 @@ function calcCartSumPriceAndNumber() {
     $("span.cartSumPrice").html("￥" + formatMoney(sum));
     $("span.cartTitlePrice").html("￥" + formatMoney(sum));
     $("span.cartSumNumber").html(totalNumber);
+}
+
+//同步金额
+function syncPrice(product_id, num, price, orderLogId) {
+    $(".orderItemNumberSetting[product_id=" + product_id + "]").val(num);
+    var cartProductItemSmallSumPrice = formatMoney(num * price);
+    $(".cartProductItemSmallSumPrice[product_id=" + product_id + "]").html("￥" + cartProductItemSmallSumPrice);
+    calcCartSumPriceAndNumber();
+
+    var page = "changeOrderLog";
+    $.post(
+        page,
+        {"orderLogId": orderLogId, "number": num},
+        function (result) {
+            if (result.code != 100) {
+                layer.msg("服务器异常,请联系客服");
+            }
+        }
+    );
 }

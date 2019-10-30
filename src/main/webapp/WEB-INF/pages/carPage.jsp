@@ -91,10 +91,10 @@
                             <span class="hidden orderItemStock " product_id="${oi.product.id}">${oi.product.stock}</span>
                             <span class="hidden orderItemPromotePrice "
                                   product_id="${oi.product.id}">${oi.product.price}</span>
-                            <a product_id="${oi.product.id}" class="numberMinus" href="javascript:;">-</a>
+                            <a product_id="${oi.product.id}" class="numberMinus" href="javascript:;" orderItemId="${oi.id}">-</a>
                             <input product_id="${oi.product.id}" orderItemId="${oi.id}" class="orderItemNumberSetting"
                                    autocomplete="off" value="${oi.num}">
-                            <a stock="${oi.product.stock}" product_id="${oi.product.id}" class="numberPlus"
+                            <a stock="${oi.product.stock}" product_id="${oi.product.id}" class="numberPlus" orderItemId="${oi.id}"
                                href="javascript:;">+</a>
                         </div>
                     </td>

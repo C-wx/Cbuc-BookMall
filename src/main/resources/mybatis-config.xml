@@ -9,7 +9,7 @@
     </settings>
         <!--配置别名-->
     <typeAliases>
-        <package name="cbuc.ssm.bean"/>
+        <package name="life.bookmall.bean"/>
     </typeAliases>
 
     <!--设置分页插件-->
