@@ -13,7 +13,7 @@
     <script src="${APP_PATH}/static/lib/layui-v2.5.4/layui.all.js"></script>
 
     <link rel="stylesheet" href="${APP_PATH}/static/css/detail.css">
-    <link href="${APP_PATH}/static/css/fore/style.css" rel="stylesheet">
+    <link href="${APP_PATH}/static/css/style.css" rel="stylesheet">
     <style>
         .kefu{
             margin: auto;

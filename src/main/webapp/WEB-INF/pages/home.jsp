@@ -20,7 +20,7 @@
     <script src="${APP_PATH}/static/lib/layui-v2.5.4/layui.all.js"></script>
 
     <link rel="stylesheet" href="${APP_PATH}/static/css/home.css">
-    <link href="${APP_PATH}/static/css/fore/style.css" rel="stylesheet">
+    <link href="${APP_PATH}/static/css/style.css" rel="stylesheet">
 </head>
 <jsp:include page="include/top.jsp"/>
 <jsp:include page="include/search.jsp"/>
@@ -81,13 +81,13 @@
             <!-- 轮播（Carousel）项目 -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="../../static/imgs/bg-58.jpg" alt="First slide">
+                    <img src="http://img62.ddimg.cn/2019/10/24/2019102417340391833.jpg" width="1000px" height="470px">
                 </div>
                 <div class="item">
-                    <img src="../../static/imgs/15209.jpg" alt="Second slide">
+                    <img src="http://img61.ddimg.cn/2019/10/28/2019102818444410945.jpg" width="1000px" height="470px">
                 </div>
                 <div class="item">
-                    <img src="../../static/imgs/register-bgc08e.jpg" alt="Third slide">
+                    <img src="http://img63.ddimg.cn/2019/10/28/2019102818440034299.jpg" width="1000px" height="470px">
                 </div>
             </div>
             <!-- 轮播（Carousel）导航 -->
@@ -147,11 +147,11 @@
             </c:forEach>
         </div>
         <div style="clear: both;"></div>
-        <c:forEach items="${categories}" var="c" varStatus="sts">
+        <c:forEach items="${categories}" var="c" varStatus="index">
             <%-- 该分类下有产品才能显示 --%>
             <c:if test="${!empty c.products}">
-                <%-- 默认只展示前五个分类的内容 --%>
-                <c:if test="${sts.count<=5}">
+                <%-- 只展示前五个分类的内容 , 防止页面过长 --%>
+                <c:if test="${index.count<=5}">
                     <div class="floor-line-con">
                         <i class="color-mark"></i>
                         <div class="floor-name">${c.name}</div>

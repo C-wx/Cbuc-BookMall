@@ -14,7 +14,7 @@
     <script src="${APP_PATH}/static/js/bootstrap/3.3.6/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${APP_PATH}/static/lib/layui-v2.5.4/css/layui.css">
     <script src="${APP_PATH}/static/lib/layui-v2.5.4/layui.js"></script>
-    <link href="${APP_PATH}/static/css/fore/style.css" rel="stylesheet">
+    <link href="${APP_PATH}/static/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="${APP_PATH}/static/css/orderPage.css">
 
     <script>
@@ -144,11 +144,15 @@
                         <span>订单号: ${o.order_code}
                     </span>
                     </td>
+
                     <td class="orderItemDeleteTD">
+                        <c:if test="${o.status=='WP' }">
                         <a class="deleteOrderLink" oid="${o.id}" data-method="offset" style="cursor: pointer;">
                             <span class="orderListItemDelete glyphicon glyphicon-trash"></span>
                         </a>
+                        </c:if>
                     </td>
+
                 </tr>
                 <tr class="orderItemProductInfoPartTR">
                     <td class="orderItemProductInfoPartTD" style="width: 150px">

@@ -22,7 +22,7 @@
     <script src="${APP_PATH}/static/lib/layui-v2.5.4/layui.js"></script>
     <link rel="stylesheet" href="/static/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
 
-    <link href="${APP_PATH}/static/css/fore/style.css" rel="stylesheet">
+    <link href="${APP_PATH}/static/css/style.css" rel="stylesheet">
 </head>
 <body>
 <div >

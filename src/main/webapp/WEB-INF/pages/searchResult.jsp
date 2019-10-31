@@ -16,7 +16,7 @@
     <script src="${APP_PATH}/static/lib/layui-v2.5.4/layui.all.js"></script>
 
     <link rel="stylesheet" href="${APP_PATH}/static/css/searchResult.css">
-    <link href="${APP_PATH}/static/css/fore/style.css" rel="stylesheet">
+    <link href="${APP_PATH}/static/css/style.css" rel="stylesheet">
 </head>
 <jsp:include page="include/top.jsp"/>
 <jsp:include page="include/search.jsp"/>

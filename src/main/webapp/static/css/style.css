@@ -20,7 +20,7 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: #FF0036;
+    color: #d62d5a;
 }
 
 .boldWord{
@@ -109,62 +109,18 @@ li, ul {
     list-style: none;
 }
 
-/* ——————————————————————————————分类栏———————————————————————————— */
-
-.main-nav {
-    height: 36px;
-    border-bottom: 1px solid #FF0036;
-}
-
-.category-type {
-    width: 200px;
-    float: left;
-    height: 36px;
-    background-color: #487a6f;
-    color: white;
-    font-size: 16px;
-}
-
-.category-type .category-type-icon {
-    margin-left: 14px;
-    line-height: 36px;
-}
-
-.category-type .category-type-text {
-    margin-left: 2px;
-    font-weight: 700;
-}
-
-.main-nav img {
-    float: left;
-    height: 30px;
-    width: 100px;
-}
-
-.main-nav span a {
-    float: left;
-    padding: 0 8px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #333;
-    line-height: 36px;
-}
-
-/* ——————————————————————————————分割线———————————————————————————— */
-#carousel-of-product {
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    left: 30px;
-}
-
 /* ——————————————————————————————链接———————————————————————————— */
 #links a{
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     margin-left: 48px;
-    font-family: "Microsoft Yahei";
-    color: #5FB878;
+    font-family: "FangSong";
+    color: #3f7d4d;
+}
+
+#links a:hover{
+    color: #e54077;
+    font-size: 17px;
 }
 
 /* ——————————————————————————————左边栏———————————————————————————— */

@@ -24,13 +24,13 @@
             <button type="submit" class="searchButton"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             <ul class="hot-query">
                 <li>
-                    <a href="searchProduct?keyword=我在未来等你">热搜：我在未来等你</a>
+                    热搜：
+                </li>
+                <li>
+                    <a href="searchProduct?keyword=我在未来等你">我在未来等你</a>
                 </li>
                 <li class="hot-query-li">
                     <a href="searchProduct?keyword=人类探险史">人类探险史</a>
-                </li>
-                <li class="hot-query-li">
-                    <a href="searchProduct?keyword=DK猜猜我是谁">DK猜猜我是谁</a>
                 </li>
                 <li class="hot-query-li">
                     <a href="searchProduct?keyword=中间民间故事">中间民间故事</a>
