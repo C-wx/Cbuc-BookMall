@@ -1,4 +1,9 @@
+/*
+    登录页面js
+ */
 
+
+//登录判断,发送登录请求
 function login() {
     var loginName = $("#LNAME").val().trim();
     var loginPwd = $("#LPW").val().trim();
@@ -38,18 +43,21 @@ function login() {
     });
 };
 
+//清除登录字段错误验证样式
 function clearInfo1() {
     $("#LNAME").css("border","none");
     $("#helpBlock1").hide();
     $("div.loginErrorMessageDiv").hide();
 };
 
+//清除登录字段错误验证样式
 function clearInfo2() {
     $("#LPW").css("border","none");
     $("#helpBlock2").hide();
     $("div.loginErrorMessageDiv").hide();
 };
 
+//号码正则校验
 function verifyNumber(number) {
     var mobileRegex = /1((((3[0-3,5-9])|(4[5,7,9])|(5[0-3,5-9])|(66)|(7[1-3,5-8])|(8[0-9])|(9[1,8,9]))\d{8})|((34)[0-8]\d{7}))/;
     if (!mobileRegex.test(number)) {

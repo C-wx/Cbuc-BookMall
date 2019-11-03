@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * @Explain 管理员界面控制器
  * @ProjectName: BookMall
  * @Package: life.bookmall.controller
  * @ClassName: adminController
@@ -40,50 +41,76 @@ public class AdminController {
     @Autowired
     private OrderService orderService;
 
+    /**
+     * @Explain 跳转到管理员(卖家)后台主界面
+     * @param model,session
+     * @Return  "admin/main"
+     */
     @RequestMapping("/main")
     public String main(Model model, HttpSession session) {
         Map<String,Object> maps = new HashMap<>();
         User user = (User) session.getAttribute("user");
         User loginUser = userService.getOne(user);
+        /** 管理员登录带入到页面的信息*/
         Integer buyerCount = userService.queryCount("B");       //买家数量
         Integer sellerCount = userService.queryCount("C");      //卖家数量
         Integer productTotalCount = productService.queryList(null).size();      //商城总商品数
-        Integer sptc = productService.queryList(loginUser.getId()).size();      //对应卖家发布商品
         Integer orderTotalCount = orderService.queryCount(null);         //商城订单总数
-        Integer sotc = orderService.queryCount(loginUser.getId());       //对应卖家的订单数
-        Float money = loginUser.getBalance();
         maps.put("buyerCount",buyerCount);
         maps.put("sellerCount",sellerCount);
         maps.put("productCount",productTotalCount);
         maps.put("orderCount",orderTotalCount);
-        maps.put("loginUser",loginUser);
+        /** 卖家登录带入到页面的信息*/
+        Integer sptc = productService.queryList(loginUser.getId()).size();      //对应卖家发布商品
+        Integer sotc = orderService.queryCount(loginUser.getId());              //对应卖家的订单数
+        Float money = loginUser.getBalance();                                   //对应卖家账户信息
         maps.put("sptc",sptc);
         maps.put("sotc",sotc);
         maps.put("money",money);
+
         model.addAttribute("maps",maps);
+        maps.put("loginUser",loginUser);
         return "admin/main";
     }
 
+
+    /**
+     * @Explain 跳转到分类管理类
+     * @param  model,session
+     * @Return "admin/categoryMana"
+     */
     @RequestMapping("/categoryMana")
     public String categoryMana(Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");
         User loginUser = userService.getOne(user);
+        // 分类信息
         List<Category> categories = categoryService.list();
         model.addAttribute("categories",categories);
         model.addAttribute("loginUser",loginUser);
         return "admin/categoryMana";
     }
 
+    /**
+     * @Explain 跳转到用户管理界面
+     * @param  model,session
+     * @Return "admin/userMana"
+     */
     @RequestMapping("/userMana")
     public String userMana(Model model,HttpSession session) {
         User user = (User) session.getAttribute("user");
         User loginUser = userService.getOne(user);
+        // 用户信息
         List<User> users = userService.queryList();
         model.addAttribute("users",users);
         model.addAttribute("loginUser",loginUser);
         return "admin/userMana";
     }
 
+    /**
+     * @Explain 添加分类信息操作
+     * @param  name
+     * @Return json对象
+     */
     @ResponseBody
     @RequestMapping("/addCategory")
     public Object addCategory(String name) {
@@ -94,6 +121,11 @@ public class AdminController {
         return Result.success();
     }
 
+    /**
+     * @Explain 删除分类信息操作
+     * @param  id
+     * @Return json对象
+     */
     @ResponseBody
     @RequestMapping("/delCg")
     public Object delCg(Integer id) {
@@ -104,6 +136,11 @@ public class AdminController {
         return Result.success();
     }
 
+    /**
+     * @Explain 修改分类信息操作
+     * @param  id,name
+     * @Return  json对象
+     */
     @ResponseBody
     @RequestMapping("/modifyCategory")
     public Object modifyCategory(Integer id, String name) {
@@ -114,6 +151,11 @@ public class AdminController {
         return Result.success(category);
     }
 
+    /**
+     * @Explain 查询活动商品销售情况
+     * @param
+     * @Return  json对象(List集合)
+     */
     @RequestMapping("/queryActiveSaled")
     @ResponseBody
     public Object queryActiveSaled() {
@@ -121,6 +163,11 @@ public class AdminController {
         return Result.success(infos);
     }
 
+    /**
+     * @Explain 查询销售TOP5的商品销售情况
+     * @param
+     * @Return  json对象(List集合)
+     */
     @RequestMapping("/queryTopBooks")
     @ResponseBody
     public Object queryTopBooks() {
@@ -128,6 +175,11 @@ public class AdminController {
         return Result.success(infos);
     }
 
+    /**
+     * @Explain 查询对应的用户信息(用户修改回显)
+     * @param  id
+     * @Return json对象(用户对象)
+     */
     @ResponseBody
     @RequestMapping("/getUserInfo")
     public Object getUserInfo(Long id) {
@@ -135,6 +187,11 @@ public class AdminController {
         return Result.success(user);
     }
 
+    /**
+     * @Explain 修改用户信息
+     * @param  user
+     * @Return json对象(成功码:100 失败码-100)
+     */
     @ResponseBody
     @RequestMapping("/modifyUser")
     public Object modifyUser(User user) {
@@ -146,6 +203,11 @@ public class AdminController {
         }
     }
 
+    /**
+     * @Explain 禁用/启用用户(通过状态来判断当前用户是否启用状态,E:启动 D:禁用)
+     * @param  id,status
+     * @Return json对象
+     */
     @ResponseBody
     @RequestMapping("/modUserStatus")
     public Object modUserStatus(Long id, String status) {
@@ -156,6 +218,11 @@ public class AdminController {
         return Result.success();
     }
 
+    /**
+     * @Explain 添加用户
+     * @param  user
+     * @Return  json对象
+     */
     @ResponseBody
     @RequestMapping("/addUser")
     public Object addUser(User user) {

@@ -19,11 +19,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @ProjectName: BookMall
- * @Package: life.bookmall.controller
- * @ClassName: LoginController
- * @Author: Cbuc
- * @Date: 2019/10/5
+ * @Explain 登录控制器
+ * @Author Cbuc
+ * @Version 1.0
+ * @Date 2019/10/5
  */
 @Controller
 public class LoginController {
@@ -34,15 +33,23 @@ public class LoginController {
     @Autowired
     private OrderLogService orderLogService;
 
+    /**
+     * @Explain 登录操作,查询数据库做校验
+     * @param  user,veryCode,session
+     * @Return json对象(登录状态信息)
+     */
     @ResponseBody
     @RequestMapping("/doLogin")
     public Object doLogin(User user, String veryCode, HttpSession session) {
+        //从sessin中获取存入的验证码进行校验
         String code = (String) session.getAttribute("img_session_code");
-        if (!code.equals(veryCode)) {
+        if (!code.equalsIgnoreCase(veryCode)) {
             return Result.error("验证码错误！请重新输入...");
         }
+        // 验证是否存在用户
         User activeUser = userService.getOne(user);
         if (!ObjectUtils.isEmpty(activeUser)) {
+            // 用户存在->查询购物车信息存入session
             int carTotalCount = orderLogService.getCarTotalCount(activeUser.getId());
             session.setAttribute("carTotalCount",carTotalCount);
             session.setAttribute("user",activeUser);
@@ -51,6 +58,11 @@ public class LoginController {
         return Result.error("用户不存在，请检查用户名密码");
     }
 
+    /**
+     * @Explain   检查登录状态,判断当前进行的操作的用户是否已登录
+     * @param  session
+     * @Return json对象
+     */
     @RequestMapping("/checkLogin")
     @ResponseBody
     public Object checkLogin(HttpSession session) {
@@ -60,6 +72,11 @@ public class LoginController {
         return Result.error();
     }
 
+    /**
+     * @Explain 异步请求登录
+     * @param  user,session
+     * @Return  json对象
+     */
     @ResponseBody
     @RequestMapping("/loginByAjax")
     public Object loginByAjax(User user, HttpSession session) {
@@ -74,22 +91,34 @@ public class LoginController {
         }
     }
 
+    /**
+     * @Explain    注销
+     * @param  session
+     * @Return "redirect:/home"
+     */
     @RequestMapping("/logout")
     public String loginOut(HttpSession session) {
         session.removeAttribute("user");
         return "redirect:/home";
     }
 
+    /**
+     * @Explain 注册用户
+     * @param  user,files,session
+     * @Return  json对象
+     */
     @ResponseBody
     @RequestMapping("/register")
     public Object register(User user, @RequestParam("files") MultipartFile[] files, HttpSession session) {
-        user.setCreate_time(new Date());
-        user.setUpdate_time(new Date());
         // 上传图片
         FileUpload fileUpload = new FileUpload();
         List<String> list_image = fileUpload.upload_image(files,session);
+
         user.setImg("/"+list_image.get(0));
         user.setBalance(0f);
+        user.setCreate_time(new Date());
+        user.setUpdate_time(new Date());
+
         int result = userService.addOne(user);
         if (result > 0) {
             return Result.success("注册成功");

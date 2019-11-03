@@ -9,12 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ProjectName: BookMall
- * @Package: life.bookmall.utils
- * @ClassName: FileUpload
- * @Author: Cbuc
- * @Date: 2019/9/29
- * @Version: 1.0
+ * @Explain 上传图片的工具类
+ * @Author Cbuc
+ * @Version 1.0
+ * @Date 2019/9/29
  */
 public class FileUpload {
     public List<String> upload_image(MultipartFile[] files, HttpSession session) {
@@ -24,12 +22,18 @@ public class FileUpload {
         for (int i = 0; i < files.length; i++) {
 
             if (!files[i].isEmpty()) {
+
+                //获取原文件名
                 String originalFilename = files[i].getOriginalFilename();
 
-                String path =session.getServletContext().getRealPath("");//文件路径
+                //获取当前项目路径
+                String path =session.getServletContext().getRealPath("");
+
+                //设置上传路径,当前项目下的upload文件夹
                 String upload_name = path + "\\static\\upload\\image\\" + originalFilename;
 
                 try {
+                    //进行文件上传
                     files[i].transferTo(new File(upload_name));
                     list_image.add(originalFilename);
                 } catch (IllegalStateException e) {

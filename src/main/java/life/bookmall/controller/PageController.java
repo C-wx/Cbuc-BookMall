@@ -19,12 +19,10 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
- * @ProjectName: BookMall
- * @Package: life.bookmall.controller
- * @ClassName: PageController
- * @Author: Cbuc
- * @Date: 2019/9/17
- * @Version: 1.0
+ * @Explain 页面跳转控制器
+ * @Author Cbuc
+ * @Version 1.0
+ * @Date 2019/9/17
  */
 @Controller
 public class PageController {
@@ -41,12 +39,23 @@ public class PageController {
     @Autowired
     private OrderLogService orderLogService;
 
+    /**
+     * @Explain    跳转首页
+     * @param   model
+     * @Return  "home"
+     */
     @RequestMapping("/home")
     public String toHome(Model model) {
+
+        //查询所有目录名称
         List<Category> categories = categoryService.list();
+        //填充当前目录下的所有书籍
         productService.fill(categories);
+        //查询热卖书籍
         List<Product> hotBooks = productService.queryHotBooks();
+        //查询活动书籍
         List<Product> activeBooks = productService.queryActiveBooks();
+
         model.addAttribute("hotBooks",hotBooks);
         model.addAttribute("activeBooks",activeBooks);
         model.addAttribute("categories",categories);

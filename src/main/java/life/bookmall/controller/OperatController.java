@@ -302,16 +302,29 @@ public class OperatController {
         return "purchasePage";
     }
 
+    /**
+     * @Explain 跳转到订单页
+     * @param  model
+     * @param session
+     * @Return "orderPage"
+     */
     @RequestMapping("/toOrderPage")
     public String toOrderPage(Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");
         User loginUser = userService.getOne(user);
+        // 查询所有订单
         List<Order> orders = orderService.queryList(loginUser.getId());
+        // 为相应订单填充对应商品
         orderService.fill(orders);
         model.addAttribute("orders",orders);
         return "orderPage";
     }
 
+    /**
+     * @Explain  删除订单
+     * @param  order_id
+     * @Return  json对象
+     */
     @ResponseBody
     @RequestMapping("/deleteOrder")
     public Object deleteOrder(Long order_id) {
@@ -323,6 +336,11 @@ public class OperatController {
         return Result.success();
     }
 
+    /**
+     * @Explain  确认收货
+     * @param    orderId
+     * @Return  json对象
+     */
     @ResponseBody
     @RequestMapping("/confirmedDeliver")
     public Object confirmedDeliver(Long orderId) {
@@ -334,13 +352,24 @@ public class OperatController {
         return Result.success();
     }
 
+    /**
+     * @Explain   发表评论
+     * @param  order_id
+     * @param  msg
+     * @param  session
+     * @Return  json对象
+     */
     @ResponseBody
     @RequestMapping("/issueRemark")
     public Object issueRemark(Long order_id, String msg, HttpSession session) {
         User user = (User) session.getAttribute("user");
         User loginUser = userService.getOne(user);
+
+        // 查询当前订单 --> 获取到对应商品ID
         Order order = orderService.queryDetail(order_id);
         Long product_id = order.getProduct_id();
+
+        // 生成评论
         Comment comment = new Comment();
         comment.setUser(loginUser);
         comment.setCommentator(loginUser.getId());
@@ -349,23 +378,42 @@ public class OperatController {
         comment.setMsg(msg);
         comment.setProduct_id(product_id);
         commentService.doAdd(comment);
+
+        // 更新订单状态
         order.setStatus("SS");
         orderService.updateOrder(order);
         return Result.success();
     }
 
-
+    /**
+     * @Explain   搜索商品 -- 跳转到商品结果页
+     * @param  model
+     * @param  keyword
+     * @Return "searchResult"
+     */
     @RequestMapping("/searchProduct")
     public String searchProduct(Model model, String keyword) {
+
+        //设置分页 , 每页20条数据
         PageHelper.offsetPage(0, 20);
+
+        //按照关键字查询
         List<Product> products = productService.search(keyword);
         for (Product product : products) {
+            // 获取当前商品的评论数
             product.setCommentCount(commentService.getCount(product.getId()));
         }
         model.addAttribute("products", products);
         return "searchResult";
     }
 
+    /**
+     * @Explain 修改个人信息
+     * @param  user
+     * @param  files
+     * @param  session
+     * @Return  json对象
+     */
     @ResponseBody
     @RequestMapping("/modUser")
     public Object modUser(User user, @RequestParam("files") MultipartFile[] files, HttpSession session) {
@@ -383,6 +431,11 @@ public class OperatController {
         return Result.success("修改成功");
     }
 
+    /**
+     * @Explain  修改密码
+     * @param  user
+     * @Return  json对象
+     */
     @ResponseBody
     @RequestMapping("/modPwd")
     public Object modPwd(User user) {

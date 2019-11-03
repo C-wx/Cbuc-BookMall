@@ -40,7 +40,7 @@ public class ProductService {
 
     public void fill(Category category) {
         ProductExample productExample = new ProductExample();
-        productExample.createCriteria().andCategory_idEqualTo(category.getId());
+        productExample.createCriteria().andCategory_idEqualTo(category.getId()).andStatusNotEqualTo("D");
         List<Product> products = productMapper.selectByExample(productExample);
         category.setProducts(products);
     }
