@@ -1,14 +1,10 @@
 package life.bookmall.evt;
 
-import java.util.Map;
-
 /**
- * @ProjectName: BookMall
- * @Package: life.bookmall.evt
- * @ClassName: Result
- * @Author: Cbuc
- * @Date: 2019/9/26 16:10
- * @Version: 1.0
+ * @Explain  json返回状态
+ * @Author Cbuc
+ * @Version 1.0
+ * @Date 2019/9/26
  */
 public class Result<T> {
     private Integer code;

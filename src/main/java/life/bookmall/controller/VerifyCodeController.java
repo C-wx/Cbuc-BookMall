@@ -17,14 +17,11 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * @ProjectName: Cbuc-Tmall
- * @Package: cbuc.tmall.controller
- * @ClassName: VeryCodeController
- * @Author: Cbuc
- * @Date: 2019/9/9 10:32
- * @Version: 1.0
+ * @Explain  前端验证码生成器
+ * @Author Cbuc
+ * @Version 1.0
+ * @Date 2019/9/9
  */
-
 @Controller
 @RequestMapping({"/verycode"})
 public class VerifyCodeController {
@@ -104,7 +101,7 @@ public class VerifyCodeController {
             StringBuffer randomCode = new StringBuffer();
             String imgCodeType = req.getParameter("imgCodeType");
 
-            String imgCodeSessionKey;
+            String imgCodeSessionKey = null;
             for(int i = 0; i < this.codeCount; ++i) {
                 imgCodeSessionKey = String.valueOf(this.codeSequence[random.nextInt(36)]);
                /* if (imgCodeType != null && "NUM".equals(imgCodeType)) {

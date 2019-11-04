@@ -1,15 +1,14 @@
 package life.bookmall.MallEnum;
 
 /**
- * @ProjectName: BookMall
- * @Package: life.bookmall.MallEnum
- * @ClassName: OrderLogType
- * @Author: Cbuc
- * @Date: 2019/10/5 15:51
- * @Version: 1.0
+ * @Explain  插入订单日志方式
+ * @Author Cbuc
+ * @Version 1.0
+ * @Date 2019/10/5
  */
 public enum OrderLogType {
 
+    //BC : 通过购物车插入日志    BN : 通过立即购买加入购物车
     BC("BC"),BN("BN");
 
     private String type;

@@ -1,12 +1,20 @@
 package life.bookmall.MallEnum;
 
 /**
- * @ProjectName: BookMall
- * @Package: life.bookmall.MallEnum
- * @ClassName: OrderPayStatus
- * @Author: Cbuc
+ * @Explain   订单状态
+ * @Author Cbuc
+ * @Version 1.0
+ * @Date 2019/10/5
  */
 public enum OrderPayStatus {
+
+    /**
+     *  WP : 等待付款
+     *  WD : 等待发货
+     *  WC : 等待收货
+     *  DD : 删除掉的订单
+     *  WR : 等待评价
+     */
     WP("WP"),WD("WD"),WC("WC"),DD("DD"),WR("WR");
 
     OrderPayStatus(String status) {

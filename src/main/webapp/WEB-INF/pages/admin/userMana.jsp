@@ -18,7 +18,6 @@
     <script src="/static/lib/layui-v2.5.4/layui.all.js"></script>
     <script src="/static/assets/js/jquery-1.10.2.js"></script>
     <script src="/static/assets/js/bootstrap.min.js"></script>
-    <script src="/static/assets/js/jquery.metisMenu.js"></script>
     <script src="/static/assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="/static/assets/js/dataTables/dataTables.bootstrap.js"></script>
 </head>
@@ -271,7 +270,7 @@
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
             <a class="navbar-brand" href="/main">小黄书城后台</a>
-            <span style="position: relative;left: 1200px;top: 20px;font-size: 16px">
+            <span style="position: relative;left: 1400px;top: 20px;font-size: 16px">
             <a href="#" style="text-decoration: none">
                 <img class="img-avatar" src="../../../static/upload/image/${loginUser.img}"
                      style="width: 25px;height: 25px"/>

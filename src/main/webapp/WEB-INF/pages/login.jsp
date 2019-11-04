@@ -96,7 +96,7 @@
                             <span class="form-con">
                                 <input type="text" id="veryCode" name="veryCode" placeholder="请输入验证码" autocomplete="off"
                                        class="input-style position" maxlength="4"/>
-                                <img id="imgObj" src="" onclick="changeImg()"  />
+                                <img id="imgObj" src="" onclick="changeImg()" style="cursor: pointer" />
                             </span>
                         </div>
                     </li>

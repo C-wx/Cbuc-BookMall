@@ -62,26 +62,50 @@ public class PageController {
         return "home";
     }
 
+    /**
+     * @Explain 跳转到登录页
+     * @Return "login"
+     */
     @RequestMapping("/loginPage")
     public String loginPage() {
         return "login";
     }
 
+    /**
+     * @Explain   跳转到注册页
+     * @Return "register"
+     */
     @RequestMapping(value = "/toRegister", method = RequestMethod.GET)
     public String toRegister() {
         return "register";
     }
 
+    /**
+     * @Explain   跳转到支付页
+     * @param  order_id
+     * @param  total
+     * @Return "alipay"
+     */
     @RequestMapping("/payPage")
     public String payPage(String order_id,float total) {
         return "alipay";
     }
 
+    /**
+     * @Explain   跳转到客服页面
+     * @Return "includ/kefu"
+     */
     @RequestMapping("/kefu")
     public String kefu() {
         return "include/kefu";
     }
 
+    /**
+     * @Explain   跳转到购物车页面
+     * @param  model
+     * @param  session
+     * @Return "toCarPage"
+     */
     @RequestMapping("/toCarPage")
     public String toCarPage(Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -95,6 +119,12 @@ public class PageController {
         return "carPage";
     }
 
+    /**
+     * @Explain  跳转到个人中心
+     * @param  session
+     * @param  model
+     * @Return
+     */
     @RequestMapping("/selfPage")
     public String selfPage(HttpSession session,Model model) {
         User user = (User) session.getAttribute("user");
