@@ -1,8 +1,10 @@
 package life.bookmall.controller;
 
+import life.bookmall.MallEnum.EnableStatus;
+import life.bookmall.MallEnum.UserType;
+import life.bookmall.base.Result;
 import life.bookmall.bean.Category;
 import life.bookmall.bean.User;
-import life.bookmall.evt.Result;
 import life.bookmall.service.CategoryService;
 import life.bookmall.service.OrderService;
 import life.bookmall.service.ProductService;
@@ -52,8 +54,8 @@ public class AdminController {
         User user = (User) session.getAttribute("user");
         User loginUser = userService.getOne(user);
         /** 管理员登录带入到页面的信息*/
-        Integer buyerCount = userService.queryCount("B");       //买家数量
-        Integer sellerCount = userService.queryCount("C");      //卖家数量
+        Integer buyerCount = userService.queryCount(UserType.Buyer.getType());       //买家数量
+        Integer sellerCount = userService.queryCount(UserType.Seller.getType());      //卖家数量
         Integer productTotalCount = productService.queryList(null).size();      //商城总商品数
         Integer orderTotalCount = orderService.queryCount(null);         //商城订单总数
         maps.put("buyerCount",buyerCount);
@@ -116,7 +118,7 @@ public class AdminController {
     public Object addCategory(String name) {
         Category category = new Category();
         category.setName(name);
-        category.setStatus("E");
+        category.setStatus(EnableStatus.Enable.getStatus());
         categoryService.doAdd(category);
         return Result.success();
     }
@@ -130,7 +132,7 @@ public class AdminController {
     @RequestMapping("/delCg")
     public Object delCg(Integer id) {
         Category category = new Category();
-        category.setStatus("D");
+        category.setStatus(EnableStatus.Disable.getStatus());
         category.setId(id);
         categoryService.doDel(category);
         return Result.success();

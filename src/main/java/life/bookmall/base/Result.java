@@ -1,4 +1,4 @@
-package life.bookmall.evt;
+package life.bookmall.base;
 
 /**
  * @Explain  json返回状态

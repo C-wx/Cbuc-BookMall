@@ -1,11 +1,11 @@
 package life.bookmall.controller;
 
 import com.mysql.cj.util.StringUtils;
+import life.bookmall.base.Result;
 import life.bookmall.bean.Category;
 import life.bookmall.bean.Order;
 import life.bookmall.bean.Product;
 import life.bookmall.bean.User;
-import life.bookmall.evt.Result;
 import life.bookmall.service.CategoryService;
 import life.bookmall.service.OrderService;
 import life.bookmall.service.ProductService;
@@ -105,7 +105,7 @@ public class SellerController {
         User user = (User) session.getAttribute("user");
         User loginUser = userService.getOne(user);
         //查询属于当前商户的订单
-        List<Order> orders = orderService.queryListMana(loginUser.getId());
+        List<Order> orders = orderService.queryList(loginUser.getId());
         for (Order order : orders) {
             //为订单填充商品信息
             Product product = productService.queryDetail(order.getProduct_id());

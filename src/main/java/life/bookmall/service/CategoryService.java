@@ -1,5 +1,6 @@
 package life.bookmall.service;
 
+import life.bookmall.MallEnum.EnableStatus;
 import life.bookmall.bean.Category;
 import life.bookmall.bean.CategoryExample;
 import life.bookmall.mapper.CategoryMapper;
@@ -9,12 +10,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @ProjectName: BookMall
- * @Package: life.bookmall.service
- * @ClassName: CategoryService
- * @Author: Cbuc
- * @Date: 2019/10/1 20:38
- * @Version: 1.0
+ * @Explain    分类标签处理器
+ * @Author Cbuc
+ * @Version 1.0
+ * @Date 2019/10/1
  */
 @Service
 public class CategoryService {
@@ -29,7 +28,7 @@ public class CategoryService {
      */
     public List<Category> list() {
         CategoryExample categoryExample = new CategoryExample();
-        categoryExample.createCriteria().andStatusNotEqualTo("D");
+        categoryExample.createCriteria().andStatusNotEqualTo(EnableStatus.Disable.getStatus());
         return categoryMapper.selectByExample(categoryExample);
     }
 

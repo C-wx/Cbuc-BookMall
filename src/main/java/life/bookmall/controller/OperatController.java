@@ -4,8 +4,8 @@ import com.github.pagehelper.PageHelper;
 import com.mysql.cj.util.StringUtils;
 import life.bookmall.MallEnum.OrderLogType;
 import life.bookmall.MallEnum.OrderPayStatus;
+import life.bookmall.base.Result;
 import life.bookmall.bean.*;
-import life.bookmall.evt.Result;
 import life.bookmall.service.*;
 import life.bookmall.utils.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -401,7 +401,7 @@ public class OperatController {
         List<Product> products = productService.search(keyword);
         for (Product product : products) {
             // 获取当前商品的评论数
-            product.setCommentCount(commentService.getCount(product.getId()));
+            product.setCommentCount(commentService.queryCount(product.getId()));
         }
         model.addAttribute("products", products);
         return "searchResult";

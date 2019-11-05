@@ -1,7 +1,7 @@
 package life.bookmall.controller;
 
+import life.bookmall.base.Result;
 import life.bookmall.bean.User;
-import life.bookmall.evt.Result;
 import life.bookmall.service.OrderLogService;
 import life.bookmall.service.UserService;
 import life.bookmall.utils.FileUpload;

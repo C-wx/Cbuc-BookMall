@@ -10,12 +10,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @ProjectName: BookMall
- * @Package: life.bookmall.service
- * @ClassName: CommentService
- * @Author: Cbuc
- * @Date: 2019/10/5 8:48
- * @Version: 1.0
+ * @Explain  评论处理器
+ * @Author Cbuc
+ * @Version 1.0
+ * @Date 2019/10/5
  */
 @Service
 public class CommentService {
@@ -26,18 +24,32 @@ public class CommentService {
     @Autowired
     private UserService userService;
 
+    /**
+     * @Explain   查询对应商品的评论数量
+     * @param  id
+     * @Return  int
+     */
     public Integer queryCount(Long id) {
         CommentExample commentExample = new CommentExample();
         commentExample.createCriteria().andProduct_idEqualTo(id);
         return Math.toIntExact(commentmapper.countByExample(commentExample));
     }
 
+    /**
+     * @Explain  获取对应商品的评论列表
+     * @param  product_id
+     * @Return   List
+     */
     public List<Comment> queryCommnetsByProductId(Long product_id) {
         CommentExample commentExample = new CommentExample();
         commentExample.createCriteria().andProduct_idEqualTo(product_id);
         return commentmapper.selectByExample(commentExample);
     }
 
+    /**
+     * @Explain    为相应评论设置对应评论人信息
+     * @param  comments
+     */
     public void setUser(List<Comment> comments) {
         for (Comment comment : comments) {
             User user = userService.queryDetail(comment.getCommentator());
@@ -45,13 +57,12 @@ public class CommentService {
         }
     }
 
+    /**
+     * @Explain    新增评论
+     * @param  comment
+     * @Return  int
+     */
     public int doAdd(Comment comment) {
         return commentmapper.insertSelective(comment);
-    }
-
-    public Integer getCount(Long id) {
-        CommentExample commentExample = new CommentExample();
-        commentExample.createCriteria().andProduct_idEqualTo(id);
-        return commentmapper.selectByExample(commentExample).size();
     }
 }
