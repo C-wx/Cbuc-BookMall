@@ -90,7 +90,7 @@
                     <c:if test="${not empty sessionScope.user}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" id="selfMain"
                            aria-expanded="false" >
-                            <img class="img-avatar" src="../../../static/upload/image/${sessionScope.user.img}" style="width: 25px;height: 25px" />
+                            <img class="img-avatar" src="../../static/upload/image/${sessionScope.user.img}" style="width: 25px;height: 25px" />
                             <span>${sessionScope.user.user_name}</span>
                             <span class="caret"></span>
                         </a>

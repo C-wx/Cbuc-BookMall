@@ -35,7 +35,7 @@
             <a class="navbar-brand" href="/main">小黄书城后台</a>
             <span style="position: relative;left: 1400px;top: 20px;font-size: 16px">
             <a href="#" style="text-decoration: none">
-                <img class="img-avatar" src="../../../static/upload/image/${maps.loginUser.img}"
+                <img class="img-avatar" src="../../static/upload/image/${maps.loginUser.img}"
                      style="width: 25px;height: 25px"/>
                 <span style="color: #8a6d3b;">${maps.loginUser.user_name}</span>
             </a>
