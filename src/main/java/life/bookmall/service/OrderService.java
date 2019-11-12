@@ -2,6 +2,7 @@ package life.bookmall.service;
 
 import life.bookmall.MallEnum.OrderPayStatus;
 import life.bookmall.bean.Order;
+import life.bookmall.bean.OrderEvt;
 import life.bookmall.bean.OrderExample;
 import life.bookmall.bean.Product;
 import life.bookmall.mapper.OrderMapper;
@@ -93,5 +94,9 @@ public class OrderService {
             orderExample.createCriteria().andStatusNotEqualTo(OrderPayStatus.DD.getStatus());
             return orderMapper.selectByExample(orderExample).size();
         }
+    }
+
+    public List<OrderEvt> querySellList(Long id) {
+        return orderMapper.querySellList(id);
     }
 }

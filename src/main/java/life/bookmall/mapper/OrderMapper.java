@@ -1,9 +1,11 @@
 package life.bookmall.mapper;
 
-import java.util.List;
 import life.bookmall.bean.Order;
+import life.bookmall.bean.OrderEvt;
 import life.bookmall.bean.OrderExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface OrderMapper {
     long countByExample(OrderExample example);
@@ -27,4 +29,6 @@ public interface OrderMapper {
     int updateByPrimaryKeySelective(Order record);
 
     int updateByPrimaryKey(Order record);
+
+    List<OrderEvt> querySellList(Long id);
 }

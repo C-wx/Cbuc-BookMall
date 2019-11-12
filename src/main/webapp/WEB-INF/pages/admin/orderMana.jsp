@@ -93,7 +93,7 @@
                                     <tbody>
                                     <c:forEach items="${orders}" var="o">
                                         <tr>
-                                            <td class="text-center" style="vertical-align: middle">${o.order_code}</td>
+                                            <td class="text-center" style="vertical-align: middle">${o.orderCode}</td>
                                             <td class="text-center"
                                                 style="vertical-align: middle">${o.product.name}</td>
                                             <td class="text-center" style="vertical-align: middle">${o.num}</td>

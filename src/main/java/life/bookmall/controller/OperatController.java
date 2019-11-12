@@ -187,7 +187,7 @@ public class OperatController {
                 Product product = productService.queryDetail(orderLog.getProduct_id());
                 //生成订单
                 Order o = new Order();
-                o.setUser_id(product.getUser_id());
+                o.setUser_id(loginUser.getId());
                 o.setProduct_id(product.getId());
                 o.setReceiver(order.getReceiver());
                 o.setAddr(order.getAddr());

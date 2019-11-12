@@ -243,7 +243,10 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+    <select id="querySellList" resultType="life.bookmall.bean.OrderEvt">
+      select * from bm_order t1 left join bm_product t2 on t1.product_id = t2.id where t2.user_id = #{param1} and t1.status != 'DD' order by t1.id desc;
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
     update bm_order
     <set>
       <if test="record.id != null">
