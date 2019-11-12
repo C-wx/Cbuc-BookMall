@@ -2,6 +2,7 @@ package life.bookmall.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.mysql.cj.util.StringUtils;
+import life.bookmall.MallEnum.EnableStatus;
 import life.bookmall.MallEnum.OrderLogType;
 import life.bookmall.MallEnum.OrderPayStatus;
 import life.bookmall.base.Result;
@@ -49,6 +50,9 @@ public class OperatController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private ContactService contactService;
 
     /**
      * @Explain 跳转到商品详情页
@@ -463,6 +467,52 @@ public class OperatController {
         orderLog.setNum(number);
         orderLogService.updateByIdAndType(orderLog);
         return Result.success();
+    }
+
+    /**
+     * @Explain  添加留言
+     * @param  content
+     * @Return  json对象
+     */
+    @ResponseBody
+    @RequestMapping("/addContact")
+    public Object addContact(String content,HttpSession session) {
+        //获取留言者
+        User user = (User) session.getAttribute("user");
+        User loginUser = userService.getOne(user);
+
+        Contact contact = new Contact();
+        contact.setContactor(loginUser.getId());
+        contact.setContent(content);
+        contact.setReceiveror(1L);
+        int result = contactService.doAdd(contact);
+
+        if (result>0) {
+            return Result.success();
+        }else {
+            return Result.error("添加留言异常，请稍后再试！");
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping("/readReply")
+    public Object readReply(Long id,HttpSession session) {
+        //获取留言者
+        User user = (User) session.getAttribute("user");
+        User loginUser = userService.getOne(user);
+
+        Contact contact = new Contact();
+        contact.setId(id);
+        contact.setStatus(EnableStatus.Disable.getStatus());
+        int count = contactService.doUpdate(contact);
+        //查询留言信息存入session
+        int contactCount = contactService.queryCount(loginUser.getId());
+        session.setAttribute("contactCount",contactCount);
+        if (count>0) {
+            return Result.success(contactCount);
+        }else {
+            return Result.error("读消息异常");
+        }
     }
 
 }

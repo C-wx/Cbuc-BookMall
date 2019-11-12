@@ -4,11 +4,9 @@ import life.bookmall.MallEnum.EnableStatus;
 import life.bookmall.MallEnum.UserType;
 import life.bookmall.base.Result;
 import life.bookmall.bean.Category;
+import life.bookmall.bean.Contact;
 import life.bookmall.bean.User;
-import life.bookmall.service.CategoryService;
-import life.bookmall.service.OrderService;
-import life.bookmall.service.ProductService;
-import life.bookmall.service.UserService;
+import life.bookmall.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,6 +40,9 @@ public class AdminController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private ContactService contactService;
 
     /**
      * @Explain 跳转到管理员(卖家)后台主界面
@@ -234,5 +235,48 @@ public class AdminController {
         user.setBalance(0f);
         userService.addOne(user);
         return Result.success();
+    }
+
+    /**
+     * @Explain  回复操作
+     * @param  content
+     * @param  receivor
+     * @param  session
+     * @Return  json对象
+     */
+    @ResponseBody
+    @RequestMapping("/reply")
+    public Object reply(String content, Long receivor, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        User loginUser = userService.getOne(user);
+        Contact contact = new Contact();
+        contact.setReceiveror(receivor);
+        contact.setContactor(loginUser.getId());
+        contact.setContent(content);
+        int count = contactService.doAdd(contact);
+        if (count>0) {
+            return Result.success();
+        }else {
+            return Result.error("回复操作异常!");
+        }
+    }
+
+    /**
+     * @Explain   跳转到消息管理页
+     * @param   session
+     * @param   model
+     * @Return
+     */
+    @RequestMapping("/contactMana")
+    public String concactPage(HttpSession session, Model model) {
+        User user = (User) session.getAttribute("user");
+        User loginUser = userService.getOne(user);
+        //获取给管理的留言
+        List<Contact> contacts = contactService.getListByUserId(loginUser.getId());
+        //填充留言者信息
+        contactService.fill(contacts);
+        model.addAttribute("loginUser",loginUser);
+        model.addAttribute("contacts",contacts);
+        return "admin/contactMana";
     }
 }

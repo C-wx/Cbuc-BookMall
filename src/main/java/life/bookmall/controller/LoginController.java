@@ -2,6 +2,7 @@ package life.bookmall.controller;
 
 import life.bookmall.base.Result;
 import life.bookmall.bean.User;
+import life.bookmall.service.ContactService;
 import life.bookmall.service.OrderLogService;
 import life.bookmall.service.UserService;
 import life.bookmall.utils.FileUpload;
@@ -33,6 +34,9 @@ public class LoginController {
     @Autowired
     private OrderLogService orderLogService;
 
+    @Autowired
+    private ContactService contactService;
+
     /**
      * @Explain 登录操作,查询数据库做校验
      * @param  user,veryCode,session
@@ -51,7 +55,10 @@ public class LoginController {
         if (!ObjectUtils.isEmpty(activeUser)) {
             // 用户存在->查询购物车信息存入session
             int carTotalCount = orderLogService.getCarTotalCount(activeUser.getId());
+            // 用户存在->查询留言信息存入session
+            int contactCount = contactService.queryCount(activeUser.getId());
             session.setAttribute("carTotalCount",carTotalCount);
+            session.setAttribute("contactCount",contactCount);
             session.setAttribute("user",activeUser);
             return Result.success(activeUser);
         }

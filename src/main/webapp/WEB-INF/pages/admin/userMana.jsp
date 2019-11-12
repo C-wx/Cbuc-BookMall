@@ -292,6 +292,9 @@
                 <li>
                     <a class="active-menu" href="userMana"><i class="fa fa-user"></i> 用户管理</a>
                 </li>
+                <li>
+                    <a href="contactMana"><i class="fa fa-bell"></i> 消息管理</a>
+                </li>
             </ul>
         </div>
 

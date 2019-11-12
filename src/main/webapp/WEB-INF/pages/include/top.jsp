@@ -58,7 +58,7 @@
                     <c:if test="${not empty sessionScope.user}">
                         <a href="toOrderPage" style="margin-top: 3px;font-size: 16px;font-family: Arial">
                             我的订单
-                            <i class="fa fa-file-text" style="color: #0c0c0c"></i>
+                            <i class="fa fa-file-text" style="color: orangered"></i>
                         </a>
                     </c:if>
                     </li>
@@ -71,6 +71,18 @@
                                 <strong>0</strong>
                             </c:if>
                             <strong id="cartTotalItemNumber">${sessionScope.carTotalCount}</strong>
+                        </a>
+                    </c:if>
+                    </li>
+                    <li>
+                    <c:if test="${not empty sessionScope.user}">
+                        <a href="/messagePage" style="margin-top: 3px;font-size: 16px;font-family: Arial">
+                            消息
+                            <i class="fa fa-bell-o" style="color:orangered;"></i>
+                            <c:if test="${empty sessionScope.contactCount}">
+                                <strong>0</strong>
+                            </c:if>
+                            <strong id="contactTotalItemNumber">${sessionScope.contactCount}</strong>
                         </a>
                     </c:if>
                     </li>

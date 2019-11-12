@@ -56,6 +56,9 @@
                     <li>
                         <a href="userMana"><i class="fa fa-user"></i> 用户管理</a>
                     </li>
+                    <li>
+                        <a href="contactMana"><i class="fa fa-bell"></i> 消息管理</a>
+                    </li>
                 </c:if>
                 <c:if test="${maps.loginUser.type == 'S' }">
                     <li>
