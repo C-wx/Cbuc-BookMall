@@ -35,6 +35,7 @@ public class FileUpload {
                 try {
                     //进行文件上传
                     files[i].transferTo(new File(upload_name));
+                    System.out.println("--------------------路径："+upload_name+"------------------");
                     list_image.add(originalFilename);
                 } catch (IllegalStateException e) {
                     e.printStackTrace();
