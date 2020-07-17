@@ -87,6 +87,11 @@ public class PageController {
         return "login";
     }
 
+    @RequestMapping("/toError")
+    public String toError() {
+        return "404";
+    }
+
     /**
      * @Explain   跳转到注册页
      * @Return "register"
