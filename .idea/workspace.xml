@@ -7,63 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e90b35e5-ad6e-4321-b581-ca71e2515645" name="默认" comment="头像上传实现  commit">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/cbuc_bookmall.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/Category.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/CategoryExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/CategoryExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/CategoryExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/CategoryExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/Comment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/CommentExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/CommentExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/CommentExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/CommentExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/Order.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/OrderExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/OrderExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/OrderExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/OrderExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/OrderLog.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/OrderLogExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/OrderLogExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/OrderLogExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/OrderLogExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/Product.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/ProductExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/ProductExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/ProductExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/ProductExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/Property.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/PropertyExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/PropertyExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/PropertyExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/PropertyExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/UserExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/UserExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/UserExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/bean/UserExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/controller/OperatController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/controller/VerifyCodeController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/mapper/CategoryMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/mapper/CommentMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/mapper/OrderLogMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/mapper/OrderMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/mapper/ProductMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/mapper/PropertyMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/mapper/UserMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/service/CategoryService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/service/ProductService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/life/bookmall/utils/FileUpload.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CategoryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CommentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/OrderLogMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/OrderMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/ProductMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/PropertyMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mapper/UserMapper.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/WEB-INF/classes/life/bookmall/bean/Category.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/WEB-INF/classes/life/bookmall/bean/CategoryExample$Criteria.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/WEB-INF/classes/life/bookmall/bean/CategoryExample$Criterion.class" afterDir="false" />
@@ -192,13 +135,13 @@
       <change afterPath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/static/upload/image/123.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/static/upload/image/abc.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/static/upload/image/cbuc.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookMall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BookMall.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/life/bookmall/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/life/bookmall/controller/PageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/life/bookmall/controller/PageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/life/bookmall/controller/PageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/life/bookmall/controller/PageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/logback.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/rebel.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/WEB-INF/classes/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/WEB-INF/classes/generatorConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/WEB-INF/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/WEB-INF/classes/jdbc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/WEB-INF/classes/life/bookmall/controller/PageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/life.BookMall-1.0-SNAPSHOT/WEB-INF/classes/life/bookmall/controller/PageController.class" afterDir="false" />
@@ -428,11 +371,12 @@
     <session id="1128522574">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="108" />
+          <entry key="project.closed" value="109" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.2" value="12" />
           <entry key="project.open.time.26" value="2" />
+          <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.29" value="2" />
           <entry key="project.open.time.3" value="11" />
           <entry key="project.open.time.30" value="2" />
@@ -458,7 +402,7 @@
           <entry key="project.open.time.7" value="9" />
           <entry key="project.open.time.8" value="5" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="109" />
+          <entry key="project.opened" value="110" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -516,7 +460,7 @@
           <entry key="js" value="1047" />
           <entry key="jsp" value="25975" />
           <entry key="properties" value="98" />
-          <entry key="txt" value="527" />
+          <entry key="txt" value="539" />
           <entry key="xml" value="539" />
         </counts>
       </usages-collector>
@@ -527,7 +471,7 @@
           <entry key="JAVA" value="26555" />
           <entry key="JSP" value="25965" />
           <entry key="JavaScript" value="1047" />
-          <entry key="PLAIN_TEXT" value="528" />
+          <entry key="PLAIN_TEXT" value="540" />
           <entry key="Properties" value="98" />
           <entry key="SQL" value="13" />
           <entry key="VTL" value="45" />
@@ -541,7 +485,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/main.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
+            <state relative-caret-position="7876">
               <caret line="358" column="36" selection-start-line="358" selection-start-column="36" selection-end-line="358" selection-end-column="36" />
             </state>
           </provider>
@@ -550,7 +494,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/cbuc_bookmall.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-858" />
+            <state relative-caret-position="198">
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -1135,6 +1081,7 @@
       <workItem from="1586418925202" duration="494000" />
       <workItem from="1586421341768" duration="771000" />
       <workItem from="1593348868486" duration="57000" />
+      <workItem from="1594944444684" duration="123000" />
     </task>
     <task id="LOCAL-00001" summary="数据库整合/登录页添加  commit">
       <created>1569490294658</created>
@@ -1416,16 +1363,24 @@
       <option name="project" value="LOCAL" />
       <updated>1586177282936</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="update sql">
+      <created>1594944519441</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1594944519441</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="407578000" />
+    <option name="totallyTimeSpent" value="407701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49712643" visible="true" weight="0.21268657" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49712643" visible="true" weight="0.21481876" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="JRebel" order="2" sideWeight="0.50287354" side_tool="true" weight="0.1705757" />
       <window_info id="Image Layers" order="3" />
@@ -1528,7 +1483,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="首页&amp;详情页&amp;客服中心  commit" />
     <MESSAGE value="加购功能实现  commit" />
     <MESSAGE value="加购功能完善&amp;我的订单展现  commit" />
     <MESSAGE value="注册功能修复  commit" />
@@ -1553,7 +1507,8 @@
     <MESSAGE value="头像上传路径调整  commit" />
     <MESSAGE value="bug修复  commit" />
     <MESSAGE value="修复  commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复  commit" />
+    <MESSAGE value="update sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="update sql" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1708,12 +1663,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="189" column="46" selection-start-line="189" selection-start-column="46" selection-end-line="189" selection-end-column="46" />
         </state>
       </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp">
       <provider selected="true" editor-type-id="text-editor">
@@ -1824,13 +1779,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/assets/js/custom-scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1850,12 +1799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
           <caret line="151" column="34" lean-forward="true" selection-start-line="151" selection-start-column="34" selection-end-line="151" selection-end-column="34" />
-          <folding>
-            <element signature="e#3772#3773#0" expanded="true" />
-            <element signature="e#3823#3824#0" expanded="true" />
-            <element signature="e#3970#3971#0" expanded="true" />
-            <element signature="e#4022#4023#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1870,16 +1813,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/main.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
+        <state relative-caret-position="7876">
           <caret line="358" column="36" selection-start-line="358" selection-start-column="36" selection-end-line="358" selection-end-column="36" />
         </state>
       </provider>
@@ -1900,7 +1839,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/cbuc_bookmall.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-858" />
+        <state relative-caret-position="198">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
       </provider>
     </entry>
   </component>

@@ -6,5 +6,5 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%
-    request.getRequestDispatcher("/loginPage").forward(request, response);
+    request.getRequestDispatcher("/home").forward(request, response);
 %>
